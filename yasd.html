@@ -2179,15 +2179,18 @@
                     return arr;
                 }
                 shuffle(vkVideos);
-                vkVideos.slice(0, 6).forEach(vkId => {
+                vkVideos.slice(0, 6).forEach((vkId, index) => {
                     const card = document.createElement('div');
-                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-video bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
                     card.dataset.videoSrc = getVkEmbed(vkId, true);
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
                     card.innerHTML = `
                         <iframe src="${getVkEmbed(vkId)}" class="w-full h-full pointer-events-none"
+                            title="Видеоотзыв ${index + 1}" loading="lazy"
                             allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
                             frameborder="0" allowfullscreen></iframe>
-                        <div class="absolute inset-0 z-10 bg-transparent flex items-center justify-center pointer-events-none">
+                        <div class="absolute inset-0 z-10 bg-black/10 flex items-center justify-center pointer-events-none">
                             <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-orange/90 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                                 <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
                             </div>
