@@ -380,7 +380,7 @@
                 </a>
             </div>
             <!-- СЕТКА ВИДЕО -->
-            <div class="columns-2 md:columns-2 lg:columns-3 gap-3 md:gap-10 w-full max-w-7xl mx-auto" id="video-grid">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 w-full max-w-7xl mx-auto" id="video-grid">
                 <!-- Карточки добавляются скриптом -->
             </div>
         </div>
@@ -599,6 +599,19 @@
                 return `https://vkvideo.ru/video_ext.php?oid=${parts[0]}&id=${parts[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
             }
 
+            function mountPreviewIframe(card) {
+                if (!card || card.dataset.previewMounted === 'true') return;
+                const previewFrame = card.querySelector('[data-video-preview]');
+                if (!previewFrame) return;
+                previewFrame.innerHTML = `
+                    <iframe src="${card.dataset.previewSrc}" class="w-full h-full pointer-events-none"
+                        title="${card.getAttribute('aria-label')}" loading="lazy"
+                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+                        frameborder="0" allowfullscreen></iframe>
+                `;
+                card.dataset.previewMounted = 'true';
+            }
+
             function shuffle(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -612,17 +625,42 @@
             const videoGrid = document.getElementById('video-grid');
 
             if (videoGrid) {
-                vkVideos.forEach(vkId => {
+                const previewObserver = 'IntersectionObserver' in window
+                    ? new IntersectionObserver((entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            mountPreviewIframe(entry.target);
+                            observer.unobserve(entry.target);
+                        });
+                    }, { rootMargin: '300px 0px' })
+                    : null;
+
+                const fragment = document.createDocumentFragment();
+                vkVideos.forEach((vkId, index) => {
                     const card = document.createElement('div');
-                    card.className = "break-inside-avoid mb-4 md:mb-8 w-full group cursor-pointer relative aspect-video bg-navy-light rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card";
+                    card.className = "w-full group cursor-pointer relative aspect-square bg-navy-light rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card";
+                    card.dataset.previewSrc = getEmbedUrl(vkId);
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
                     card.innerHTML = `
-                        <iframe src="${getEmbedUrl(vkId)}" class="w-full h-full pointer-events-none"
-                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
-                            frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.28),_rgba(10,25,47,0.98)_70%)]"></div>
+                        <div class="absolute inset-0" data-video-preview></div>
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
+                            </div>
+                        </div>
                     `;
                     card.addEventListener('click', () => openVideoModal(vkId));
-                    videoGrid.appendChild(card);
+                    fragment.appendChild(card);
+                    if (previewObserver) {
+                        previewObserver.observe(card);
+                    } else {
+                        mountPreviewIframe(card);
+                    }
                 });
+                videoGrid.appendChild(fragment);
             }
 
             const videoModal = document.getElementById('video-modal');
