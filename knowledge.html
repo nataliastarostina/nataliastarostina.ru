@@ -90,7 +90,7 @@
         .featured-shell {
             --featured-grid-copy: 1.18fr;
             --featured-grid-visual: 0.82fr;
-            --featured-title-size: 3.1rem;
+            --featured-title-size: 2.9rem;
             --featured-title-width: 16ch;
             --featured-title-line-height: 1.02;
             --featured-summary-size: 0.96rem;
@@ -186,11 +186,13 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            overflow: hidden;
         }
 
         .featured-content {
             max-width: var(--featured-content-max-width);
             min-height: 0;
+            overflow: hidden;
         }
 
         .featured-kicker::before {
@@ -450,7 +452,7 @@
 
             .featured-title {
                 --featured-title-width: 15ch;
-                --featured-title-size: 2.45rem;
+                --featured-title-size: 2.3rem;
             }
 
             .featured-summary {
@@ -961,27 +963,89 @@
                         shell.style.setProperty('--featured-footer-padding-top', profile.footerPaddingTop);
                     };
 
+                    const normalizeFeaturedText = (text) => (text || '').replace(/\s+/g, ' ').trim();
+
+                    const shortenFeaturedText = (text, maxChars) => {
+                        const normalized = normalizeFeaturedText(text);
+                        if (!normalized || normalized.length <= maxChars) return normalized;
+
+                        const sliced = normalized.slice(0, maxChars);
+                        const boundary = sliced.lastIndexOf(' ');
+                        const safeSlice = boundary > Math.floor(maxChars * 0.65)
+                            ? sliced.slice(0, boundary)
+                            : sliced;
+
+                        return `${safeSlice.replace(/[,\s.;:!?-]+$/u, '')}...`;
+                    };
+
                     const fitFeaturedContent = () => {
                         if (!featuredContainer) return;
 
                         const shell = featuredContainer.querySelector('.featured-shell');
                         const copy = featuredContainer.querySelector('.featured-copy');
                         const body = featuredContainer.querySelector('.featured-body');
+                        const titleEl = featuredContainer.querySelector('.featured-title');
+                        const summaryEl = featuredContainer.querySelector('.featured-summary');
 
-                        if (!shell || !copy || !body || window.innerWidth < 1024) return;
+                        if (!shell || !copy || !body || !titleEl || !summaryEl || window.innerWidth < 1024) return;
 
                         const tolerance = 2;
+                        const originalTitle = normalizeFeaturedText(titleEl.dataset.fulltext || titleEl.textContent);
+                        const originalSummary = normalizeFeaturedText(summaryEl.dataset.fulltext || summaryEl.textContent);
+                        const summaryCandidates = [1, 0.92, 0.84, 0.76, 0.68, 0.6, 0.52, 0.44];
+                        const titleCandidates = [1, 0.94, 0.88, 0.82, 0.76, 0.7];
+
+                        titleEl.dataset.fulltext = originalTitle;
+                        summaryEl.dataset.fulltext = originalSummary;
+
+                        const restoreOriginalText = () => {
+                            titleEl.textContent = originalTitle;
+                            summaryEl.textContent = originalSummary;
+                        };
+
+                        const contentFits = () => {
+                            const copyFits = copy.scrollHeight <= copy.clientHeight + tolerance;
+                            const bodyFits = body.scrollHeight <= body.clientHeight + tolerance;
+                            return copyFits && bodyFits;
+                        };
 
                         for (const profile of featuredFitProfiles) {
                             applyFeaturedProfile(shell, profile);
+                            restoreOriginalText();
 
-                            const copyFits = copy.scrollHeight <= copy.clientHeight + tolerance;
-                            const bodyFits = body.scrollHeight <= body.clientHeight + tolerance;
+                            if (contentFits()) {
+                                return;
+                            }
 
-                            if (copyFits && bodyFits) {
-                                break;
+                            for (const summaryRatio of summaryCandidates) {
+                                summaryEl.textContent = shortenFeaturedText(
+                                    originalSummary,
+                                    Math.max(90, Math.floor(originalSummary.length * summaryRatio))
+                                );
+
+                                if (contentFits()) {
+                                    return;
+                                }
+                            }
+
+                            for (const titleRatio of titleCandidates) {
+                                titleEl.textContent = shortenFeaturedText(
+                                    originalTitle,
+                                    Math.max(46, Math.floor(originalTitle.length * titleRatio))
+                                );
+                                summaryEl.textContent = shortenFeaturedText(
+                                    originalSummary,
+                                    Math.max(72, Math.floor(originalSummary.length * 0.52))
+                                );
+
+                                if (contentFits()) {
+                                    return;
+                                }
                             }
                         }
+
+                        titleEl.textContent = shortenFeaturedText(originalTitle, 72);
+                        summaryEl.textContent = shortenFeaturedText(originalSummary, 92);
                     };
 
                     const scheduleFeaturedFit = () => {
