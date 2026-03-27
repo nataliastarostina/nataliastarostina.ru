@@ -26,3 +26,6 @@ Desktop.ini
 
 # Файлы настроек
 *.ini
+
+# Node.js зависимости
+node_modules/
