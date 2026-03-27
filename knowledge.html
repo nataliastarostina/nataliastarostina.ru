@@ -86,6 +86,320 @@
         .card-image-zoom:hover img {
             transform: scale(1.05);
         }
+
+        .featured-shell {
+            position: relative;
+            display: block;
+            border-radius: 2.75rem;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at top left, rgba(255, 140, 0, 0.12), transparent 26%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 246, 240, 0.98));
+            border: 1px solid rgba(10, 25, 47, 0.08);
+            box-shadow:
+                0 28px 80px rgba(10, 25, 47, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .featured-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(10, 25, 47, 0.03), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 22%);
+            pointer-events: none;
+        }
+
+        .featured-shell::after {
+            content: "";
+            position: absolute;
+            top: 26px;
+            left: 32px;
+            right: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(10, 25, 47, 0.14), rgba(10, 25, 47, 0.02));
+            pointer-events: none;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+            min-height: 600px;
+        }
+
+        .featured-copy {
+            position: relative;
+            z-index: 1;
+            padding: 4.5rem 4rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .featured-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(10, 25, 47, 0.52);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .featured-kicker::before {
+            content: "";
+            width: 2.75rem;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 140, 0, 0.85), rgba(255, 140, 0, 0.15));
+        }
+
+        .featured-readtime {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.74);
+            border: 1px solid rgba(10, 25, 47, 0.08);
+            color: rgba(10, 25, 47, 0.5);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            backdrop-filter: blur(14px);
+        }
+
+        .featured-category-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(10, 25, 47, 0.05);
+            border: 1px solid rgba(10, 25, 47, 0.08);
+            color: rgba(10, 25, 47, 0.54);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.35rem;
+        }
+
+        .featured-title {
+            max-width: 10ch;
+            font-family: 'Lora', serif;
+            font-size: clamp(2.8rem, 3vw, 4.4rem);
+            line-height: 0.98;
+            letter-spacing: -0.035em;
+            color: var(--color-navy);
+            margin: 0 0 1.5rem;
+            font-weight: 500;
+        }
+
+        .featured-summary {
+            max-width: 34rem;
+            color: rgba(10, 25, 47, 0.6);
+            font-size: 1rem;
+            line-height: 1.85;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .featured-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            margin-top: 2.5rem;
+            border-top: 1px solid rgba(10, 25, 47, 0.08);
+        }
+
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-navy);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .featured-cta-icon {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--color-orange);
+            box-shadow: 0 12px 28px rgba(10, 25, 47, 0.08);
+            transition: transform 0.5s ease, background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .featured-shell:hover .featured-cta-icon {
+            transform: translateX(6px);
+            background: var(--color-orange);
+            color: #fff;
+        }
+
+        .featured-pagination {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .featured-dots {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .featured-dot {
+            width: 0.45rem;
+            height: 0.45rem;
+            border-radius: 999px;
+            background: rgba(10, 25, 47, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .featured-dot.is-active {
+            width: 2.25rem;
+            background: linear-gradient(90deg, rgba(255, 140, 0, 1), rgba(255, 140, 0, 0.55));
+        }
+
+        .featured-index {
+            color: rgba(10, 25, 47, 0.34);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .featured-index strong {
+            color: var(--color-navy);
+        }
+
+        .featured-visual {
+            position: relative;
+            padding: 2rem;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .featured-visual::before {
+            content: "";
+            position: absolute;
+            right: 2.4rem;
+            top: 3rem;
+            width: 42%;
+            height: 42%;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.18), transparent 70%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .featured-image-frame {
+            position: relative;
+            width: 100%;
+            border-radius: 2.2rem;
+            overflow: hidden;
+            background: rgba(10, 25, 47, 0.08);
+            box-shadow:
+                0 26px 70px rgba(10, 25, 47, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        }
+
+        .featured-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 4.2s ease;
+        }
+
+        .featured-shell:hover .featured-image-frame img {
+            transform: scale(1.04);
+        }
+
+        .featured-image-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(10, 25, 47, 0.02), transparent 22%, rgba(10, 25, 47, 0.28)),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 34%);
+            pointer-events: none;
+        }
+
+        .featured-plaque {
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            border-radius: 1.35rem;
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .featured-plaque-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .featured-plaque-title {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            line-height: 1.25;
+            margin-top: 0.25rem;
+        }
+
+        .featured-plaque-mark {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1279px) {
+            .featured-grid {
+                grid-template-columns: minmax(0, 1fr) minmax(330px, 0.82fr);
+            }
+
+            .featured-copy {
+                padding: 4rem 3rem 3rem;
+            }
+        }
     </style>
 
     <!-- Очищенный от багов мобильный CSS -->
@@ -448,48 +762,55 @@
                     let rotateInterval;
 
                     const renderFeatured = (article) => {
+                        const filteredItems = currentFilter === 'all'
+                            ? window.articlesData
+                            : window.articlesData.filter(a => a.category === currentFilter);
                         const content = `
-                            <a href="${article.ctaLink}" class="group block relative overflow-hidden rounded-[2rem] md:rounded-[3rem] bg-navy/5 border border-navy/5 hover:border-orange/20 transition-all duration-[600ms]">
-                                <div class="flex flex-col lg:flex-row h-auto lg:h-[600px]">
-                                    <div class="lg:w-3/5 relative overflow-hidden order-1 lg:order-2">
-                                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition-transform duration-[4000ms] group-hover:scale-105">
-                                        <div class="absolute inset-0 bg-gradient-to-r from-navy/30 via-transparent to-transparent"></div>
-                                        <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-[600ms]"></div>
-                                    </div>
-                                    <div class="lg:w-2/5 p-8 md:p-16 flex flex-col justify-between bg-white/60 backdrop-blur-3xl order-2 lg:order-1 relative h-auto lg:h-[600px]">
-                                        <div class="flex flex-col flex-grow">
-                                            <!-- Top Info: Fixed position -->
-                                            <div class="mb-4 md:mb-8 flex items-center gap-4 relative z-10 h-8">
-                                                <span class="px-4 py-1.5 rounded-full bg-orange text-white text-[9px] font-bold uppercase tracking-widest shadow-lg shadow-orange/20">Featured</span>
-                                                <span class="text-navy/40 text-[9px] font-bold uppercase tracking-widest flex items-center gap-2">
-                                                    <i class="ph ph-clock"></i> ${article.readTime}
-                                                </span>
+                            <a href="${article.ctaLink}" class="featured-shell group">
+                                <div class="featured-grid">
+                                    <div class="featured-copy">
+                                        <div>
+                                            <div class="featured-topline">
+                                                <div class="featured-kicker">Избранный материал</div>
+                                                <div class="featured-readtime">
+                                                    <i class="ph ph-clock"></i>
+                                                    <span>${article.readTime}</span>
+                                                </div>
                                             </div>
-
-                                            <!-- Title: Fixed space container -->
-                                            <div class="min-h-[70px] md:min-h-[100px] mb-4 md:mb-6 overflow-hidden">
-                                                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] mb-4 md:mb-6 leading-tight reveal-up">
-                                                    ${article.title}
-                                                </h2>
-                                            </div>
-
-                                            <!-- Summary: Fixed space container -->
-                                            <div class="min-h-[60px] md:min-h-[80px] mb-8 overflow-hidden">
-                                                <p class="text-navy/60 text-sm lg:text-base leading-relaxed font-medium line-clamp-4 relative z-10">
-                                                    ${article.summary}
-                                                </p>
+                                            <div class="max-w-[38rem]">
+                                                <div class="featured-category-chip">${article.category}</div>
+                                                <h2 class="featured-title">${article.title}</h2>
+                                                <p class="featured-summary">${article.summary}</p>
                                             </div>
                                         </div>
-
-                                        <!-- Footer Action: Pushed to bottom -->
-                                        <div class="flex items-center justify-between mt-auto pt-8 border-t border-navy/5 relative z-10">
-                                            <div class="flex items-center gap-4 text-orange font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] group/btn whitespace-nowrap">
-                                                Читать статью <i class="ph ph-arrow-right transition-transform group-hover/btn:translate-x-3 duration-500"></i>
+                                        <div class="featured-footer">
+                                            <div class="featured-cta">
+                                                <span>Открыть материал</span>
+                                                <span class="featured-cta-icon">
+                                                    <i class="ph ph-arrow-right text-xl"></i>
+                                                </span>
                                             </div>
-                                            <div class="flex gap-2">
-                                                ${window.articlesData.filter(a => currentFilter === 'all' || a.category === currentFilter).map((_, i) => `
-                                                    <div class="w-1.5 h-1.5 rounded-full transition-all duration-[600ms] ${i === featuredIndex ? 'bg-orange w-6' : 'bg-navy/10'}"></div>
-                                                `).join('')}
+                                            <div class="featured-pagination">
+                                                <div class="featured-dots">
+                                                    ${filteredItems.map((_, i) => `
+                                                        <span class="featured-dot ${i === featuredIndex ? 'is-active' : ''}"></span>
+                                                    `).join('')}
+                                                </div>
+                                                <div class="featured-index"><strong>${featuredIndex + 1}</strong> / ${filteredItems.length}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="featured-visual">
+                                        <div class="featured-image-frame">
+                                            <img src="${article.image}" alt="${article.title}" loading="eager" fetchpriority="high">
+                                            <div class="featured-plaque">
+                                                <div>
+                                                    <div class="featured-plaque-label">База знаний</div>
+                                                    <div class="featured-plaque-title">${article.category} и практика</div>
+                                                </div>
+                                                <div class="featured-plaque-mark">
+                                                    <i class="ph ph-article text-lg"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -497,18 +818,18 @@
                             </a>
                         `;
 
-                        // Плавный переход через прозрачность (Cross-fade effect)
-                        featuredContainer.style.transition = 'opacity 1000ms ease-in-out';
-                        featuredContainer.style.opacity = '0';
+                        const hasExistingContent = featuredContainer.innerHTML.trim().length > 0;
+                        const fadeDuration = hasExistingContent ? 320 : 0;
 
-                        // Ждем полного исчезновения перед сменой контента
+                        featuredContainer.style.transition = 'opacity 420ms ease-in-out';
+                        featuredContainer.style.opacity = hasExistingContent ? '0' : '1';
+
                         setTimeout(() => {
                             featuredContainer.innerHTML = content;
-                            // Принудительно заставляем браузер применить opacity 0 перед тем как начать появление
                             requestAnimationFrame(() => {
                                 featuredContainer.style.opacity = '1';
                             });
-                        }, 1000);
+                        }, fadeDuration);
                     };
 
                     const startAutoRotation = () => {
@@ -522,7 +843,7 @@
 
                             featuredIndex = (featuredIndex + 1) % filtered.length;
                             renderFeatured(filtered[featuredIndex]);
-                        }, 3500); // 3.5 seconds per rotation
+                        }, 5600);
                     };
 
                     const renderArticles = (filter = 'all') => {
