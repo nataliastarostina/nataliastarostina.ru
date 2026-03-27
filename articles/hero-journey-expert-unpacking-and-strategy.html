@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наталья Старостина | Путь Героя в бизнесе: Как перестать играть чужие роли</title>
+    <meta name="description"
+        content="Почему классический маркетинг ломает сильных экспертов. Как выйти из кризиса смыслов и распаковать свой истинный масштаб через систему глубинной распаковки.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            lighter: '#233554'
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F0EBE1'
+                        },
+                        powder: '#AECBEB',
+                        orange: {
+                            DEFAULT: '#FF8C00',
+                            hover: '#E67E00'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-navy: #0A192F;
+            --color-cream: #FDFBF7;
+            --color-powder: #AECBEB;
+            --color-orange: #FF8C00;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-navy);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .btn-alive-gradient {
+            background: linear-gradient(270deg, #FF8C00, #FDB931, #FFD700, #FF8C00);
+            background-size: 300% 300%;
+            animation: gradient-flow 4s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .prose h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            color: var(--color-navy);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .prose h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-navy);
+            line-height: 1.3;
+        }
+
+        .prose h4 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-navy);
+            line-height: 1.4;
+        }
+
+        .prose p {
+            margin-bottom: 1.75rem;
+            line-height: 1.85;
+            color: rgba(10, 25, 47, 0.75);
+            font-size: 1.125rem;
+        }
+
+        .prose strong {
+            color: var(--color-navy);
+            font-weight: 800;
+        }
+
+        .prose em {
+            font-style: italic;
+            color: var(--color-navy);
+        }
+
+        .prose blockquote {
+            border-left: 4px solid var(--color-orange);
+            padding-left: 2.5rem;
+            margin: 4rem 0;
+            font-style: italic;
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-navy);
+            opacity: 0.9;
+        }
+    </style>
+
+    <!-- ОПТИМИЗАЦИЯ ДЛЯ МОБИЛОК И ПРАВКИ ДИЗАЙЗА -->
+    <style id="mobile-optimizations">
+        @media (max-width: 767px) {
+
+            p,
+            span,
+            div:not(.font-script):not(.font-serif):not(.text-center):not(.absolute):not(.relative) {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .hero-bg-text {
+                top: 50% !important;
+            }
+
+            .px-4 {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Заголовки */
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                position: relative;
+                z-index: 10;
+                line-height: 1.25 !important;
+            }
+
+            h1 {
+                font-size: 2.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.6rem !important;
+            }
+
+            /* == Анимированные круги — убрать == */
+            .animate-spin-slow,
+            .animate-spin-very-slow,
+            .animate-float,
+            circle {
+                display: none !important;
+            }
+
+            /* == Badge (белый круг с оранжевым) на главном экране — убрать == */
+            .hero-badge {
+                display: none !important;
+            }
+
+            /* == Hero фото: убрать синие полосы / обрезку == */
+            /* Контейнер с аркой */
+            .hero-photo-container {
+                border-radius: 200px 200px 0 0 !important;
+                aspect-ratio: 1 / 1 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-photo-container img,
+            .hero-photo-container video {
+                object-fit: cover !important;
+                object-position: center top !important;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none !important;
+                max-width: 100% !important;
+            }
+
+            /* == "Обо мне" фото — скруглить == */
+            .about-photo-block,
+            .about-photo-block>div {
+                border-radius: 1.5rem !important;
+                overflow: hidden !important;
+            }
+
+            .about-photo-block img {
+                border-radius: 1.5rem !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-img,
+            [alt="Наталья"],
+            .about-me-img {
+                max-width: 85% !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* == Hero: контейнер фото на полную ширину == */
+            .hero-photo-container {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .relative.w-full.max-w-\[400px\] {
+                max-width: 100% !important;
+            }
+
+            /* == Сертификаты — квадратные на мобиле == */
+            .doc-item-container {
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Уменьшить карточки на 30% — сертификаты, отзывы, кейсы, база знаний == */
+            .doc-item-container {
+                width: 59.5vw !important;
+                /* 85vw * 0.7 */
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .text-review-card {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .case-card-mobile-wrap,
+            .knowledge-card {
+                transform: scale(0.7) !important;
+                transform-origin: top center !important;
+            }
+
+            /* == Видео карточки: квадратные, размер как ситуации == */
+            .local-video-card {
+                width: 60vw !important;
+                min-width: unset !important;
+                max-width: 260px !important;
+                aspect-ratio: 1 / 1 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .local-video-card iframe,
+            .local-video-card video {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+            }
+
+            /* == Видео модалка: квадратная, большая == */
+            #video-modal>div {
+                max-width: 90vw !important;
+                width: 90vw !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Hero hero-subtitle-tag: такой же размер как italic в h1 == */
+            .hero-subtitle-tag {
+                font-size: 1rem !important;
+                text-transform: uppercase !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+            }
+
+            /* == FAQ: системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif !important;
+            }
+
+            /* == Меню Продукты: одинаковый размер с остальными == */
+            #mobile-products-toggle {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #mobile-products-toggle span {
+                font-size: inherit !important;
+            }
+
+            /* == Hero: Typography overrides for mobile to match PC == */
+            span.hero-title-swap {
+                font-size: 0.7rem !important;
+                letter-spacing: 0.15em !important;
+                line-height: 1.2 !important;
+            }
+
+            h1.hero-subtitle-swap {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            h1.hero-subtitle-swap span.italic {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            /* == Ситуации, База знаний, Кейсы: Единые карточки на мобильном == */
+            #situations-carousel>div,
+            #materials-carousel>div,
+            #cases-carousel>div.case-card {
+                width: 70vw !important;
+                max-width: 280px !important;
+                aspect-ratio: auto !important;
+                height: auto !important;
+                flex-shrink: 0 !important;
+            }
+
+            #situations-carousel>div>.aspect-video,
+            #materials-carousel>div>.h-1\/2 {
+                height: auto !important;
+                aspect-ratio: 4 / 3 !important;
+            }
+
+            #situations-carousel .p-5,
+            #materials-carousel .p-6,
+            #cases-carousel .p-5 {
+                padding: 1.25rem !important;
+                gap: 0.5rem !important;
+            }
+
+            #situations-carousel h3,
+            #materials-carousel h4,
+            #cases-carousel h4 {
+                font-size: 1.1rem !important;
+                line-height: 1.3 !important;
+                margin-top: 1.25rem !important;
+                /* increased padding */
+                margin-bottom: 1.25rem !important;
+                /* increased padding */
+            }
+
+            /* Кейсы: имя (интервал -), профессия (размер+), аватар +20% */
+            #cases-carousel .font-bold.text-sm {
+                line-height: 1.1 !important;
+                margin-bottom: 2px !important;
+            }
+
+            #cases-carousel .text-\[9px\] {
+                font-size: 10px !important;
+                line-height: 1.1 !important;
+            }
+
+            #cases-carousel .w-10.h-10 {
+                width: 3rem !important;
+                /* w-12 equivalent */
+                height: 3rem !important;
+            }
+
+            #situations-carousel p,
+            #materials-carousel p,
+            #cases-carousel p.font-serif {
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #materials-carousel a,
+            #cases-carousel .bg-orange\/20 {
+                font-size: 0.7rem !important;
+                margin-top: auto !important;
+            }
+
+            /* == Манифест: текст увеличить на 20% (скорр. на -10%) == */
+            #manifesto p,
+            #manifesto .font-serif,
+            #manifesto h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.5 !important;
+            }
+
+            /* == "Обо мне": фото без белых полос == */
+            #about .about-photo-block img,
+            #about [alt="Наталья"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                border-radius: 1rem !important;
+            }
+
+            /* == "Обо мне": выравнивание номеров и заголовков == */
+            #about .flex.gap-4.items-start {
+                align-items: baseline !important;
+            }
+
+            #about .font-serif.text-4xl {
+                font-size: 1.75rem !important;
+                line-height: 1 !important;
+            }
+
+            /* == "Обо мне": увеличение шрифта описаний на 20% == */
+            #about .font-sans.text-navy\/70.text-sm {
+                font-size: 1.14rem !important;
+                /* -5% from 1.2rem */
+                line-height: 1.6 !important;
+            }
+
+            /* == "Обо мне": уменьшение конкретного заголовка на 15% == */
+            .mobile-text-shrink-15 {
+                font-size: 0.92em !important;
+                /* ~8.2% increase from 0.85em (total ~7% reduction from original) */
+            }
+
+            /* == Форматы работы: выравнивание номера и заголовка на мобиле == */
+            .flex.flex-col.md\:flex-row .font-serif.text-4xl.italic {
+                font-size: 2rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .flex.flex-col.md\:flex-row h3.font-serif {
+                font-size: 1.25rem !important;
+                margin-bottom: 2px !important;
+            }
+
+            .flex.flex-col.md\:flex-row .p-8 {
+                padding: 1.25rem !important;
+            }
+
+            /* == Форматы работы: уточнения подзаголовка и фото == */
+            #formats .w-full.md\:w-1\/3.aspect-square {
+                aspect-ratio: 16 / 9 !important;
+                height: auto !important;
+            }
+
+            #formats h3.font-serif {
+                margin-bottom: 0.75rem !important;
+                /* Spacing 1 */
+            }
+
+            #formats p.font-sans.text-orange\/80 {
+                font-size: 0.85rem !important;
+                /* reduced from 1.1rem */
+                line-height: 1.3 !important;
+                margin-bottom: 0.75rem !important;
+                /* Spacing 2 (equal) */
+            }
+
+            #formats .font-sans.text-navy\/80 {
+                font-size: 1.05rem !important;
+                /* reduced from 1.14rem (~8%) */
+                line-height: 1.6 !important;
+            }
+
+            /* == Футер: кнопка +10% == */
+            footer .btn-alive-gradient {
+                padding: 1.1rem 2.75rem !important;
+                /* +10% from py-4 px-10 */
+                font-size: 11px !important;
+                /* +10% from 10px */
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans selection:bg-orange/20">
+
+    <!-- HEADER -->
+    <header id="header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-5 bg-cream/80 backdrop-blur-lg border-b border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-serif italic text-xl group-hover:bg-orange transition-colors">
+                    Н</div>
+                <span class="font-serif font-bold text-lg tracking-wide uppercase text-navy">Старостина</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-10 text-sm font-medium text-navy/80 uppercase tracking-widest">
+                <a href="../index.html" class="hover:text-orange transition-colors">Главная</a>
+                <a href="../index.html#formats" class="hover:text-orange transition-colors">Продукты</a>
+                <a href="../knowledge.html" class="hover:text-orange transition-colors">База знаний</a>
+                <a href="../cases.html" class="hover:text-orange transition-colors">Истории и кейсы</a>
+                <a href="../reviews.html" class="hover:text-orange transition-colors">Отзывы (текст)</a>
+                <a href="../videoaudio.html" class="hover:text-orange transition-colors">Отзывы (видео/аудио)</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-navy p-2">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        <!-- Мобильное меню -->
+        <div id="mobile-nav"
+            class="fixed inset-0 bg-cream z-[100] hidden flex-col w-full h-full opacity-0 transition-opacity duration-300 overflow-y-auto">
+            <div class="flex items-center justify-between px-6 py-6 border-b border-navy/10 relative z-20 bg-cream">
+                <span class="font-sans text-xs font-bold tracking-widest text-navy/50 uppercase">Меню</span>
+                <button id="close-menu-btn" class="text-3xl text-navy p-2 hover:text-orange transition-colors">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col px-6 pt-6 pb-24 relative z-10 w-full min-h-max" style="pointer-events: auto;">
+                <a href="../index.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Главная</a>
+                <div class="border-b border-navy/10">
+                    <button id="mobile-products-toggle"
+                        class="w-full flex items-center justify-between py-5 text-2xl sm:text-3xl font-serif font-bold text-navy hover:text-orange transition-colors text-left group">
+                        <span class="font-bold text-2xl sm:text-3xl">Продукты</span>
+                        <i class="ph ph-caret-down text-xl text-navy/50 group-hover:text-orange transition-transform duration-300"
+                            id="mobile-products-icon"></i>
+                    </button>
+                    <div id="mobile-products-content"
+                        class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="flex flex-col gap-4 pb-6 pt-2 pl-4 border-l border-orange/30 ml-2">
+                            <a href="../unpacking.html"
+                                class="mobile-link text-wrap block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Распаковка
+                                личности и проф пути</a>
+                            <a href="../strategy.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Стратегическая
+                                сессия</a>
+
+                            <a href="../coaching.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Коучинг
+                                (сессия и сопровождение)</a>
+                            <a href="../yasd.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Ясность.
+                                Стратегия. Действие</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../knowledge.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">База
+                    знаний</a>
+                <a href="../cases.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Истории
+                    и кейсы</a>
+                <a href="../reviews.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                    (текст)</a>
+                <a href="../videoaudio.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                    (видео/аудио)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ARTICLE HERO -->
+    <section class="pt-32 pb-16 md:pt-48 md:pb-24 px-4 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-orange/[0.02] -skew-x-12 transform origin-top-right"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <div class="mb-8 flex flex-wrap items-center justify-center gap-4">
+                <span
+                    class="text-[10px] uppercase tracking-widest bg-orange/10 text-orange px-4 py-1.5 rounded-full border border-orange/10 ring-4 ring-orange/5 font-bold">Стратегия</span>
+                <div class="flex items-center gap-2 text-navy/40 text-[10px] font-bold uppercase tracking-widest">
+                    <i class="ph ph-clock"></i>
+                    <span>18 мин.</span>
+                </div>
+            </div>
+
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-navy mb-8 leading-[1.15] tracking-tight">
+                Путь Героя в бизнесе: Как перестать играть чужие роли, выйти из кризиса смыслов и распаковать свой
+                истинный масштаб
+            </h1>
+
+            <p class="text-navy/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+                Почему классический маркетинг ломает сильных экспертов. Откровенный разбор того, как я прошла путь от
+                выгоревшего продюсера до создания системы глубинной распаковки.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <main class="pb-24 px-4">
+        <div class="max-w-3xl mx-auto relative">
+            <div class="w-full h-px bg-navy/5 mb-16"></div>
+
+            <div class="mt-12 mb-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                <img src="../images/articles/hero-journey-expert-unpacking-and-strategy/hero.png"
+                    alt="Путь Героя в бизнесе"
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+            </div>
+
+            <article class="prose max-w-none">
+                <p>В 1949 году американский исследователь Джозеф Кэмпбелл выпустил фундаментальный труд «Тысячеликий
+                    герой». Проанализировав мифы, легенды и религии всех народов мира, он открыл универсальную структуру
+                    пути, который проходит абсолютно каждый человек в поисках своей истинной силы. Кэмпбелл назвал это
+                    «Путешествием Героя».</p>
+
+                <p>Этот путь всегда начинается одинаково. Герой живет в «Обыденном мире». У него всё нормально, всё
+                    предсказуемо и социально одобряемо. Но внутри, на фоне этого благополучия, зреет глухое, едва
+                    уловимое ощущение, что он находится не на своем месте. Он чувствует, что способен на большее, но не
+                    понимает, как к этому подступиться. Затем звучит «Зов к странствиям» — внешний или внутренний
+                    кризис, который делает невозможным пребывание в старой парадигме. Герой вынужден шагнуть в
+                    неизвестность.</p>
+
+                <p>Когда я смотрю на своих клиентов — предпринимателей, топ-менеджеров, коучей и сильных экспертов с
+                    многолетним твердым опытом, — я вижу классических героев Кэмпбелла. Вы выстроили карьеру, заработали
+                    статус, освоили десятки профессиональных навыков. Ваш «Обыденный мир» выглядит как витрина успешного
+                    человека. Вы — тот самый человек, к которому приходят за советом.</p>
+
+                <p>Но наступает момент, когда внешние достижения перестают выделять дофамин. Вы упираетесь в стеклянный
+                    потолок. Вы смотрите на свои блестящие кейсы, дипломы и финансовые результаты, и вместо гордости
+                    испытываете Синдром Самозванца. Вам кажется, что пора всё бросить и начать заново в другой нише,
+                    или, наоборот, что вы навсегда застряли в роли функции, обслуживающей чужие интересы.</p>
+
+                <p>Чтобы понять, как бережно, системно и без потерь выйти из этого тупика, я хочу предельно честно
+                    поделиться своим собственным Путем Героя. Потому что метод глубинной Распаковки личности и
+                    профессионального пути, с которым я сейчас работаю, родился не из красивых учебников по маркетингу.
+                    Он родился из моего личного кризиса смыслов, когда старые инструменты перестали работать.</p>
+
+                <h3>Обыденный мир: Иллюзия всемогущего «Оператора»</h3>
+
+                <p>Мой профессиональный бэкграунд — это 8 лет жесткого, высокоскоростного и системного бизнеса. Я
+                    работала продюсером, руководителем проектов и директором учебного отдела. В моем подчинении были
+                    команды до 350 человек. Я проектировала масштабные образовательные продукты и делала запуски с
+                    оборотом до 50 миллионов рублей.</p>
+
+                <p>Мой мозг (с ярко выраженным типом личности INTJ — стратег) работал как часы. Со стороны это выглядело
+                    как идеальный, математически выверенный трек. Я была блестящим «Оператором»: могла выстроить
+                    абсолютно любую воронку, декомпозировать цель до микрозадач, настроить системы KPI, выстроить отдел
+                    продаж и безжалостно довести проект до кассы. Я знала классический маркетинг от и до: как написать
+                    продающий бриф, как надавить на «боли» целевой аудитории, как использовать триггеры дефицита и
+                    срочности, как упаковать эксперта так, чтобы продукт гарантированно купили.</p>
+
+                <figure class="my-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                    <img src="../images/articles/hero-journey-expert-unpacking-and-strategy/inside1.png"
+                        alt="Операционная деятельность"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                </figure>
+
+                <p>Я была шестеренкой, которая крутит огромный механизм. Но внутри этой безупречной системы я всё чаще
+                    ловила себя на звенящей пустоте. </p>
+
+                <p>Я видела, как классные, глубокие, талантливые эксперты выгорали прямо в процессе собственных
+                    запусков. Мы упаковывали их в красивые маркетинговые обертки, создавали им искусственное,
+                    пластиковое позиционирование, которое диктовал рынок. Мы говорили им: «Сейчас в тренде дерзость —
+                    будь дерзким», «Сейчас аудитория покупает через драму — покажи слезы».</p>
+
+                <p>И они... ломались. Ломались, потому что вынуждены были играть чужую роль. Энергия, которая должна
+                    была идти на создание крутого продукта, уходила на поддержание искусственной маски.</p>
+
+                <p>И я ломалась вместе с ними. Я превращалась в высокооплачиваемую, эффективную, но абсолютно выгоревшую
+                    функцию. Мой внутренний «Архитектор» — та часть личности, которая отвечает за видение, глобальные
+                    смыслы и ответ на вопрос «Зачем я вообще всё это делаю?» — был погружен в искусственную кому. Я
+                    ехала на Автопилоте.</p>
+
+                <h3>Зов к странствиям: Точка невозврата</h3>
+
+                <p>В терминологии Кэмпбелла каждый герой должен пройти через «Спуск в Бездну» или «Точку смерти» —
+                    момент, когда старые стратегии окончательно рассыпаются в прах.</p>
+
+                <p>Для меня этой точкой стало кристально ясное осознание: <em>классический маркетинг, оторванный от
+                        глубокой психологии личности, мертв.</em></p>
+
+                <figure class="my-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                    <img src="../images/articles/hero-journey-expert-unpacking-and-strategy/inside2.png"
+                        alt="Точка невозврата"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                </figure>
+
+                <p>Невозможно экологично продавать то, что ты не присвоил себе внутренне. Если ваша упаковка не
+                    совпадает с вашим внутренним ядром, психика включит жесточайший саботаж. Вы начнете срывать
+                    дедлайны, прокрастинировать, саботировать продажи, заболевать перед важными вебинарами. Ваше тело
+                    будет защищать вас от того, чтобы вы продолжали врать себе и миру.</p>
+
+                <p>Я посмотрела в зеркало и поняла, что я сама, уча других строить бизнес, жестоко страдаю от Синдром
+                    Самозванца. Я — мультипотенциал. У меня огромное количество разрозненных навыков: от продуктового
+                    менеджмента и методологии до управления огромными командами. И когда новые клиенты спрашивали меня:
+                    «Наталья, а кто вы вообще такая? В чем ваша главная суперсила? Какое у вас позиционирование?», — я
+                    впадала в ступор.</p>
+
+                <p>Мне казалось, что я состою из хаотичного набора компетенций, которые никак не склеиваются в единую
+                    картину. Я пыталась натянуть на себя чужие шаблоны, подсмотреть, как себя называют конкуренты, но
+                    эти костюмы трещали по швам. Я поняла, что прежде чем строить бизнес-стратегии другим, мне нужно
+                    распаковать, пересобрать и интегрировать саму себя. Не для красивой витрины в соцсетях. А для
+                    обретения твердой внутренней опоры.</p>
+
+                <h3>Обретение Эликсира: Синтез бизнеса и Беатотерапии</h3>
+
+                <p>Я ушла из агрессивного продюсирования в глубину. Я осознала, что мне нужны принципиально новые
+                    инструменты. Инструменты, которые работают не с конверсиями, а с человеком.</p>
+
+                <p>Я пошла учиться профессиональному коучингу по строгим академическим стандартам международной
+                    федерации ICF. Я погрузилась в изучение системных бизнес-расстановок, чтобы понимать, как работает
+                    информационное поле компаний, почему возникают невидимые «узкие горлышки» и как элементы системы
+                    влияют друг на друга.</p>
+
+                <figure class="my-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                    <img src="../images/articles/hero-journey-expert-unpacking-and-strategy/inside3.png"
+                        alt="Синтез знаний"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                </figure>
+
+                <p>Но главным откровением для меня стала Беатотерапия — направление психологии, которое сфокусировано на
+                    работе со здоровой частью личности. Беатотерапия не копается в детских травмах годами. Она учит
+                    формировать позицию Наблюдателя — способность смотреть на свои реакции, страхи и паттерны со
+                    стороны, безоценочно.</p>
+
+                <p>Именно на стыке моего жесткого 8-летнего бизнес-опыта и глубокой психологической базы я нашла свой
+                    «Эликсир». Я поняла, в чем заключается корень проблемы сильных, но уставших людей.</p>
+
+                <p><strong>Ваш опыт не хаотичен. Он просто не проинвентаризирован.</strong></p>
+
+                <p>То, что вы считаете своими «обычными, повседневными навыками» или даже «недостатками», на самом деле
+                    является вашей фундаментальной опорой. Но чтобы эту опору увидеть, нужен не просто маркетолог с
+                    типовым брифом. Нужен бережный, но твердый проводник. Зеркало, которое не искажает факты.</p>
+
+                <h3>Возвращение: Анатомия Глубинной Распаковки</h3>
+
+                <p>Так родился мой авторский метод <strong>Распаковки личности и профессионального пути</strong>. Это не
+                    просто создание легенды для шапки профиля в Instagram. Это системная, глубокая археология вашего
+                    опыта. Это процесс возвращения вам авторства вашей собственной жизни.</p>
+
+                <p>Как выглядит этот процесс изнутри? Это не серия абстрактных бесед. Это структурированная
+                    стратегическая работа (обычно занимающая 2-3 часа непрерывного погружения), которая делится на
+                    четыре жестких этапа.</p>
+
+                <figure class="my-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                    <img src="../images/articles/hero-journey-expert-unpacking-and-strategy/inside4.png"
+                        alt="Процесс распаковки"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                </figure>
+
+                <h4>Этап 1: Инвентаризация (Сбор Сокровищницы)</h4>
+                <p>Мы не ищем ваши дефекты. Мы отключаем вашего Внутреннего Критика (которого мы называем Внутренним
+                    Аудитором) тем, что даем ему неоспоримые факты. Через вопросы коучингового формата и позицию
+                    Наблюдателя мы достаем из вашего прошлого каждый твердый актив, каждый реализованный проект, каждый
+                    преодоленный кризис и каждую микро-победу.</p>
+                <p>Мы переводим ваш жизненный и профессиональный опыт из зыбкого состояния <em>«мне просто повезло
+                        оказаться в нужное время в нужном месте»</em> в состояние <em>«это мой твердый, оцифрованный
+                        фундамент»</em>. Мы собираем вашу Сокровищницу.</p>
+
+                <h4>Этап 2: Поиск Ядра (Ваша истинная роль)</h4>
+                <p>Как и у меня когда-то, у вас в арсенале может быть десяток разных компетенций. На этом этапе мы
+                    находим ту самую связующую нить, гравитационный центр вашей системы — ваше Ядро.</p>
+                <p>Мы определяем, кто вы по своей глубинной сути. Вы — Визионер, который задает тренды? Вы — Интегратор,
+                    который блестяще связывает хаос в систему? Вы — Кризис-менеджер, который включается там, где другие
+                    сдаются? Как только мы называем вещи своими именами, уходит колоссальное телесное напряжение. Вы
+                    перестаете пытаться быть всем для всех. Вы легализуете свою истинную природу.</p>
+
+                <h4>Этап 3: Отсечение лишнего (Анти-позиционирование)</h4>
+                <p>Самый терапевтичный этап распаковки. Понять, кто вы есть — это только половина дела. Гораздо важнее
+                    понять, кем вы больше не являетесь.</p>
+                <p>Мы четко проговариваем и фиксируем, с какими клиентами вы больше <strong>не</strong> работаете. Какие
+                    задачи вы навсегда делегируете или вычеркиваете. Какие роли вы больше не играете (например, роль
+                    «спасателя» для своей команды). Это дает невероятный приток заблокированной ранее энергии. Отсечение
+                    лишнего — это акт величайшего уважения к себе.</p>
+
+                <h4>Этап 4: Архитектура Позиционирования</h4>
+                <p>И только здесь, когда у нас есть железобетонный внутренний фундамент, мы переводим это на язык
+                    внешнего рынка. Мы формулируем, как вам звучать, чтобы привлекать исключительно «своих» клиентов.
+                    Тех, с кем вам будет тепло, интересно и финансово выгодно работать.</p>
+                <p>Мы создаем смыслы без агрессивных триггеров. Без вранья. Без «успешного успеха». Ваше
+                    позиционирование становится естественным, как дыхание.</p>
+
+                <h3>Трансформация: Что происходит после Распаковки?</h3>
+
+                <p>Когда вы кристально ясно видите свой профессиональный путь, у вас отпадает потребность кому-то что-то
+                    доказывать. Уверенность становится тихой и глубокой.</p>
+
+                <p>Вы больше не копируете конкурентов, потому что понимаете: ваш опыт скопировать невозможно. Вы
+                    спокойно и аргументированно поднимаете чек на свои услуги, потому что теперь Внутренний Аудитор
+                    видит, из чего складывается эта цена. Продажи перестают быть насилием над собой и превращаются в
+                    естественный процесс предложения помощи тем, кто в ней нуждается.</p>
+
+                <p>Вы выходите из матрицы «Я должен соответствовать» и переходите в позицию «Я выбираю звучать именно
+                    так».</p>
+
+                <h3>Ваш следующий шаг на Пути Героя</h3>
+
+                <p>Джозеф Кэмпбелл писал одну очень точную фразу: <em>«Пещера, в которую вы больше всего боитесь войти,
+                        скрывает то сокровище, которое вы ищете»</em>.</p>
+
+                <p>В бизнесе и личной стратегии эта пещера — это страх встретиться с самим собой настоящим. Мы боимся
+                    увидеть, что нам давно тесно в нашей старой профессии. Мы боимся признаться, что выросли из своего
+                    текущего продукта. Мы боимся заявить о своей истинной ценности, ожидая осуждения.</p>
+
+                <p>Если вы чувствуете, что находитесь в точке перехода; если у вас есть твердый опыт, статус и знания,
+                    но нет внутренней ясности, как это всё монетизировать, структурировать и транслировать без надрыва —
+                    вам точно не нужен очередной курс по маркетингу или тайм-менеджменту. Вам нужна остановка. Вам нужна
+                    чистый взгляд со стороны.</p>
+
+                <p>Распаковка личности и экспертного пути — это процесс, который экономит годы блужданий по лабиринту
+                    чужих стратегий. По итогам нашей работы вы получаете на руки детальную, структурированную Mind-карту
+                    вашей личности, компетенций и позиционирования. Вы получаете навигатор, который настроен лично под
+                    вас.</p>
+
+                <blockquote>Пещера, в которую вы больше всего боитесь войти, скрывает то сокровище, которое вы ищете.
+                </blockquote>
+
+                <p><strong>Готовы забрать свои сокровища и выйти из тени?</strong> Я подготовила для вас практический
+                    инструмент — короткую диагностику вашей текущей стратегии и алгоритм «Внутренняя Сокровищница»,
+                    который поможет сделать первый шаг к пониманию своего Ядра.</p>
+
+                <p>Переходите в моего Telegram-бота, забирайте материалы и узнайте подробности о формате работы со мной.
+                </p>
+            </article>
+
+            <!-- CTA -->
+            <div class="mt-20 p-8 md:p-12 bg-navy rounded-[2.5rem] text-white overflow-hidden relative group">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-orange/10 rounded-full -mr-32 -mt-32 blur-3xl transition-transform duration-1000 group-hover:scale-150">
+                </div>
+                <div class="relative z-10 text-center">
+                    <h3 class="font-serif text-2xl md:text-3xl mb-4 italic">Пройти диагностику и забрать алгоритм
+                        Распаковки</h3>
+                    <div class="text-powder/80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+                        Я подготовила для вас диагностику текущей стратегии и алгоритм «Внутренняя Сокровищница».
+                    </div>
+                    <a href="https://t.me/nv_star" target="_blank"
+                        class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max">
+                        Забрать алгоритм в Telegram ➔
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 flex justify-center">
+                <a href="../knowledge.html"
+                    class="flex items-center gap-3 text-navy/40 hover:text-orange transition-colors group">
+                    <i class="ph ph-arrow-left text-lg transition-transform group-hover:-translate-x-2"></i>
+                    <span class="text-[10px] uppercase tracking-widest font-bold">Вернуться в базу знаний</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+        class="bg-navy text-cream pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-8 relative overflow-hidden w-full max-w-full mt-auto">
+        <svg class="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none"
+            preserveaspectratio="none" viewbox="0 0 100 100">
+            <path d="M 0 100 C 50 0, 100 100, 150 0" fill="none" stroke="currentColor" stroke-width="2"></path>
+        </svg>
+        <div
+            class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 border-b border-white/10 pb-12 md:pb-16 mb-8">
+            <div class="w-full lg:w-1/2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cream text-navy flex items-center justify-center font-serif italic text-xl">
+                        Н</div>
+                    <span class="font-serif font-bold text-lg tracking-wide uppercase text-cream">Старостина</span>
+                </div>
+                <p class="font-sans text-powder text-base md:text-lg max-w-md leading-relaxed mb-6 md:mb-8">
+                    Если у вас есть вопросы по услугам или продуктам, вы всегда можете связаться со мной по удобному для
+                    вас каналу и мы все обсудим, я с большой радостью буду для вас помощью!</p>
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max mb-12 lg:mb-0"
+                    href="https://t.me/nv_star" target="_blank">Написать
+                    лично</a>
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 font-sans uppercase tracking-widest text-[12px] md:text-xs w-full lg:w-auto">
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.instagram.com/nataliastarostina.coach/" target="_blank"><i
+                        class="ph ph-instagram-logo text-xl md:text-lg"></i> Instagram</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://t.me/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-telegram-logo text-xl md:text-lg"></i> Telegram-канал</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.tiktok.com/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-tiktok-logo text-xl md:text-lg"></i> TikTok</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.youtube.com/@nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-youtube-logo text-xl md:text-lg"></i> Youtube</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://dzen.ru/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-article text-xl md:text-lg"></i> Дзен</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3" href="https://vk.com/nv.star"
+                    target="_blank"><span
+                        class="font-bold text-[12px] md:text-sm leading-none tracking-normal">VK</span> Вконтакте</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.threads.net/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-threads-logo text-xl md:text-lg"></i> Threads</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://max.ru/join/7i6v-Jd3FPg3BtQcBQq7FIraNLOUa2Fxjh_VKv5i8PU" target="_blank"><i
+                        class="ph ph-star text-xl md:text-lg"></i> Max</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto relative z-10 text-[10px] md:text-xs text-powder/40 font-sans tracking-wide flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div
+                class="flex flex-col sm:flex-row gap-3 md:gap-8 items-center text-center lg:text-left order-2 lg:order-1">
+                <span class="leading-relaxed"><strong class="text-white font-bold">ИП Старостина Наталья Валерьевна
+                        <br />ИНН 212912145136</strong><br />ОГРН 321213000007900</span>
+                <a class="hover:text-cream transition-colors underline decoration-powder/30 underline-offset-4"
+                    href="https://docs.google.com/document/d/1onBrld8e_qzfbzRxjcFxgIeBT9fVhyI27lZ8iHjABR0/edit?tab=t.0"
+                    target="_blank">Договор
+                    оферты</a>
+            </div>
+            <div class="order-1 lg:order-2 mb-4 lg:mb-0 flex flex-col gap-2 items-center lg:items-end">
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="mailto:nataliastarostina@internet.ru"><i
+                        class="ph ph-envelope-simple text-sm md:text-base"></i> nataliastarostina@internet.ru</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="https://t.me/nv_star" target="_blank"><i class="ph ph-bug text-sm md:text-base"></i> написать
+                    сообщение об ошибке на сайте</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // === Логика мобильного меню и аккордеона ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const productsToggle = document.getElementById('mobile-products-toggle');
+            const productsContent = document.getElementById('mobile-products-content');
+            const productsIcon = document.getElementById('mobile-products-icon');
+
+            function toggleMobileMenu() {
+                if (!mobileNav) return;
+                if (mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.remove('hidden');
+                    requestAnimationFrame(() => mobileNav.classList.remove('opacity-0'));
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileNav.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileNav.classList.add('hidden');
+                        if (productsContent && productsContent.style.maxHeight) {
+                            productsContent.style.maxHeight = null;
+                            if (productsIcon) productsIcon.classList.remove('rotate-180');
+                            if (productsToggle) productsToggle.classList.remove('text-orange');
+                        }
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            if (productsToggle && productsContent) {
+                productsToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (productsIcon) productsIcon.classList.toggle('rotate-180');
+                    productsToggle.classList.toggle('text-orange');
+                    if (productsContent.style.maxHeight) {
+                        productsContent.style.maxHeight = null;
+                    } else {
+                        productsContent.style.maxHeight = productsContent.scrollHeight + "px";
+                    }
+                });
+            }
+            // Закрытие по клику на ссылку в меню
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu());
+            });
+
+            // Тень для шапки при скролле
+            window.addEventListener('scroll', () => {
+                if (header) {
+                    if (window.scrollY > 20) header.classList.add('shadow-sm', 'border-navy/5');
+                    else header.classList.remove('shadow-sm', 'border-navy/5');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

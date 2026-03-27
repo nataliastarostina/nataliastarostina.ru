@@ -1,0 +1,28 @@
+# macOS системные файлы
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows системные файлы
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Временные файлы
+*.tmp
+*.bak
+*.swp
+*~
+
+# Папки IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Логи
+*.log
+
+# Файлы настроек
+*.ini

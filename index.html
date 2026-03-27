@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Помогаю людям ясно увидеть себя, свой путь и уверенно идти по нему. Коуч, стратег, бизнес-психолог — работаю с теми, кто создаёт собственный трек: в профессии, проекте, жизни.">
+    <title>Наталья Старостина | Коуч • Стратег • Бизнес-психолог</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            lighter: '#233554'
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F0EBE1'
+                        },
+                        powder: '#AECBEB',
+                        orange: {
+                            DEFAULT: '#FF8C00',
+                            hover: '#E67E00'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 15s linear infinite',
+                        'spin-very-slow': 'spin 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 32s linear infinite',
+                        'gradient-flow': 'gradient-flow 4s ease infinite',
+                        'bounce-slow': 'bounce-slow 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'gradient-flow': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        'bounce-slow': {
+                            '0%, 100%': { transform: 'translateY(-15%)', 'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)' },
+                            '50%': { transform: 'translateY(0)', 'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Кастомный тонкий скроллбар для модальных окон */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 140, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 140, 0, 0.8);
+        }
+
+        .photo-shadow {
+            box-shadow: 0 30px 60px -12px rgba(10, 25, 47, 0.3), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-alive-gradient {
+            background: linear-gradient(270deg, #FF8C00, #FDB931, #FFD700, #FF8C00);
+            background-size: 300% 300%;
+        }
+
+        .materials-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .materials-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease-out;
+        }
+
+        .reveal-scale.active,
+        .reveal-scale.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 140, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 140, 0, 0.8);
+        }
+    </style>
+
+    <style id="mobile-optimizations">
+        @media (max-width: 767px) {
+
+            p,
+            span,
+            div:not(.font-script):not(.font-serif):not(.text-center):not(.absolute):not(.relative) {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .hero-bg-text {
+                top: 50% !important;
+            }
+
+            .px-4 {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Заголовки */
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                position: relative;
+                z-index: 10;
+                line-height: 1.25 !important;
+            }
+
+            h1 {
+                font-size: 2.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.6rem !important;
+            }
+
+            /* == Анимированные круги — убрать == */
+            .animate-spin-slow,
+            .animate-spin-very-slow,
+            .animate-float,
+            circle {
+                display: none !important;
+            }
+
+            /* == Badge (белый круг с оранжевым) на главном экране — убрать == */
+            .hero-badge {
+                display: none !important;
+            }
+
+            /* == Hero фото: убрать синие полосы / обрезку == */
+            /* Контейнер с аркой */
+            .hero-photo-container {
+                border-radius: 200px 200px 0 0 !important;
+                aspect-ratio: 1 / 1 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-photo-container img,
+            .hero-photo-container video {
+                object-fit: cover !important;
+                object-position: center top !important;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none !important;
+                max-width: 100% !important;
+            }
+
+            /* Tailwind escaped: контейнер rounded-[200px_200px_0_0] → обрабатываем через hero-photo-container */
+
+            /* == "Обо мне" фото — скруглить == */
+            .about-photo-block,
+            .about-photo-block>div {
+                border-radius: 1.5rem !important;
+                overflow: hidden !important;
+            }
+
+            .about-photo-block img {
+                border-radius: 1.5rem !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-img,
+            [alt="Наталья"],
+            .about-me-img {
+                max-width: 85% !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* == Hero: контейнер фото на полную ширину == */
+            .hero-photo-container {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .relative.w-full.max-w-\[400px\] {
+                max-width: 100% !important;
+            }
+
+            /* == Сертификаты — квадратные на мобиле == */
+            .doc-item-container {
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Уменьшить карточки на 30% — сертификаты, отзывы, кейсы, база знаний == */
+            .doc-item-container {
+                width: 59.5vw !important;
+                /* 85vw * 0.7 */
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .text-review-card {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .case-card-mobile-wrap,
+            .knowledge-card {
+                transform: scale(0.7) !important;
+                transform-origin: top center !important;
+            }
+
+            /* == Jony Ive Aesthetic for Cards == */
+            .case-card,
+            .text-review-card,
+            .local-video-card {
+                background: rgba(255, 255, 255, 0.05) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+                box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2) !important;
+                border-radius: 24px !important;
+                transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+            }
+
+            .case-card:active,
+            .text-review-card:active {
+                transform: scale(0.98) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            #cases-carousel h4 {
+                font-family: 'Lora', serif !important;
+                font-weight: 500 !important;
+                font-size: 1.15rem !important;
+                letter-spacing: -0.01em !important;
+                color: #FF8C00 !important;
+                margin-bottom: 0.5rem !important;
+                text-transform: none !important;
+                font-style: italic !important;
+            }
+
+            #cases-carousel .font-serif.italic,
+            #cases-carousel p {
+                font-family: 'Manrope', sans-serif !important;
+                font-style: normal !important;
+                font-weight: 400 !important;
+                line-height: 1.6 !important;
+                color: rgba(255, 255, 255, 0.7) !important;
+                margin-top: 0.5rem !important;
+            }
+
+            #cases-carousel .case-action-hint {
+                font-size: 0.7rem !important;
+                font-weight: 600 !important;
+                letter-spacing: 0.05em !important;
+                color: #FF8C00 !important;
+                margin-top: auto !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+            }
+
+            #cases-carousel .avatar-glow {
+                box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            }
+
+
+            /* == Видео карточки: квадратные, размер как ситуации == */
+            .local-video-card {
+                width: 60vw !important;
+                min-width: unset !important;
+                max-width: 260px !important;
+                aspect-ratio: 1 / 1 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .local-video-card iframe,
+            .local-video-card video {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+            }
+
+            /* == Видео модалка: квадратная, большая == */
+            #video-modal>div {
+                max-width: 90vw !important;
+                width: 90vw !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Hero hero-subtitle-tag: такой же размер как italic в h1 == */
+            .hero-subtitle-tag {
+                font-size: 1rem !important;
+                text-transform: uppercase !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+            }
+
+            /* == FAQ: системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif !important;
+            }
+
+            /* == Меню Продукты: одинаковый размер с остальными == */
+            #mobile-products-toggle {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #mobile-products-toggle span {
+                font-size: inherit !important;
+            }
+
+            /* == Hero: Typography overrides for mobile to match PC == */
+            span.hero-title-swap {
+                font-size: 0.7rem !important;
+                letter-spacing: 0.15em !important;
+                line-height: 1.2 !important;
+            }
+
+            h1.hero-subtitle-swap {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            h1.hero-subtitle-swap span.italic {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            /* == Ситуации, База знаний, Кейсы: Единые карточки на мобильном == */
+            #situations-carousel>div,
+            #materials-carousel>div,
+            #cases-carousel>div.case-card {
+                width: 70vw !important;
+                max-width: 280px !important;
+                aspect-ratio: auto !important;
+                height: auto !important;
+                flex-shrink: 0 !important;
+            }
+
+            #situations-carousel>div>.aspect-video,
+            #materials-carousel>div>.h-1\/2 {
+                height: auto !important;
+                aspect-ratio: 4 / 3 !important;
+            }
+
+            #situations-carousel .p-5,
+            #materials-carousel .p-6,
+            #cases-carousel .p-5 {
+                padding: 1.25rem !important;
+                gap: 0.5rem !important;
+            }
+
+            #situations-carousel h3,
+            #materials-carousel h4,
+            #cases-carousel h4 {
+                font-size: 1.1rem !important;
+                line-height: 1.3 !important;
+                margin-top: 1.25rem !important;
+                /* increased padding */
+                margin-bottom: 1.25rem !important;
+                /* increased padding */
+            }
+
+            /* Кейсы: имя (интервал -), профессия (размер+), аватар +20% */
+            #cases-carousel .font-bold.text-sm {
+                line-height: 1.1 !important;
+                margin-bottom: 2px !important;
+            }
+
+            #cases-carousel .text-\[9px\] {
+                font-size: 10px !important;
+                line-height: 1.1 !important;
+            }
+
+            #cases-carousel .w-10.h-10 {
+                width: 3rem !important;
+                /* w-12 equivalent */
+                height: 3rem !important;
+            }
+
+            #situations-carousel p,
+            #materials-carousel p,
+            #cases-carousel p.font-serif {
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #materials-carousel a,
+            #cases-carousel .case-action-hint {
+                font-size: 0.7rem !important;
+                margin-top: auto !important;
+            }
+
+            /* == Манифест: текст увеличить на 20% (скорр. на -10%) == */
+            #manifesto p,
+            #manifesto .font-serif,
+            #manifesto h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.5 !important;
+            }
+
+            /* == "Обо мне": фото без белых полос == */
+            #about .about-photo-block img,
+            #about [alt="Наталья"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                border-radius: 1rem !important;
+            }
+
+            /* == "Обо мне": выравнивание номеров и заголовков == */
+            #about .flex.gap-4.items-start {
+                align-items: baseline !important;
+            }
+
+            #about .font-serif.text-4xl {
+                font-size: 1.75rem !important;
+                line-height: 1 !important;
+            }
+
+            /* == "Обо мне": увеличение шрифта описаний на 20% == */
+            #about .font-sans.text-navy\/70.text-sm {
+                font-size: 1.14rem !important;
+                /* -5% from 1.2rem */
+                line-height: 1.6 !important;
+            }
+
+            /* == "Обо мне": уменьшение конкретного заголовка на 15% == */
+            .mobile-text-shrink-15 {
+                font-size: 0.92em !important;
+                /* ~8.2% increase from 0.85em (total ~7% reduction from original) */
+            }
+
+            /* == Форматы работы: выравнивание номера и заголовка на мобиле == */
+            .flex.flex-col.md\:flex-row .font-serif.text-4xl.italic {
+                font-size: 2rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .flex.flex-col.md\:flex-row h3.font-serif {
+                font-size: 1.25rem !important;
+                margin-bottom: 2px !important;
+            }
+
+            .flex.flex-col.md\:flex-row .p-8 {
+                padding: 1.25rem !important;
+            }
+
+            /* == Форматы работы: уточнения подзаголовка и фото == */
+            #formats .w-full.md\:w-1\/3.aspect-square {
+                aspect-ratio: 16 / 9 !important;
+                height: auto !important;
+            }
+
+            #formats h3.font-serif {
+                margin-bottom: 0.75rem !important;
+                /* Spacing 1 */
+            }
+
+            #formats p.font-sans.text-orange\/80 {
+                font-size: 0.85rem !important;
+                /* reduced from 1.1rem */
+                line-height: 1.3 !important;
+                margin-bottom: 0.75rem !important;
+                /* Spacing 2 (equal) */
+            }
+
+            #formats .font-sans.text-navy\/80 {
+                font-size: 1.05rem !important;
+                /* reduced from 1.14rem (~8%) */
+                line-height: 1.6 !important;
+            }
+
+            /* == Футер: кнопка +10% == */
+            footer .btn-alive-gradient {
+                padding: 1.1rem 2.75rem !important;
+                /* +10% from py-4 px-10 */
+                font-size: 11px !important;
+                /* +10% from 10px */
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-cream text-navy antialiased selection:bg-orange selection:text-white overflow-x-hidden">
+    <!-- HEADER -->
+    <style>
+        @media (max-width: 768px) {
+            #case-modal-content h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1.25rem !important;
+                line-height: 1.3 !important;
+            }
+
+            #case-modal-content h4 {
+                font-size: 1.2rem !important;
+                margin-top: 1.75rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            #case-modal-content p {
+                font-size: 0.95rem !important;
+                line-height: 1.7 !important;
+                margin-bottom: 1.25rem !important;
+            }
+
+            #case-modal-content .bg-powder\/20 {
+                padding: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            #case-modal-content img {
+                width: 5rem !important;
+                height: 5rem !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+    </style>
+    <header id="header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-5 border-b border-transparent bg-cream/80 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 md:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-serif italic text-xl group-hover:bg-orange transition-colors">
+                    Н</div>
+                <span class="font-serif font-bold text-lg tracking-wide uppercase text-navy">Старостина</span>
+            </a>
+
+            <nav
+                class="hidden lg:flex items-center gap-10 text-sm font-medium text-navy/80 uppercase tracking-widest relative">
+                <a href="index.html" class="hover:text-orange transition-colors">Главная</a>
+                <div class="relative group">
+                    <button
+                        class="hover:text-orange transition-colors uppercase tracking-widest flex items-center gap-1 font-medium font-sans">Продукты
+                        <i class="ph ph-caret-down text-xs"></i></button>
+                    <div class="absolute left-[-20px] top-[15px] pt-6 hidden group-hover:block w-72 z-[60]">
+                        <div
+                            class="bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-navy/5 py-3 flex flex-col gap-1">
+                            <a href="unpacking.html"
+                                class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold">Распаковка
+                                личности и проф пути</a>
+                            <a href="strategy.html"
+                                class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold">Стратегическая
+                                сессия</a>
+
+                            <a href="coaching.html"
+                                class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold">Коучинг
+                                (сессия и сопровождение)</a>
+                            <a href="yasd.html"
+                                class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold">Ясность.
+                                Стратегия. Действие</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="knowledge.html" class="hover:text-orange transition-colors">База знаний</a>
+                <a href="cases.html" class="hover:text-orange transition-colors">Истории и кейсы</a>
+                <a href="reviews.html" class="hover:text-orange transition-colors">Отзывы (текст)</a>
+                <a href="videoaudio.html" class="hover:text-orange transition-colors">Отзывы (видео/аудио)</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-navy p-2">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+
+
+    <div id="mobile-nav"
+        class="fixed inset-0 bg-cream z-[100] hidden flex-col w-full h-full opacity-0 transition-opacity duration-300 overflow-y-auto">
+        <div class="flex items-center justify-between px-6 py-6 border-b border-navy/10 relative z-20 bg-cream">
+            <span class="font-sans text-xs font-bold tracking-widest text-navy/50 uppercase">Меню</span>
+            <button id="close-menu-btn" class="text-3xl text-navy p-2 hover:text-orange transition-colors">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col px-6 pt-6 pb-24 relative z-10 w-full min-h-max" style="pointer-events: auto;">
+            <a href="index.html"
+                class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Главная</a>
+            <div class="border-b border-navy/10">
+                <button id="mobile-products-toggle"
+                    class="w-full flex items-center justify-between py-5 text-2xl sm:text-3xl font-serif font-bold text-navy hover:text-orange transition-colors text-left group">
+                    <span class="font-bold text-2xl sm:text-3xl">Продукты</span>
+                    <i class="ph ph-caret-down text-xl text-navy/50 group-hover:text-orange transition-transform duration-300"
+                        id="mobile-products-icon"></i>
+                </button>
+                <div id="mobile-products-content"
+                    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="flex flex-col gap-4 pb-6 pt-2 pl-4 border-l border-orange/30 ml-2">
+                        <a href="unpacking.html"
+                            class="mobile-link text-wrap block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Распаковка
+                            личности и проф пути</a>
+                        <a href="strategy.html"
+                            class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Стратегическая
+                            сессия</a>
+
+                        <a href="coaching.html"
+                            class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Коучинг
+                            (сессия и сопровождение)</a>
+                        <a href="yasd.html"
+                            class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Ясность.
+                            Стратегия. Действие</a>
+                    </div>
+                </div>
+            </div>
+            <a href="knowledge.html"
+                class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">База
+                знаний</a>
+            <a href="cases.html"
+                class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Истории
+                и кейсы</a>
+            <a href="reviews.html"
+                class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                (текст)</a>
+            <a href="videoaudio.html"
+                class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                (видео/аудио)</a>
+        </nav>
+    </div>
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 md:px-8 overflow-hidden z-10 w-full max-w-full">
+        <div class="absolute top-20 right-0 w-full md:w-2/3 h-full bg-powder/20 rounded-l-[100%] blur-3xl -z-10"></div>
+        <div
+            class="absolute top-[10%] left-[5%] md:left-[-10%] text-[20vw] md:text-[15vw] font-script text-navy/5 -rotate-6 whitespace-nowrap -z-10 select-none pointer-events-none hero-bg-text">
+            Mindfulness
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 md:gap-16 relative">
+            <div class="w-full lg:w-1/2 relative z-20">
+                <div class="flex items-center gap-4 mb-6 md:mb-8">
+                    <div class="h-px w-12 bg-orange"></div>
+                    <span
+                        class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-navy/60 hero-title-swap">Коуч
+                        •
+                        Стратег • Бизнес-психолог</span>
+                </div>
+                <h1
+                    class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-navy mb-6 md:mb-8 hero-subtitle-swap">
+                    Ваша жизнь и карьера <br>
+                    <span class="italic text-navy/70">по вашим правилам</span>
+                </h1>
+                <p
+                    class="text-base md:text-xl text-navy/80 mb-8 md:mb-10 leading-relaxed font-light max-w-lg border-l-2 border-powder pl-4 md:pl-6">
+                    Метод, соединяющий бизнес-управление и глубокую работу с мышлением. Помогаю руководителям и
+                    экспертам вернуть ясность, услышать свой голос и стать Архитектором своей жизни.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+                    <a href="#formats"
+                        class="px-8 py-4 bg-navy hover:bg-navy-light text-cream rounded-none font-bold tracking-widest transition-all text-center flex items-center justify-center gap-3 group w-full sm:w-max uppercase text-xs md:text-sm">
+                        К продуктам
+                        <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                    <a href="https://t.me/nataliastarostina_coach" target="_blank" rel="noopener noreferrer"
+                        class="px-8 py-4 border border-navy text-navy hover:bg-navy/5 rounded-none font-bold tracking-widest transition-all text-center w-full sm:w-max uppercase text-xs md:text-sm">
+                        Telegram-канал
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 relative z-10">
+                <div
+                    class="absolute -top-5 -right-5 md:-top-10 md:-right-10 w-48 h-48 md:w-64 md:h-64 border border-powder rounded-full">
+                </div>
+                <div class="relative w-full max-w-[400px] md:max-w-[500px] mx-auto">
+                    <div
+                        class="hero-photo-container aspect-square md:aspect-[3/4] rounded-[200px_200px_0_0] overflow-hidden relative photo-shadow reveal-scale">
+                        <img src="https://i.postimg.cc/MTM4XLR0/DB494495-E404-439D-AFFA-197805C7E3F3.jpg"
+                            alt="Наталья Старостина" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-navy/10 mix-blend-overlay"></div>
+                    </div>
+                    <!-- Бадж поверх фото -->
+                    <div
+                        class="hero-badge absolute -bottom-6 -left-4 md:-bottom-8 md:-left-16 bg-cream p-7 md:p-6 rounded-full shadow-2xl flex items-center justify-center border border-powder/30 z-30 scale-90 md:scale-100 transform origin-bottom-left">
+                        <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none"
+                            viewBox="0 0 100 100">
+                            <path id="badge-text-path"
+                                d="M 50, 50 m -38.5, 0 a 38.5,38.5 0 1,1 77,0 a 38.5,38.5 0 1,1 -77,0"
+                                fill="transparent" />
+                            <text font-size="7.5" font-weight="bold" fill="#0A192F" class="font-sans uppercase">
+                                <textPath href="#badge-text-path" startOffset="0%" textLength="241">PCC ICF ·
+                                    ДИПЛОМИРОВАННЫЙ КОУЧ · </textPath>
+                            </text>
+                        </svg>
+                        <div
+                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-orange text-cream flex flex-col items-center justify-center relative z-10 shadow-inner">
+                            <span class="font-serif text-xl md:text-2xl font-bold leading-none">9+</span>
+                            <span
+                                class="text-[0.55rem] md:text-[0.6rem] uppercase tracking-wider text-center leading-tight">Лет
+                                в<br>бизнесе</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: SITUATIONS -->
+    <section class="relative py-24 md:py-32 bg-navy text-cream mt-0 w-full max-w-full overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                Здравствуй, дорогой друг
+            </h2>
+            <p class="font-sans text-powder text-base sm:text-lg md:text-xl max-w-2xl mx-auto">Возможно, прямо сейчас вы
+                находитесь в одной из этих точек:</p>
+        </div>
+        <div class="relative w-full max-w-full overflow-hidden group mt-10 md:mt-16">
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-navy to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-navy to-transparent z-10 pointer-events-none">
+            </div>
+            <div id="situations-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/7962931F-0767-4011-BA6E-AD9535C57EDF.jpeg" alt="Внешне отлично"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Снаружи — всё есть. Внутри — пусто»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Жизнь выглядит успешной. Но вы давно живёте «на автопилоте» — без смысла, без радости, и виноватите себя за то, что недовольны тем, чего добились.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/13A39B50-2969-47EC-8D07-3CC5E9DF3995.jpeg" alt="Потолок"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«По-старому — тошно. По-новому — страшно»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Вы чувствуете, что выросли из своей роли, проекта или уклада. Перемены нужны — но шаг вперёд пугает: а вдруг разрушится то, что строилось годами?</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/6025B21C-31F3-466A-80DB-0258CB06BFC9.jpeg" alt="Усталость"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Я тащу всё сам. И не могу остановиться»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Контроль отпустить страшно — кажется, всё рухнет. Хочется выдохнуть и перестать быть «функцией». Но вы не позволяете себе даже этого.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/B6CB57E8-C04C-4004-A8D6-8D4AEFD1B6B5.jpeg"
+                            alt="Застрял в действиях"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Знаю много. Делаю мало»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Идеи есть. Знания есть. А действий — нет. Снова и снова откладываете: ждёте идеального момента, боитесь сырого результата, застреваете в подготовке.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/AAA73CFE-6FA1-46D3-93C5-5B7A914D0019.jpeg"
+                            alt="Не могу заявить о себе"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Я хорош в деле. Но меня не видят»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Вы сильный специалист — и сами это знаете. Но заявить о себе, назвать цену, предъявить себя миру — что-то каждый раз мешает.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/5EA59A6D-CB51-4E99-87F5-19635F216C7E.jpeg"
+                            alt="Погряз в расфокусе"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Делаю много. Движения — нет»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Задачи есть. Системы — нет. Непонятно, что из всего этого действительно двигает вас вперёд, а что просто съедает время и энергию.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/9EAA9B45-89A3-4E96-B055-3CE1B1C6DEA4.jpeg" alt="Достигаторство"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Гонка без финиша»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Вы умеете достигать. Но радость от результата — мгновенная, а гонка — бесконечная. Внутри давно пусто, а остановиться так и не получается.</p>
+                    </div>
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-navy-light border border-white/5 rounded-2xl flex flex-col overflow-hidden hover:bg-navy-lighter transition-colors text-cream h-auto">
+                    <div class="aspect-video w-full overflow-hidden relative">
+                        <img src="external_assets/43ED0C65-3CB7-45BE-B4C2-2539EBF652C5.jpeg" alt="Перепутье"
+                            class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-5 md:p-8 flex flex-col gap-3 md:gap-4 flex-grow">
+                        <h3 class="font-serif text-lg md:text-xl text-orange leading-snug">«Старое закончилось. Новое — ещё не ясно»</h3>
+                        <p class="font-sans text-xs md:text-sm text-powder/80 leading-relaxed">Прежние цели достигнуты или утратили смысл. А новые пока не зажигают. Вы не хотите торопиться — хочется найти свой вектор в спокойном, честном диалоге.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4">
+                <button id="btn-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="btn-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: MANIFESTO -->
+    <section id="manifesto" class="relative pt-16 md:pt-32 pb-8 md:pb-0 bg-cream overflow-hidden text-center">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 flex flex-col items-center">
+            <div class="h-10 md:h-12 w-px bg-orange/30 mb-8 md:mb-12 reveal-up"></div>
+            <div class="relative w-full flex items-center justify-center min-h-[300px] md:min-h-[200px] reveal-up">
+                <h2 id="typewriter-text"
+                    class="font-serif italic text-sm md:text-xl lg:text-2xl text-navy leading-relaxed max-w-4xl transition-opacity duration-700 whitespace-pre-wrap text-center">
+                </h2>
+                <span id="cursor"
+                    class="inline-block w-1 h-5 md:h-8 bg-orange ml-1 align-middle animate-pulse opacity-0"></span>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: ABOUT (Who Am I) -->
+    <section id="about" class="py-24 md:py-32 px-4 md:px-8 bg-cream relative overflow-hidden w-full max-w-full">
+        <!-- Handwritten Phrase Intersection -->
+        <!-- Background Decor Overlapping Heading -->
+        <div
+            class="absolute top-[1%] md:top-[2%] right-[5%] md:right-[10%] text-[18vw] md:text-[15vw] font-script text-navy/5 rotate-6 whitespace-nowrap z-0 select-none pointer-events-none">
+            About Me
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+            <div class="w-full lg:w-7/12 relative z-30 pt-8 md:pt-16 text-navy order-2 lg:order-1">
+                <h2
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                    Кто я
+                </h2>
+                <div class="font-sans text-base md:text-lg text-navy/70 mb-10 md:mb-12 leading-relaxed space-y-4">
+                    <p><strong class="text-navy font-bold">Меня зовут Наталья Старостина.</strong> Я дипломированный
+                        бизнес-коуч, стратег и системный расстановщик.</p>
+                    <p>Моя задача — вернуть вас в позицию Архитектора своей жизни, где вы управляете процессами, а не
+                        они вами. Чтобы вы как лидеры выстраивали масштабные процессы и они не выжимали из вас все соки.
+                        Я не теоретик — я сама прошла путь управления крупными проектами и знаю цену «успешному успеху».
+                    </p>
+                </div>
+                <div class="space-y-10 md:space-y-12">
+                    <!-- Fact 01 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            01</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Опыт изнутри</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                <strong class="text-navy font-bold text-navy">9+ лет в бизнесе.</strong> В роли
+                                топ-менеджера и продюсера я запускала проекты с оборотом до <strong
+                                    class="text-navy font-bold text-navy">500 млн рублей.</strong> Я понимаю, как устроены большие процессы — потому что строила их сама, с нуля до масштаба.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 02 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            02</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Понимание нагрузки лидера</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                Я управляла командами до <strong class="text-navy font-bold text-navy">350
+                                    человек</strong> и сопровождала учебные департаменты на <strong
+                                    class="text-navy font-bold text-navy">4500+ студентов.</strong> Я знаю, как тяжело
+                                тащить всё на себе, и умею выстраивать рабочие процессы так, чтобы они функционировали
+                                без вашего круглосуточного контроля.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 03 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            03</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Филологическое образование</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                Моя первая профессия — работа с языком и смыслами. Филологическая база дала мне то, что не даёт ни один бизнес-курс: умение слышать не только слова, но и то, что за ними. В работе это означает — я точно улавливаю, где человек говорит правду, а где — привычную легенду о себе.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 04 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            04</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Директор по стратегическому развитию</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                Диплом профессиональной переподготовки «Директор по стратегическому развитию» — это системное мышление: как видеть жизнь или проект человека целиком, выявлять точки роста и выстраивать путь от текущей реальности к желаемому результату. Именно этот инструментарий лежит в основе моих стратегических сессий.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 05 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            05</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Коучинг ICF и бизнес-психология</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                Профессиональное обучение по коучингу (PCC ICF) и бизнес-психологии дало мне понимание того, как человек принимает решения, сопротивляется переменам и находит внутренний ресурс. Я работаю не только с целями и стратегиями — но и с тем, что мешает человеку двигаться, даже когда путь уже ясен.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 06 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            06</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Живая практика</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                <strong class="text-navy font-bold text-navy">5 лет сопровождения и 1200+ часов</strong>
+                                индивидуальных и групповых сессий — коучинг, стратегические сессии, наставничество, системные расстановки. Я видела сотни сценариев тупика и точно знаю механику безопасного выхода.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fact 07 -->
+                    <div class="flex gap-4 md:gap-6 items-start group">
+                        <div
+                            class="font-serif text-4xl md:text-6xl text-orange/30 group-hover:text-orange transition-colors shrink-0 italic leading-none">
+                            07</div>
+                        <div>
+                            <h4
+                                class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-navy mb-2 mobile-text-shrink-15">
+                                Участие в профильных сообществах и мероприятиях</h4>
+                            <p class="font-sans text-navy/70 text-sm md:text-base leading-relaxed">
+                                Состою в <strong class="text-navy font-bold text-navy">Федерации Профессиональных Коучей
+                                    и Наставников</strong>, являлась членом оргкомитета международного Форума <strong
+                                    class="text-navy font-bold text-navy">Executive & Business-коучинга 2025:
+                                    «Инновации, стратегии и лидеры будущего»</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- COLLAGE -->
+            <div
+                class="w-full lg:w-4/12 relative flex items-center justify-center h-[450px] sm:h-[600px] lg:h-[800px] mt-10 lg:mt-0 lg:sticky lg:top-48 order-1 lg:order-2">
+                <div
+                    class="absolute top-0 right-0 sm:right-4 w-[85%] lg:w-[95%] h-[75%] lg:h-[65%] z-10 photo-shadow overflow-hidden rounded-sm bg-cream flex justify-center items-center">
+                    <img src="images/A540CFD6-2CE4-4775-A10B-3ыC7AEC201A0F.png" alt="Наталья"
+                        class="w-full h-auto object-cover object-top transition-transform duration-700 min-h-full">
+                </div>
+                <div
+                    class="absolute -bottom-4 left-0 md:bottom-12 md:left-4 lg:bottom-24 lg:-left-16 w-[35%] md:w-[55%] aspect-[2/3] z-20 photo-shadow shadow-[0_15px_40px_rgba(0,0,0,0.3)] overflow-hidden rounded-full border-[3px] md:border-[6px] border-cream bg-cream group/oval">
+                    <img src="https://i.postimg.cc/ZqTyL9L9/photo-2026-02-20-20-49-51.jpg" alt="Наталья"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover/oval:scale-110">
+                </div>
+                <div
+                    class="absolute -top-10 -left-10 lg:-left-20 w-32 h-32 lg:w-40 lg:h-40 bg-powder/20 rounded-full blur-3xl -z-10">
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20 relative z-30 text-navy text-right border-r-2 border-orange pr-4 md:pr-8">
+            <p class="font-serif italic text-lg sm:text-xl md:text-2xl leading-relaxed">
+                «Я не буду учить вас жить или давать пустые мотивационные советы.<br class="hidden sm:block">
+                Мы посмотрим на вашу ситуацию со стороны, найдем «слепые зоны» и выстроим понятный план действий.<br
+                    class="hidden lg:block">
+                Разложим хаос на конкретные шаги и соберем стратегию,<br class="hidden sm:block">
+                в которой вы <strong class="font-bold">начнете получать реальные результаты в жизни и карьере</strong>»
+            </p>
+        </div>
+    </section>
+    <!-- BLOCK: EDUCATION (СЕРТИФИКАТЫ И ДИПЛОМЫ) -->
+    <section
+        class="pt-12 pb-24 md:pt-16 md:pb-32 bg-cream text-navy relative overflow-hidden w-full max-w-full border-t border-navy/5"
+        id="education-block">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 text-center mb-12">
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                Сертификаты и дипломы</h2>
+            <div class="w-24 md:w-32 h-px bg-orange mx-auto mb-4 md:mb-6 reveal-up"></div>
+            <p
+                class="font-sans text-navy/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-medium px-4 mb-8 reveal-up">
+                Моя работа опирается на фундаментальные академические знания и стандарты</p>
+        </div>
+        <div class="relative w-full max-w-[100vw] overflow-hidden mt-6 mb-8 reveal-up">
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div id="edu-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch relative z-0">
+
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.45.50.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.03.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.45.57.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/photo_2025-06-12_00-06-34.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Natalia Starostina_6.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Наталье Старостиной.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Сертификат.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.36.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.09.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.20.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Диплом_ПП_директор по стратразвитию.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/0.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 relative z-10">
+                <button id="edu-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="edu-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSITION LINE REMOVED BY USER REQUEST (Task 1 & 4) -->
+    <!-- SECTION: FORMATS OF WORK -->
+    <section id="formats"
+        class="py-24 md:py-32 px-4 md:px-8 bg-navy relative overflow-hidden text-navy w-full max-w-full">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-10 md:mb-12 text-center text-cream">
+                <h2
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                    Форматы работы</h2>
+                <p class="font-sans text-cream/70 text-base md:text-lg mt-4 mb-2 max-w-2xl mx-auto leading-relaxed">Каждый формат — это точка входа. Выбирайте ту, что ближе к вашей ситуации сейчас.</p>
+                <div class="h-px w-24 md:w-32 bg-orange mx-auto opacity-50"></div>
+            </div>
+            <div class="flex flex-col gap-6 md:gap-12">
+                <!-- Format 01 -->
+                <div
+                    class="bg-cream rounded-2xl overflow-hidden flex flex-col md:flex-row group transition-all duration-700 items-stretch">
+                    <div class="w-full md:w-1/3 aspect-square md:aspect-square overflow-hidden">
+                        <img src="external_assets/me/photo_2026-02-28_21-57-42.png" alt="Распаковка"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                        <div class="flex flex-row md:flex-col items-baseline md:items-start gap-4 md:gap-0">
+                            <div class="font-serif text-4xl md:text-5xl text-orange/30 mb-2 md:mb-3 italic">01.</div>
+                            <h3
+                                class="font-serif text-xl md:text-2xl mb-[3px] md:mb-[6px] font-bold leading-tight uppercase tracking-wider">
+                                Распаковка
+                                личности и
+                                профессионального пути</h3>
+                        </div>
+                        <p
+                            class="font-sans text-orange/80 text-[12px] md:text-sm font-bold uppercase tracking-widest mb-2 md:mb-3">
+                            Для тех, кто хочет наконец понять — кто я и что моё</p>
+                        <p class="font-sans text-navy/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 flex-grow">
+                            Это глубокое исследование вашей «сокровищницы» — опыта, талантов, смыслов и внутренних ориентиров. После распаковки становится ясно, кто вы, на чём стоите и как двигаться дальше.</p>
+                        <a href="unpacking.html"
+                            class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none w-full sm:w-max text-center uppercase tracking-widest text-xs md:text-sm transition-all hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)]">Узнать
+                            подробнее</a>
+                    </div>
+                </div>
+                <!-- Format 02 -->
+                <div
+                    class="bg-cream rounded-2xl overflow-hidden flex flex-col md:flex-row group transition-all duration-700 items-stretch">
+                    <div class="w-full md:w-1/3 aspect-square md:aspect-square overflow-hidden">
+                        <img src="external_assets/me/photo_2026-02-26_23-53-13.jpg" alt="Стратсессия"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                        <div class="flex flex-row md:flex-col items-baseline md:items-start gap-4 md:gap-0">
+                            <div class="font-serif text-4xl md:text-5xl text-orange/30 mb-2 md:mb-3 italic">02.</div>
+                            <h3
+                                class="font-serif text-xl md:text-2xl mb-[3px] md:mb-[6px] font-bold leading-tight uppercase tracking-wider">
+                                Стратегическая
+                                сессия
+                            </h3>
+                        </div>
+                        <p
+                            class="font-sans text-orange/80 text-[12px] md:text-sm font-bold uppercase tracking-widest mb-2 md:mb-3">
+                            Для тех, кому нужна точка сборки: из тумана — в ясный план</p>
+                        <p class="font-sans text-navy/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 flex-grow">
+                            Точка сборки. За 2–3 часа превращаем туман в голове в карту действий. Находим слепые зоны, расставляем приоритеты, убираем лишнее. Вы уходите с чётким вектором и пониманием следующего шага.</p>
+                        <a href="strategy.html"
+                            class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none w-full sm:w-max text-center uppercase tracking-widest text-xs md:text-sm transition-all hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)]">Записаться</a>
+                    </div>
+                </div>
+                <!-- Format 03 -->
+                <div
+                    class="bg-cream rounded-2xl overflow-hidden flex flex-col md:flex-row group transition-all duration-700 items-stretch">
+                    <div class="w-full md:w-1/3 aspect-square md:aspect-square overflow-hidden">
+                        <img src="external_assets/me/photo_2026-02-28_21-33-17.jpg" alt="Коучинг"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                        <div class="flex flex-row md:flex-col items-baseline md:items-start gap-4 md:gap-0">
+                            <div class="font-serif text-4xl md:text-5xl text-orange/30 mb-2 md:mb-3 italic">03.</div>
+                            <h3
+                                class="font-serif text-xl md:text-2xl mb-[3px] md:mb-[6px] font-bold leading-tight uppercase tracking-wider">
+                                Индивидуальный
+                                коучинг </h3>
+                        </div>
+                        <p
+                            class="font-sans text-orange/80 text-[12px] md:text-sm font-bold uppercase tracking-widest mb-2 md:mb-3">
+                            Для тех, кто находится в процессе перехода</p>
+                        <p class="font-sans text-navy/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 flex-grow">
+                            Длительная работа «рука в руке». Я держу для вас безопасную систему, пока вы зреете для
+                            перемен и внедряете новые привычки. Сохраняем связь с собой и удовольствие от процесса.</p>
+                        <a href="coaching.html"
+                            class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none w-full sm:w-max text-center uppercase tracking-widest text-xs md:text-sm transition-all hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)]">Выбрать
+                            формат</a>
+                    </div>
+                </div>
+                <!-- Format 04 -->
+                <div
+                    class="bg-cream rounded-2xl overflow-hidden flex flex-col md:flex-row group transition-all duration-700 items-stretch">
+                    <div class="w-full md:w-1/3 aspect-square md:aspect-square overflow-hidden">
+                        <img src="external_assets/F0BE5544-BE4D-4F71-ADC9-AA550255534F.jpeg" alt="ЯСД"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                        <div class="flex flex-row md:flex-col items-baseline md:items-start gap-4 md:gap-0">
+                            <div class="font-serif text-4xl md:text-5xl text-orange/30 mb-2 md:mb-3 italic">04.</div>
+                            <h3
+                                class="font-serif text-xl md:text-2xl mb-[3px] md:mb-[6px] font-bold leading-tight uppercase tracking-wider">
+                                Образовательный
+                                трек
+                                «ЯСД»</h3>
+                        </div>
+                        <p
+                            class="font-sans text-orange/80 text-[12px] md:text-sm font-bold uppercase tracking-widest mb-2 md:mb-3">
+                            Ваш авторский трек: от первой ясности — к реализации целей</p>
+                        <p class="font-sans text-navy/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 flex-grow">
+                            Авторская система: Ясность → Стратегия → Действие. Методология перехода из тумана в голове в позицию Архитектора своей жизни. Доступна для самостоятельного прохождения или в личной работе.</p>
+                        <a href="yasd.html"
+                            class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none w-full sm:w-max text-center uppercase tracking-widest text-xs md:text-sm transition-all hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)]">Узнать
+                            о системе ЯСД</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: MATERIALS -->
+    <section id="materials" class="py-24 md:py-32 bg-cream text-navy relative overflow-hidden w-full max-w-full">
+        <div
+            class="absolute top-[0%] right-[-2%] text-[20vw] md:text-[15vw] font-script text-navy/5 -rotate-3 whitespace-nowrap z-0 select-none pointer-events-none">
+            Knowledge
+        </div>
+        <div
+            class="absolute top-0 left-[10%] w-24 h-24 md:w-32 md:h-32 border border-orange/10 rounded-full animate-spin-very-slow z-0">
+        </div>
+        <div
+            class="absolute top-20 right-[5%] md:right-[15%] w-48 h-48 md:w-64 md:h-64 border border-powder rounded-full opacity-10 animate-pulse z-0">
+        </div>
+        <div
+            class="absolute bottom-10 left-[-10%] md:left-[5%] w-72 h-72 md:w-96 md:h-96 border border-navy/5 rounded-full animate-spin-slow z-0">
+        </div>
+        <div
+            class="absolute top-1/2 left-[30%] md:left-[40%] w-8 h-8 md:w-12 md:h-12 bg-orange/10 rounded-full animate-float z-0">
+        </div>
+        <div
+            class="absolute bottom-[20%] right-[-5%] md:right-[10%] w-40 h-40 md:w-48 md:h-48 border-2 border-dashed border-orange/5 rounded-full animate-spin-very-slow z-0">
+        </div>
+        <svg class="absolute top-[30%] left-[-10%] md:left-[-2%] w-40 h-40 md:w-56 md:h-56 text-powder/10 animate-float z-0"
+            viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.3"
+                stroke-dasharray="4 2" />
+        </svg>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="text-center mb-12 md:mb-16 relative">
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mb-4 md:mb-6"></div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight">
+                    База знаний
+                </h2>
+                <p class="font-sans text-navy/60 text-sm sm:text-lg md:text-xl max-w-2xl mx-auto font-medium px-4">Статьи, практики и инструменты — чтобы вы могли начать путь к ясности прямо сейчас, ещё до нашей встречи.</p>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mt-4 md:mt-6"></div>
+            </div>
+        </div>
+        <div class="relative w-full max-w-full overflow-hidden group">
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div id="materials-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                <!-- Cards loaded dynamically from articlesData.js -->
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 mb-8 md:mb-12">
+                <button id="mat-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="mat-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+            <div class="flex flex-col items-center">
+
+                <a href="knowledge.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-6 md:px-16 rounded-none uppercase tracking-[0.1em] md:tracking-[0.25em] text-[10px] md:text-xs shadow-2xl hover:shadow-[0_20px_50px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 relative z-10 w-max max-w-[90vw] text-center mx-auto inline-block">
+                    Перейти в полную базу знаний
+                </a>
+            </div>
+        </div>
+        <script src="articlesData.js"></script>
+        <script>
+                (function () {
+                    function shuffle(arr) {
+                        for (let i = arr.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [arr[i], arr[j]] = [arr[j], arr[i]];
+                        }
+                        return arr;
+                    }
+                    const colors = ['border-orange', 'border-powder', 'border-navy'];
+                    const articles = shuffle([...(window.articlesData || [])]);
+                    const container = document.getElementById('materials-carousel');
+                    if (!container || !articles.length) return;
+                    articles.forEach((a, i) => {
+                        const color = colors[i % colors.length];
+                        const card = document.createElement('div');
+                        card.className = `shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border-b-4 ${color} materials-card aspect-square md:aspect-[3/4.5]`;
+                        card.innerHTML = `
+                        <div class="h-1/2 md:h-[40%] w-full overflow-hidden shrink-0">
+                            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col flex-grow">
+                            <h4 class="font-serif text-lg md:text-xl mb-3 md:mb-4 font-bold italic">${a.title}</h4>
+                            <p class="font-sans text-navy/70 text-xs md:text-sm leading-relaxed flex-grow">${a.summary}</p>
+                            <a href="${a.ctaLink}"
+                                class="mt-6 md:mt-8 text-orange font-bold uppercase tracking-widest text-[10px] md:text-xs border-b border-orange/20 w-max hover:border-orange transition-colors">Читать статью</a>
+                        </div>`;
+                        container.appendChild(card);
+                    });
+                })();
+        </script>
+    </section>
+    <!-- SECTION: CASES -->
+    <section id="reviews"
+        class="relative py-24 md:py-32 bg-navy text-cream mt-0 border-b border-white/5 w-full max-w-full overflow-hidden">
+        <div
+            class="absolute top-[5%] right-[-10%] text-[25vw] md:text-[15vw] font-script text-white/5 -rotate-6 whitespace-nowrap z-0 select-none pointer-events-none opacity-40">
+            Experience
+        </div>
+        <div
+            class="absolute top-[5%] left-[-10%] md:left-[5%] w-48 h-48 md:w-64 md:h-64 border border-powder/10 rounded-full opacity-20 animate-spin-very-slow z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute top-[15%] right-[-10%] md:right-[10%] w-72 h-72 md:w-96 md:h-96 border border-orange/5 rounded-full animate-spin-slow z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[20%] right-[-10%] md:right-[5%] w-56 h-56 md:w-72 md:h-72 bg-orange/5 rounded-full blur-3xl animate-float z-0 pointer-events-none">
+        </div>
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+            <h2
+                class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up text-center">
+                Истории и кейсы
+            </h2>
+            <p class="font-sans text-powder/80 text-sm md:text-lg max-w-3xl mx-auto text-center mb-8 md:mb-12">Здесь
+                собрана информация моих сессий с клиентами, как мы работали в рамках встреч. Каждый упакован
+                последовательно, чтобы проявить стратегию формирования результатов.</p>
+            <div class="h-px w-24 md:w-32 bg-orange mx-auto opacity-50 mb-10 md:mb-16"></div>
+            <div class="flex flex-col items-center justify-center mb-12 md:mb-24 relative z-10 px-4">
+                <p
+                    class="font-sans text-powder/60 text-xs sm:text-sm md:text-base text-center max-w-2xl mb-6 md:mb-8 leading-relaxed">
+                    На сайте собрана лишь малая часть кейсов. Если вы хотите найти ситуацию, похожую на вашу, или
+                    почитать более подробные разборы стратегий — <br class="hidden md:block"> переходите в отдельный
+                    раздел.
+                </p>
+                <a href="cases.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 w-max max-w-[90vw] text-center mx-auto inline-block">
+                    Посмотреть еще больше кейсов
+                </a>
+            </div>
+        </div>
+        <!-- БЛОК 1: КЕЙСЫ (ИСТОРИИ КЛИЕНТОВ) -->
+        <div class="relative w-full max-w-full overflow-hidden group mb-8 md:mb-12">
+            <script src="casesData.js"></script>
+            <div id="cases-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                <!-- Кейсы загружаются автоматически из casesData.js -->
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 relative z-10 px-4">
+                <button id="cases-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="cases-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- NEW SECTION: MEDIA TESTIMONIALS -->
+    <section id="testimonials" class="py-24 md:py-32 bg-cream text-navy relative overflow-hidden w-full max-w-full">
+        <div
+            class="absolute top-[5%] left-[-2%] md:left-[-5%] text-[15vw] md:text-[14vw] font-script text-navy/5 -rotate-[10deg] origin-left whitespace-nowrap z-0 select-none pointer-events-none">
+            Trust & Growth
+        </div>
+        <div
+            class="absolute top-[25%] left-[-20%] w-[400px] h-[400px] md:w-[800px] md:h-[800px] border-[4px] border-powder/40 rounded-full animate-spin-very-slow z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute top-[5%] right-[-10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] border-[3px] border-dashed border-orange/30 rounded-full z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[5%] left-[5%] w-[500px] h-[500px] md:w-[1000px] md:h-[1000px] bg-orange/5 rounded-full blur-[100px] z-0 pointer-events-none">
+        </div>
+        <div class="max-w-[1400px] mx-auto relative z-10 w-full mb-12 md:mb-16">
+            <div class="text-center px-4 md:px-8">
+                <h2
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                    Отзывы
+                    клиентов</h2>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto"></div>
+            </div>
+        </div>
+
+        <!-- БЛОК: ТЕКСТОВЫЕ ОТЗЫВЫ -->
+        <div class="mb-20 md:mb-32">
+            <h3 class="font-serif text-2xl md:text-4xl text-center mb-8 md:mb-12 italic text-navy/70 px-4 md:px-8">
+                Текстовые отзывы</h3>
+            <div class="relative w-full overflow-hidden group">
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+                </div>
+
+                <div id="text-reviews-carousel"
+                    class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                    <!-- Текстовые отзывы загружаются автоматически из images/reviews/ -->
+                </div>
+
+                <div class="flex justify-center gap-4 md:gap-6 mt-4">
+                    <button id="text-prev"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-left"></i></button>
+                    <button id="text-next"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-12 text-center">
+                <a href="reviews.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 inline-block">
+                    Посмотреть еще больше отзывов
+                </a>
+            </div>
+        </div>
+
+        <!-- БЛОК 2: ВИДЕО И АУДИО ОТЗЫВЫ -->
+        <div class="mb-12">
+            <h3 class="font-serif text-2xl md:text-4xl text-center mb-8 md:mb-12 italic text-navy/70 px-4 md:px-8">Видео
+                и аудио отзывы</h3>
+            <div class="relative w-full overflow-hidden group">
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+                </div>
+
+                <div id="media-reviews-carousel"
+                    class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                    <!-- Видео/аудио отзывы загружаются автоматически из videoaudio/ -->
+                </div>
+
+                <div class="flex justify-center gap-4 md:gap-6 mt-4">
+                    <button id="media-prev"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-left"></i></button>
+                    <button id="media-next"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-12 text-center">
+                <a href="videoaudio.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 inline-block">
+                    Посмотреть еще больше отзывов
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ЧТЕНИЯ КЕЙСА (МОДАЛКА) -->
+    <div class="fixed inset-0 z-[100] bg-navy/90 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6 md:p-12"
+        id="case-modal">
+        <div class="bg-cream w-full max-w-4xl max-h-full rounded-2xl md:rounded-3xl shadow-2xl overflow-y-auto custom-scrollbar relative transform scale-95 transition-transform duration-300 modal-leave"
+            id="case-modal-content">
+            <button
+                class="sticky top-4 right-4 md:top-6 md:right-6 float-right w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy/10 hover:bg-orange hover:text-white text-navy flex items-center justify-center transition-colors z-10"
+                id="close-modal-btn">
+                <i class="ph ph-x text-xl md:text-2xl"></i>
+            </button>
+            <div class="p-6 md:p-10 lg:p-14 pt-12 md:pt-14 clear-both" id="modal-body"></div>
+        </div>
+    </div>
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ИЗОБРАЖЕНИЙ (ТЕКСТОВЫЕ ОТЗЫВЫ) -->
+    <div id="image-modal"
+        class="fixed inset-0 z-[110] bg-navy/95 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <button id="close-image-btn"
+            class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-orange text-white flex items-center justify-center transition-colors z-10">
+            <i class="ph ph-x text-xl md:text-2xl"></i>
+        </button>
+        <img id="image-modal-target" src="" alt="Отзыв"
+            class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 cursor-zoom-out"
+            onclick="document.getElementById('close-image-btn').click()">
+    </div>
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ВИДЕО ОТЗЫВОВ -->
+    <div id="video-modal"
+        class="fixed inset-0 z-[110] bg-navy/95 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <button id="close-video-btn"
+            class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-orange text-white flex items-center justify-center transition-colors z-10">
+            <i class="ph ph-x text-xl md:text-2xl"></i>
+        </button>
+        <div
+            class="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative">
+            <iframe id="video-modal-iframe" class="absolute inset-0 w-full h-full"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer
+        class="bg-navy text-cream pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-8 relative overflow-hidden w-full max-w-full mt-auto">
+        <svg class="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none"
+            preserveaspectratio="none" viewbox="0 0 100 100">
+            <path d="M 0 100 C 50 0, 100 100, 150 0" fill="none" stroke="currentColor" stroke-width="2"></path>
+        </svg>
+        <div
+            class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 border-b border-white/10 pb-12 md:pb-16 mb-8">
+            <div class="w-full lg:w-1/2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cream text-navy flex items-center justify-center font-serif italic text-xl">
+                        Н</div>
+                    <span class="font-serif font-bold text-lg tracking-wide uppercase text-cream">Старостина</span>
+                </div>
+                <p class="font-sans text-powder text-base md:text-lg max-w-md leading-relaxed mb-6 md:mb-8">
+                    Если у вас есть вопросы по услугам или продуктам, вы всегда можете связаться со мной по удобному для
+                    вас каналу и мы все обсудим, я с большой радостью буду для вас помощью!</p>
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max mb-12 lg:mb-0"
+                    href="https://t.me/nv_star" target="_blank">Написать
+                    лично</a>
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 font-sans uppercase tracking-widest text-[12px] md:text-xs w-full lg:w-auto">
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.instagram.com/nataliastarostina.coach/" target="_blank"><i
+                        class="ph ph-instagram-logo text-xl md:text-lg"></i> Instagram</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://t.me/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-telegram-logo text-xl md:text-lg"></i> Telegram-канал</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.tiktok.com/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-tiktok-logo text-xl md:text-lg"></i> TikTok</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.youtube.com/@nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-youtube-logo text-xl md:text-lg"></i> Youtube</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://dzen.ru/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-article text-xl md:text-lg"></i> Дзен</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3" href="https://vk.com/nv.star"
+                    target="_blank"><span
+                        class="font-bold text-[12px] md:text-sm leading-none tracking-normal">VK</span> Вконтакте</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.threads.net/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-threads-logo text-xl md:text-lg"></i> Threads</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://max.ru/join/7i6v-Jd3FPg3BtQcBQq7FIraNLOUa2Fxjh_VKv5i8PU" target="_blank"><i
+                        class="ph ph-star text-xl md:text-lg"></i> Max</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto relative z-10 text-[10px] md:text-xs text-powder/40 font-sans tracking-wide flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div
+                class="flex flex-col sm:flex-row gap-3 md:gap-8 items-center text-center lg:text-left order-2 lg:order-1">
+                <span class="leading-relaxed"><strong class="text-white font-bold">ИП Старостина Наталья Валерьевна
+                        <br />ИНН 212912145136</strong><br />ОГРН 321213000007900</span>
+                <a class="hover:text-cream transition-colors underline decoration-powder/30 underline-offset-4"
+                    href="https://docs.google.com/document/d/1onBrld8e_qzfbzRxjcFxgIeBT9fVhyI27lZ8iHjABR0/edit?tab=t.0"
+                    target="_blank">Договор
+                    оферты</a>
+            </div>
+            <div class="order-1 lg:order-2 mb-4 lg:mb-0 flex flex-col gap-2 items-center lg:items-end">
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="mailto:nataliastarostina@internet.ru"><i
+                        class="ph ph-envelope-simple text-sm md:text-base"></i> nataliastarostina@internet.ru</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="https://t.me/nv_star" target="_blank"><i class="ph ph-bug text-sm md:text-base"></i> написать
+                    сообщение об ошибке на сайте</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function setupCarousel(id, prevBtnId, nextBtnId, autoScroll = false) {
+                const carousel = document.getElementById(id);
+                if (!carousel) return;
+                const btnPrev = document.getElementById(prevBtnId);
+                const btnNext = document.getElementById(nextBtnId);
+
+                if (autoScroll) {
+                    const cards = [...carousel.children];
+                    cards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        carousel.appendChild(clone);
+                    });
+                }
+
+                let isDown = false, isHovered = false, startX, scrollLeft;
+                let scrollSpeed = 0.5;
+                if (autoScroll) {
+                    const fluidScroll = () => {
+                        if (!isDown && !isHovered) {
+                            carousel.scrollLeft += scrollSpeed;
+                            if (carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2)) {
+                                carousel.scrollLeft = 0;
+                            }
+                        }
+                        requestAnimationFrame(fluidScroll);
+                    };
+                    requestAnimationFrame(fluidScroll);
+                }
+                if (btnPrev && btnNext) {
+                    btnPrev.addEventListener('click', () => {
+                        if (carousel.scrollLeft <= 0 && autoScroll) carousel.scrollLeft = Math.ceil(carousel.scrollWidth / 2);
+                        carousel.scrollBy({ left: -300, behavior: 'smooth' });
+                    });
+                    btnNext.addEventListener('click', () => {
+                        if (autoScroll && carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2) - 10) carousel.scrollLeft = 0;
+                        carousel.scrollBy({ left: 300, behavior: 'smooth' });
+                    });
+                }
+                carousel.addEventListener('scroll', () => {
+                    if (isDown && autoScroll) {
+                        if (carousel.scrollLeft <= 0) carousel.scrollLeft = Math.ceil(carousel.scrollWidth / 2);
+                        if (carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2)) carousel.scrollLeft = 0;
+                    }
+                }, { passive: true });
+                carousel.addEventListener('mouseenter', () => isHovered = true);
+                carousel.addEventListener('mouseleave', () => { isDown = false; isHovered = false; });
+                carousel.addEventListener('touchstart', () => isHovered = true, { passive: true });
+                carousel.addEventListener('touchend', () => isHovered = false, { passive: true });
+                carousel.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    carousel.classList.add('cursor-grabbing');
+                    startX = e.pageX - carousel.offsetLeft;
+                    scrollLeft = carousel.scrollLeft;
+                });
+                carousel.addEventListener('mouseup', () => { isDown = false; carousel.classList.remove('cursor-grabbing'); });
+                carousel.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - carousel.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    carousel.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА КЕЙСОВ =====
+            (function renderIndexCases() {
+                const container = document.getElementById('cases-carousel');
+                if (!container || typeof casesData === 'undefined') return;
+                function shuffle(arr) {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                }
+                shuffle(casesData);
+                casesData.forEach(c => {
+                    const initial = (c.name || 'К')[0].toUpperCase();
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex flex-col shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 hover:border-white/30 cursor-pointer case-card h-auto md:min-h-[450px]';
+                    card.dataset.caseId = c.id;
+                    card.innerHTML = `
+                        <div class="p-6 md:p-8 flex flex-col h-full relative">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-[#FF8C00] to-[#FFD700] text-white flex items-center justify-center font-serif text-xl font-bold shadow-md shrink-0 border-2 border-white/20">${initial}</div>
+                                <div>
+                                    <div class="font-bold text-sm md:text-base uppercase tracking-wider text-white font-sans">${c.name.toUpperCase()}</div>
+                                    <div class="text-[9px] md:text-xs text-powder/60 italic">${c.profession}</div>
+                                </div>
+                            </div>
+                            <h4 class="font-serif text-base md:text-lg text-orange mb-3 md:mb-4 leading-snug md:uppercase md:font-normal font-normal tracking-tight md:tracking-normal">${c.title}</h4>
+                            <p class="font-serif italic text-powder/80 leading-relaxed text-[12px] md:text-sm flex-grow mb-6 md:mb-8 line-clamp-4">«${c.shortReview}»</p>
+                            
+                            <div class="inline-flex items-center gap-1.5 py-1 md:py-2 text-[6px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-white/50 border-b border-white/10 transition-all duration-300 hover:text-orange hover:border-orange group w-max mt-auto case-action-hint">
+                                <span class="md:hidden text-[4.8px]">прочитать кейс</span>
+                                <span class="hidden md:inline text-[14px]">Прочитать историю</span>
+                                <i class="ph ph-arrow-up-right text-[8px] md:text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                            </div>
+                        </div>`;
+                    container.appendChild(card);
+                });
+            })();
+
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ТЕКСТОВЫХ ОТЗЫВОВ =====
+            (function renderTextReviews() {
+                const container = document.getElementById('text-reviews-carousel');
+                if (!container) return;
+                const reviewImages = [
+                    "https://i.postimg.cc/dQXxWf0s/Снимок_экрана_2024_07_17_в_21_07_03.png",
+                    "https://i.postimg.cc/8k30yYCD/Снимок_экрана_2024_07_17_в_21_07_17.png",
+                    "https://i.postimg.cc/MZ4FsLGS/Снимок_экрана_2024_07_17_в_21_07_24.png",
+                    "https://i.postimg.cc/2jJKHt5N/Снимок_экрана_2024_07_17_в_21_10_22.png",
+                    "https://i.postimg.cc/66SmHPQN/Снимок_экрана_2024_07_17_в_21_12_35.png"
+                ];
+                for (let i = 1; i <= 250; i++) {
+                    reviewImages.push(`images/reviews/${i}.jpg`);
+                }
+                function shuffle(arr) {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                }
+                shuffle(reviewImages);
+                // Show all reviews in the carousel
+                const selection = reviewImages;
+                selection.forEach((src, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group';
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Отзыв';
+                    img.loading = 'lazy';
+                    img.className = 'max-h-full max-w-full object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img';
+                    if (!src.startsWith('http')) {
+                        img.onerror = function () {
+                            if (this.src.includes('.jpg')) this.src = this.src.replace('.jpg', '.png');
+                            else if (this.src.includes('.png')) this.src = this.src.replace('.png', '.jpeg');
+                            else if (this.src.includes('.jpeg')) this.src = this.src.replace('.jpeg', '.JPG');
+                            else if (this.src.includes('.JPG')) this.src = this.src.replace('.JPG', '.PNG');
+                            else card.style.display = 'none';
+                        };
+                    }
+                    card.appendChild(img);
+                    container.appendChild(card);
+                });
+            })();
+
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ВИДЕО/АУДИО ОТЗЫВОВ (VK) =====
+            (function renderMediaReviews() {
+                const container = document.getElementById('media-reviews-carousel');
+                if (!container) return;
+                const vkVideos = [
+                    '-211035790_456239115', '-211035790_456239113', '-211035790_456239112',
+                    '-211035790_456239111', '-211035790_456239107', '-211035790_456239106',
+                    '-211035790_456239105', '-211035790_456239104', '-211035790_456239103',
+                    '-211035790_456239102', '-211035790_456239100', '-211035790_456239099',
+                    '-211035790_456239098', '-211035790_456239097', '-211035790_456239096',
+                    '-211035790_456239095', '-211035790_456239094', '-211035790_456239093',
+                    '-211035790_456239092', '-211035790_456239091', '-211035790_456239090',
+                    '-211035790_456239089', '-211035790_456239088', '-211035790_456239087',
+                    '-211035790_456239086', '-211035790_456239085', '-211035790_456239084',
+                    '-211035790_456239083', '-211035790_456239082', '-211035790_456239081',
+                    '-211035790_456239080', '-211035790_456239079', '-211035790_456239078',
+                    '-211035790_456239077', '-211035790_456239076', '-211035790_456239075',
+                    '-211035790_456239074', '-211035790_456239073', '-211035790_456239072',
+                    '-211035790_456239071', '-211035790_456239069', '-211035790_456239068',
+                    '-211035790_456239067', '-211035790_456239066', '-211035790_456239065',
+                    '-211035790_456239064', '-211035790_456239063', '-211035790_456239061',
+                    '-211035790_456239060', '-211035790_456239059', '-211035790_456239058'
+                ];
+                function getVkEmbed(vkId, autoplay) {
+                    const p = vkId.split('_');
+                    return `https://vkvideo.ru/video_ext.php?oid=${p[0]}&id=${p[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
+                }
+                function shuffle(arr) {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                }
+                shuffle(vkVideos);
+                vkVideos.forEach(vkId => {
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-video bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
+                    card.dataset.videoSrc = getVkEmbed(vkId, true);
+                    card.innerHTML = `
+                        <iframe src="${getVkEmbed(vkId)}" class="w-full h-full pointer-events-none"
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+                            frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 bg-transparent flex items-center justify-center pointer-events-none">
+                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-play text-xl ml-1"></i>
+                            </div>
+                        </div>`;
+                    container.appendChild(card);
+                });
+            })();
+
+            setupCarousel('situations-carousel', 'btn-prev', 'btn-next', true);
+            setupCarousel('materials-carousel', 'mat-prev', 'mat-next', true);
+            setupCarousel('cases-carousel', 'cases-prev', 'cases-next', true);
+            setupCarousel('text-reviews-carousel', 'text-prev', 'text-next', true);
+            setupCarousel('media-reviews-carousel', 'media-prev', 'media-next', true);
+            setupCarousel('edu-carousel', 'edu-prev', 'edu-next', true);
+
+            // Анимации при скролле
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active", "is-visible");
+                    }
+                });
+            }, observerOptions);
+            const revealElements = document.querySelectorAll(".reveal-up, .reveal-left, .reveal-right, .scroll-anim, .fade-in-up, .fade-in-left, .fade-in-right, .fade-in, .reveal-scale");
+            revealElements.forEach(el => observer.observe(el));
+
+            // ВСПЛЫВАЮЩИЕ ИЗОБРАЖЕНИЯ (Модалки)
+            const caseModal = document.getElementById('case-modal');
+            const caseModalContent = document.getElementById('case-modal-content');
+            const imageModal = document.getElementById('image-modal');
+            const imageModalTarget = document.getElementById('image-modal-target');
+            const videoModal = document.getElementById('video-modal');
+            const videoModalPlayer = document.getElementById('video-modal-player');
+
+            document.addEventListener('click', (e) => {
+                // 1. Открытие Кейса (динамическая загрузка из casesData)
+                const caseCard = e.target.closest('.case-card');
+                if (caseCard) {
+                    const caseId = parseInt(caseCard.dataset.caseId);
+                    const c = casesData.find(x => x.id === caseId);
+                    if (c && caseModalContent) {
+                        const initial = (c.name || 'К')[0].toUpperCase();
+                        document.getElementById('modal-body').innerHTML = `
+                <div class="flex flex-col md:flex-row gap-5 md:gap-10 mb-8 md:mb-10 items-start">
+                    <div class="w-16 h-16 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-[#FF8C00] to-[#FFD700] text-white flex items-center justify-center font-serif text-2xl md:text-6xl font-bold shadow-xl shrink-0 border-2 border-white/20">${initial}</div>
+                    <div class="flex-1">
+                        <h2 class="font-serif text-xl sm:text-2xl md:text-5xl lg:text-6xl mb-3 md:mb-6 leading-tight text-navy font-normal md:font-normal">${c.title}</h2>
+                        <div class="flex flex-wrap items-center gap-3 md:gap-6 text-[9px] md:text-xs font-medium tracking-widest uppercase">
+                            <span class="text-orange font-bold font-sans">${c.name.toUpperCase()}</span>
+                            <span class="text-navy/20 hidden md:block">|</span>
+                            <span class="text-navy/60 font-normal italic normal-case tracking-normal">${c.profession}</span>
+                        </div>
+                        ${c.insta ? `<div class="mt-3 md:mt-4 text-orange/80 hover:text-orange transition-colors"><i class="ph ph-instagram-logo align-middle text-lg"></i> <span class="text-[10px] md:text-xs uppercase tracking-wider">${c.insta}</span></div>` : ''}
+                    </div>
+                </div>
+
+                <div class="space-y-8 md:space-y-10 text-navy font-serif">
+                    ${c.about ? `
+                    <div class="bg-powder/20 p-6 md:p-8 rounded-2xl mb-8 border-l-4 border-orange">
+                        <h4 class="font-bold mb-2 flex items-center gap-2 text-navy font-sans text-sm md:text-base"><i class="ph ph-user text-orange"></i> О клиенте</h4>
+                        <p class="text-navy/80 leading-relaxed text-sm md:text-base font-sans">${c.about}</p>
+                    </div>` : ''}
+
+                    ${c.request ? `
+                    <div class="mb-10">
+                        <h4 class="font-serif text-xl md:text-2xl mb-4 text-orange">Запрос клиента</h4>
+                        <p class="text-navy/90 p-5 md:p-6 bg-white rounded-xl shadow-sm border border-navy/5 leading-relaxed text-sm md:text-lg italic font-serif">«${c.request}»</p>
+                    </div>` : ''}
+
+                    ${c.session ? `
+                    <div class="mb-10">
+                        <h4 class="font-serif text-xl md:text-2xl mb-6 text-orange flex items-center gap-3"><i class="ph ph-path"></i> Ход сессии и стратегия</h4>
+                        <div class="space-y-6 md:space-y-8 border-l-2 border-powder/40 pl-6 ml-3">
+                            ${c.session.map((step, idx) => `
+                                <div class="relative">
+                                    <span class="font-bold text-xs md:text-sm bg-powder/30 px-2 py-1 rounded inline-block mb-2 text-navy font-sans tracking-wide">Этап ${idx + 1}: ${step.title}</span>
+                                    <p class="text-navy/80 text-sm md:text-base leading-relaxed font-sans">${step.text}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>` : ''}
+
+                    ${c.result ? `
+                    <div class="bg-navy text-cream p-6 md:p-10 rounded-3xl mb-10 relative overflow-hidden shadow-2xl">
+                        <h4 class="font-serif text-xl md:text-3xl mb-4 text-orange">Итог и Результат</h4>
+                        <div class="text-powder/90 text-sm md:text-lg font-light leading-relaxed font-serif">${c.result}</div>
+                    </div>` : ''}
+
+                    ${c.longReview ? `
+                    <div class="border-2 border-orange/20 bg-orange/5 p-6 md:p-10 rounded-3xl relative mt-12 mb-6">
+                        <div class="absolute -top-6 left-6 bg-cream w-12 h-12 flex items-center justify-center rounded-full text-orange text-3xl font-serif shadow-md border border-orange/20">❝</div>
+                        <p class="text-navy/90 font-serif text-base md:text-xl leading-relaxed italic">«${c.longReview}»</p>
+                    </div>` : ''}
+                </div>`;
+                        caseModal.classList.remove('hidden');
+                        caseModalContent.scrollTop = 0;
+                        document.body.style.overflow = 'hidden';
+                        setTimeout(() => {
+                            caseModal.classList.remove('opacity-0');
+                            caseModalContent.classList.replace('modal-leave', 'modal-enter');
+                        }, 10);
+                    }
+                    return;
+                }
+                // 2. Открытие Картинки (Текстовый отзыв или Образование)
+                const reviewCard = e.target.closest('.text-review-card');
+                if (reviewCard) {
+                    const img = reviewCard.querySelector('img.doc-img') || reviewCard.querySelector('.text-review-img') || reviewCard.querySelector('img');
+                    if (img && imageModalTarget && imageModal) {
+                        imageModalTarget.src = img.src;
+                        imageModal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                        setTimeout(() => {
+                            imageModal.classList.remove('opacity-0');
+                            imageModalTarget.classList.remove('scale-95');
+                        }, 10);
+                    }
+                    return;
+                }
+                // 3. Открытие Видео (VK)
+                const localVideoCard = e.target.closest('.local-video-card');
+                if (localVideoCard && typeof videoModalPlayer !== 'undefined' && videoModalPlayer && videoModal) {
+                    const videoSrc = localVideoCard.getAttribute('data-video-src');
+                    // Открываем video player для локальных mp4
+                    const vPlayer = document.getElementById('video-modal-player');
+                    const vIframe = document.getElementById('video-modal-iframe');
+                    if (vPlayer) {
+                        vPlayer.src = videoSrc;
+                        vPlayer.classList.remove('hidden');
+                        if (vIframe) vIframe.classList.add('hidden');
+                    } else if (vIframe) {
+                        vIframe.src = videoSrc;
+                    }
+                    videoModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        videoModal.classList.remove('opacity-0');
+                        videoModal.children[1].classList.remove('scale-95');
+                    }, 10);
+                    if (vPlayer) vPlayer.play().catch(e => console.log('Autoplay prevented', e));
+                    return;
+                }
+            });
+
+            function closeCaseModal() {
+                if (caseModal && !caseModal.classList.contains('hidden')) {
+                    caseModal.classList.add('opacity-0');
+                    if (caseModalContent) caseModalContent.classList.replace('modal-enter', 'modal-leave');
+                    setTimeout(() => {
+                        caseModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        document.getElementById('modal-body').innerHTML = '';
+                    }, 300);
+                }
+            }
+            function closeImageModal() {
+                if (imageModal && !imageModal.classList.contains('hidden')) {
+                    imageModal.classList.add('opacity-0');
+                    if (imageModalTarget) imageModalTarget.classList.add('scale-95');
+                    setTimeout(() => {
+                        imageModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        if (imageModalTarget) imageModalTarget.src = '';
+                    }, 300);
+                }
+            }
+            function closeVideoModal() {
+                if (videoModal && !videoModal.classList.contains('hidden')) {
+                    videoModal.classList.add('opacity-0');
+                    videoModal.children[1].classList.add('scale-95');
+                    const _vp = document.getElementById('video-modal-player'); if (_vp) { _vp.pause(); _vp.src = ''; _vp.classList.add('hidden'); }
+                    setTimeout(() => {
+                        videoModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        // src сброшен выше
+                    }, 300);
+                }
+            }
+
+            document.getElementById('close-modal-btn')?.addEventListener('click', closeCaseModal);
+            document.getElementById('close-image-btn')?.addEventListener('click', closeImageModal);
+            document.getElementById('close-video-btn')?.addEventListener('click', closeVideoModal);
+
+            caseModal?.addEventListener('click', (e) => { if (e.target === caseModal) closeCaseModal(); });
+            imageModal?.addEventListener('click', (e) => { if (e.target === imageModal) closeImageModal(); });
+            videoModal?.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+
+            // Закрытие модалок по Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeCaseModal();
+                    closeImageModal();
+                    closeVideoModal();
+                }
+            });
+
+            // === Логика FAQ ===
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    if (!content) return;
+
+                    const icon = btn.querySelector('.faq-icon');
+                    // Check if currently open by checking rotation on icon
+                    const isOpen = icon ? icon.classList.contains('rotate-45') : (!content.classList.contains('hidden') && !content.classList.contains('max-h-0'));
+
+                    // Close all
+                    faqBtns.forEach(otherBtn => {
+                        const otherContent = otherBtn.nextElementSibling;
+                        const otherIcon = otherBtn.querySelector('.faq-icon');
+                        if (otherContent) {
+                            if (otherContent.classList.contains('transition-all')) {
+                                otherContent.style.maxHeight = null;
+                                otherContent.classList.add('max-h-0');
+                            } else {
+                                otherContent.classList.add('hidden');
+                            }
+                        }
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate-45');
+                        }
+                    });
+
+                    // Open current if it was closed
+                    if (!isOpen) {
+                        content.classList.remove('hidden', 'max-h-0');
+                        if (content.classList.contains('transition-all')) {
+                            // Give it a height so it transitions cleanly
+                            content.style.maxHeight = content.scrollHeight + 50 + "px";
+                        }
+                        if (icon) {
+                            icon.classList.add('rotate-45');
+                        }
+                    }
+                });
+            });
+
+            // === Логика мобильного меню и аккордеона ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const productsToggle = document.getElementById('mobile-products-toggle');
+            const productsContent = document.getElementById('mobile-products-content');
+            const productsIcon = document.getElementById('mobile-products-icon');
+
+            function toggleMobileMenu() {
+                if (!mobileNav) return;
+                if (mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.remove('hidden');
+                    requestAnimationFrame(() => mobileNav.classList.remove('opacity-0'));
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileNav.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileNav.classList.add('hidden');
+                        if (productsContent && productsContent.style.maxHeight) {
+                            productsContent.style.maxHeight = null;
+                            if (productsIcon) productsIcon.classList.remove('rotate-180');
+                            if (productsToggle) productsToggle.classList.remove('text-orange');
+                        }
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            if (productsToggle && productsContent) {
+                productsToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (productsIcon) productsIcon.classList.toggle('rotate-180');
+                    productsToggle.classList.toggle('text-orange');
+                    if (productsContent.style.maxHeight) {
+                        productsContent.style.maxHeight = null;
+                    } else {
+                        productsContent.style.maxHeight = productsContent.scrollHeight + "px";
+                    }
+                });
+            }
+            // Закрытие по клику на ссылку в меню
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu());
+            });
+            // === Эффект печатной машинки для Манифеста ===
+            const phrases = [
+                `Многие пробуют решить это старыми способами:
+
+ещё больше работать, ещё жёстче планировать, ещё сильнее стараться.
+
+Но дело не в усилиях.
+
+Моя задача — помочь вам увидеть себя ясно: кто вы, куда идёте и зачем.
+
+И выстроить путь, который держится на вас — а не на вечном «надо».`
+            ];
+            const textElement = document.getElementById("typewriter-text");
+            const cursorElement = document.getElementById("cursor");
+
+            if (textElement && cursorElement) {
+                if (window.innerWidth < 768) {
+                    // Мобильная версия: показываем весь текст сразу
+                    textElement.textContent = phrases[0];
+                    cursorElement.style.display = 'none';
+                } else {
+                    // ПК версия: эффект печатной машинки
+                    let phraseIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    let typeSpeed = 50;
+
+                    function type() {
+                        const currentPhrase = phrases[phraseIndex];
+
+                        if (isDeleting) {
+                            textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                            charIndex--;
+                            typeSpeed = 30;
+                        } else {
+                            textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                            charIndex++;
+                            typeSpeed = 50;
+                        }
+
+                        if (!isDeleting && charIndex === currentPhrase.length) {
+                            isDeleting = true;
+                            typeSpeed = 3000; // Пауза в конце фразы
+                            cursorElement.classList.remove('opacity-0');
+                        } else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            phraseIndex = (phraseIndex + 1) % phrases.length;
+                            typeSpeed = 500; // Пауза перед новой фразой
+                            cursorElement.classList.add('opacity-0');
+                        }
+
+                        setTimeout(type, typeSpeed);
+                    }
+
+                    cursorElement.classList.remove('opacity-0');
+                    setTimeout(type, 1000);
+                }
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наталья Старостина | Почему поиск «лучшей версии себя» — это ложь (и как выйти из этой гонки)</title>
+    <meta name="description"
+        content="Индустрия саморазвития годами продает нам концепт «Стань лучшей версией себя», который на самом деле является главной причиной выгорания сильных и деятельных людей.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            lighter: '#233554'
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F0EBE1'
+                        },
+                        powder: '#AECBEB',
+                        orange: {
+                            DEFAULT: '#FF8C00',
+                            hover: '#E67E00'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-navy: #0A192F;
+            --color-cream: #FDFBF7;
+            --color-powder: #AECBEB;
+            --color-orange: #FF8C00;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-navy);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .btn-alive-gradient {
+            background: linear-gradient(270deg, #FF8C00, #FDB931, #FFD700, #FF8C00);
+            background-size: 300% 300%;
+            animation: gradient-flow 4s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .prose h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            color: var(--color-navy);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .prose h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-navy);
+            line-height: 1.3;
+        }
+
+        .prose h4 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-navy);
+            line-height: 1.4;
+        }
+
+        .prose p {
+            margin-bottom: 1.75rem;
+            line-height: 1.85;
+            color: rgba(10, 25, 47, 0.75);
+            font-size: 1.125rem;
+        }
+
+        .prose strong {
+            color: var(--color-navy);
+            font-weight: 800;
+        }
+
+        .prose em {
+            font-style: italic;
+            color: var(--color-navy);
+        }
+
+        .prose ul {
+            margin-bottom: 2rem;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .prose li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            color: rgba(10, 25, 47, 0.75);
+            font-size: 1.125rem;
+        }
+
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--color-orange);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid var(--color-orange);
+            padding-left: 2.5rem;
+            margin: 4rem 0;
+            font-style: italic;
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-navy);
+            opacity: 0.9;
+        }
+
+        <style id="mobile-optimizations">@media (max-width: 767px) {
+
+            p,
+            span,
+            div:not(.font-script):not(.font-serif):not(.text-center):not(.absolute):not(.relative) {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .hero-bg-text {
+                top: 50% !important;
+            }
+
+            .px-4 {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Заголовки */
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                position: relative;
+                z-index: 10;
+                line-height: 1.25 !important;
+            }
+
+            h1 {
+                font-size: 2.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.6rem !important;
+            }
+
+            /* == Анимированные круги — убрать == */
+            .animate-spin-slow,
+            .animate-spin-very-slow,
+            .animate-float,
+            circle {
+                display: none !important;
+            }
+
+            /* == Badge (белый круг с оранжевым) на главном экране — убрать == */
+            .hero-badge {
+                display: none !important;
+            }
+
+            /* == Hero фото: убрать синие полосы / обрезку == */
+            /* Контейнер с аркой */
+            .hero-photo-container {
+                border-radius: 200px 200px 0 0 !important;
+                aspect-ratio: 1 / 1 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-photo-container img,
+            .hero-photo-container video {
+                object-fit: cover !important;
+                object-position: center top !important;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none !important;
+                max-width: 100% !important;
+            }
+
+            /* == "Обо мне" фото — скруглить == */
+            .about-photo-block,
+            .about-photo-block>div {
+                border-radius: 1.5rem !important;
+                overflow: hidden !important;
+            }
+
+            .about-photo-block img {
+                border-radius: 1.5rem !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-img,
+            [alt="Наталья"],
+            .about-me-img {
+                max-width: 85% !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* == Hero: контейнер фото на полную ширину == */
+            .hero-photo-container {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .relative.w-full.max-w-\[400px\] {
+                max-width: 100% !important;
+            }
+
+            /* == Сертификаты — квадратные на мобиле == */
+            .doc-item-container {
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Уменьшить карточки на 30% — сертификаты, отзывы, кейсы, база знаний == */
+            .doc-item-container {
+                width: 59.5vw !important;
+                /* 85vw * 0.7 */
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .text-review-card {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .case-card-mobile-wrap,
+            .knowledge-card {
+                transform: scale(0.7) !important;
+                transform-origin: top center !important;
+            }
+
+            /* == Видео карточки: квадратные, размер как ситуации == */
+            .local-video-card {
+                width: 60vw !important;
+                min-width: unset !important;
+                max-width: 260px !important;
+                aspect-ratio: 1 / 1 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .local-video-card iframe,
+            .local-video-card video {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+            }
+
+            /* == Видео модалка: квадратная, большая == */
+            #video-modal>div {
+                width: 92vw !important;
+            }
+
+            /* == FAQ — системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-btn>span:first-child,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+            }
+
+            /* == МЕНЮ Продукты — одинаковый размер == */
+            #mobile-products-toggle {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #mobile-products-toggle span {
+                font-size: inherit !important;
+            }
+
+            /* == ФУТЕР — размер текста == */
+            footer p,
+            footer span,
+            footer a,
+            footer div {
+                font-size: 0.75rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Договор оферты — чуть крупнее */
+            footer a[href*="ofert"],
+            footer a[href*="offer"],
+            footer a[href*="terms"],
+            footer a:last-child {
+                font-size: 0.85rem !important;
+            }
+
+            /* == ЭКСТРЕМАЛЬНЫЙ СЛУЧАЙ ДЛЯ СТРАНИЦЫ ОТЗЫВОВ - если там карточки с фото == */
+            .reviews-section .text-review-card {
+                /* Если карточка внутри страницы отзывов, она тоже станет квадратной */
+            }
+
+            /* == ДЕКОРАТИВНЫЙ КРУГ справа от фото — скрыть == */
+            .-top-5.-right-5,
+            .-top-5.-right-5.md\:-top-10,
+            [class*="-top-5"][class*="-right-5"],
+            [class*="-top-10"][class*="-right-10"] {
+                display: none !important;
+            }
+
+        }
+    </style>
+</head>
+
+<body class="font-sans selection:bg-orange/20">
+
+    <!-- HEADER -->
+    <header id="header"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-5 bg-cream/80 backdrop-blur-lg border-b border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-serif italic text-xl group-hover:bg-orange transition-colors">
+                    Н</div>
+                <span class="font-serif font-bold text-lg tracking-wide uppercase text-navy">Старостина</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-10 text-sm font-medium text-navy/80 uppercase tracking-widest">
+                <a href="../index.html" class="hover:text-orange transition-colors">Главная</a>
+                <a href="../index.html#formats" class="hover:text-orange transition-colors">Продукты</a>
+                <a href="../knowledge.html" class="hover:text-orange transition-colors">База знаний</a>
+                <a href="../cases.html" class="hover:text-orange transition-colors">Истории и кейсы</a>
+                <a href="../reviews.html" class="hover:text-orange transition-colors">Отзывы (текст)</a>
+                <a href="../videoaudio.html" class="hover:text-orange transition-colors">Отзывы (видео/аудио)</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-navy p-2">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        <!-- Мобильное меню -->
+        <div id="mobile-nav"
+            class="fixed inset-0 bg-cream z-[100] hidden flex-col w-full h-full opacity-0 transition-opacity duration-300 overflow-y-auto">
+            <div class="flex items-center justify-between px-6 py-6 border-b border-navy/10 relative z-20 bg-cream">
+                <span class="font-sans text-xs font-bold tracking-widest text-navy/50 uppercase">Меню</span>
+                <button id="close-menu-btn" class="text-3xl text-navy p-2 hover:text-orange transition-colors">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col px-6 pt-6 pb-24 relative z-10 w-full min-h-max" style="pointer-events: auto;">
+                <a href="../index.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Главная</a>
+                <div class="border-b border-navy/10">
+                    <button id="mobile-products-toggle"
+                        class="w-full flex items-center justify-between py-5 text-2xl sm:text-3xl font-serif font-bold text-navy hover:text-orange transition-colors text-left group">
+                        <span class="font-bold text-2xl sm:text-3xl">Продукты</span>
+                        <i class="ph ph-caret-down text-xl text-navy/50 group-hover:text-orange transition-transform duration-300"
+                            id="mobile-products-icon"></i>
+                    </button>
+                    <div id="mobile-products-content"
+                        class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="flex flex-col gap-4 pb-6 pt-2 pl-4 border-l border-orange/30 ml-2">
+                            <a href="../unpacking.html"
+                                class="mobile-link text-wrap block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Распаковка
+                                личности и проф пути</a>
+                            <a href="../strategy.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Стратегическая
+                                сессия</a>
+
+                            <a href="../coaching.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Коучинг
+                                (сессия и сопровождение)</a>
+                            <a href="../yasd.html"
+                                class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold">Ясность.
+                                Стратегия. Действие</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../knowledge.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">База
+                    знаний</a>
+                <a href="../cases.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Истории
+                    и кейсы</a>
+                <a href="../reviews.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                    (текст)</a>
+                <a href="../videoaudio.html"
+                    class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold">Отзывы
+                    (видео/аудио)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ARTICLE HERO -->
+    <section class="pt-32 pb-16 md:pt-48 md:pb-24 px-4 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-orange/[0.02] -skew-x-12 transform origin-top-right"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <div class="mb-8 flex flex-wrap items-center justify-center gap-4">
+                <span
+                    class="text-[10px] uppercase tracking-widest bg-orange/10 text-orange px-4 py-1.5 rounded-full border border-orange/10 ring-4 ring-orange/5 font-bold">Психология</span>
+                <div class="flex items-center gap-2 text-navy/40 text-[10px] font-bold uppercase tracking-widest">
+                    <i class="ph ph-clock"></i>
+                    <span>7 мин.</span>
+                </div>
+            </div>
+
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-navy mb-8 leading-[1.15] tracking-tight">
+                Почему поиск «лучшей версии себя» — это ложь (и как выйти из этой гонки)
+            </h1>
+
+            <p class="text-navy/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+                Индустрия саморазвития годами продает нам концепт «Стань лучшей версией себя», который на самом деле
+                является главной причиной выгорания сильных и деятельных людей.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <main class="pb-24 px-4">
+        <div class="max-w-3xl mx-auto relative">
+            <div class="w-full h-px bg-navy/5 mb-16"></div>
+
+            <div class="mt-12 mb-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                <img src="../images/articles/search-for-best-version-is-lie/ultra-realistic_portrait_of_a_slavic_woman_standing_or_sitting_in_a_calm_minimalistic_room_exuding__hjvh5olw8zoon9s84oay_0.png"
+                    alt="Ложь саморазвития"
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+            </div>
+
+            <article class="prose max-w-none">
+                <p>Вы читаете умные книги. Проходите дорогие обучения. Ставите амбициозные цели по SMART, нанимаете
+                    менторов и, возможно, даже растете в доходе. Внешне все выглядит как образцовый путь успешного
+                    человека. </p>
+
+                <p>Но если быть до конца честными: как часто в конце дня вы чувствуете не удовлетворение от масштаба, а
+                    глухую усталость? Ощущение, что вы снова «не дотянули»? Что нужно еще немного постараться, еще одну
+                    привычку внедрить, еще один курс пройти — и вот тогда, в будущем, вы наконец-то станете «достаточно
+                    хорошим» специалистом, руководителем, человеком.</p>
+
+                <p>Индустрия саморазвития годами продает нам один и тот же концепт: <strong>«Стань лучшей версией
+                        себя»</strong>. </p>
+
+                <p>Звучит мотивирующе. Но на уровне нейробиологии и глубокой психологии эта фраза — ментальная ловушка.
+                    И именно она является главной причиной выгорания сильных, умных и деятельных людей.</p>
+
+                <h3>Анатомия лжи: почему этот концепт не работает</h3>
+
+                <p>Давайте разберем фразу «лучшая версия себя» на составляющие. Что она на самом деле означает для
+                    нашего бессознательного? Она означает: <strong>«Та версия меня, которая существует прямо сейчас, —
+                        дефектна, недостаточна и неприемлема»</strong>.</p>
+
+                <p>Когда вы строите жизнь и бизнес из этой парадигмы, вы живете в состоянии перманентного внутреннего
+                    конфликта. Ваш внутренний Критик надевает форму надзирателя и начинает хлестать вас за каждую
+                    ошибку, за каждый час отдыха, за каждую упущенную возможность. Вы распыляетесь на десятки задач,
+                    пытаясь быть идеальным везде. В итоге ваши стратегические и творческие идеи откладываются «на
+                    потом», а вы тонете в бесконечной операционной рутине.</p>
+
+                <h3>Смена оптики: Позиция Наблюдателя</h3>
+
+                <p>Меня зовут Наталья Старостина. За более чем 9 лет работы с бизнесом и людьми я видела этот паттерн у
+                    десятков предпринимателей и топ-менеджеров. Я сама проходила этот путь. И я точно знаю: стратегия
+                    «волшебного пинка» дает лишь краткосрочный всплеск адреналина. А потом неизбежно наступает откат.
+                </p>
+
+                <figure class="my-16 relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/9]">
+                    <img src="../images/articles/search-for-best-version-is-lie/inside1.png" alt="Позиция Наблюдателя"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                </figure>
+
+                <p>В методологии беатотерапии, на которую я опираюсь в работе, есть ключевой инструмент —
+                    <strong>Позиция Наблюдателя</strong>. Вместо того чтобы бороться с собой и заставлять себя выходить
+                    из пресловутой «зоны комфорта», вы учитесь смотреть на свою жизнь со стороны.
+                </p>
+
+                <ul>
+                    <li>Вы не ленивы. Просто ваша стратегия сейчас не соответствует вашему реальному объему энергии.
+                    </li>
+                    <li>Вы не прокрастинатор. Просто вы пытаетесь решить задачу, которая противоречит вашим внутренним
+                        смыслам.</li>
+                    <li>Вы не «застряли». Вы просто уперлись в узкое горлышко старых методов, которые больше не работают
+                        на вашем текущем уровне.</li>
+                </ul>
+
+                <h3>Как действовать, чтобы расти без надрыва: Трек Я.С.Д.</h3>
+
+                <p>Когда вы увольняете внутреннего надзирателя и прекращаете искать «лучшую версию», высвобождается
+                    колоссальный объем энергии. Чтобы направить её на реальный рост бизнеса, дохода или качества жизни,
+                    вам нужно пройти через три последовательных этапа. Я называю этот трек <strong>Я.С.Д. (Ясность.
+                        Стратегия. Действие)</strong>.</p>
+
+                <p>Если вы хотите выйти из хаоса и обрести твердую опору, вот как должен строиться ваш маршрут:</p>
+
+                <h4>Этап 1. Обрести Ясность (Сформировать фундамент)</h4>
+                <p>Прежде чем бежать к цели, нужно остановиться и провести честный аудит. Задача этого этапа — перестать
+                    искать в себе недостатки и сфокусироваться на активах. Вам нужно отделить свои подлинные желания от
+                    навязанных социальных ожиданий, найти свое профессиональное «ядро» и понять, на что вы можете
+                    опереться прямо сейчас.</p>
+                <p><em>К чему вы приходите:</em> К кристальному пониманию, кто вы, в чем ваша истинная сила и чего вы на
+                    самом деле хотите, без оглядки на чужие стандарты.</p>
+
+                <h4>Этап 2. Выстроить Стратегию (Проложить маршрут)</h4>
+                <p>Ясность без маршрута — это просто приятные размышления. На втором этапе вы переводите свои желания в
+                    твердую плоскость. Задача здесь — оцифровать цели, провести бизнес-анализ своей ситуации, найти
+                    «узкие горлышки» (что конкретно вас тормозит) и прописать пошаговый план.</p>
+                <p><em>К чему вы приходите:</em> У вас на руках появляется дорожная карта, которая опирается на ваши
+                    реальные ресурсы и метрики, а не на пустые амбиции. Вы точно знаете, что делать завтра утром.</p>
+
+                <h4>Этап 3. Перевести в Действие (Реализовать задуманное)</h4>
+                <p>Самый детальный план мертв, если вы саботируете шаги. На этом этапе ваша задача — научиться
+                    справляться с неизбежным сопротивлением, страхами проявленности и прокрастинацией. Вы не заставляете
+                    себя на силе воли, а бережно работаете со своей психикой, совершая точные, откалиброванные шаги.</p>
+                <p><em>К чему вы приходите:</em> Спокойное, планомерное движение к целям. Вы реализуете свой потенциал,
+                    сохраняя контакт с реальностью и не выгорая.</p>
+
+                <h3>Ваш следующий шаг</h3>
+
+                <p>В вас уже достаточно знаний, опыта и силы. Вопрос лишь в том, на каком из трех этапов у вас сейчас
+                    произошел сбой. Почему вы стоите на месте? </p>
+
+                <ul>
+                    <li>Нет понимания, куда двигаться дальше (провал в Ясности)? </li>
+                    <li>Есть понимание, но нет четкого плана (провал в Стратегии)? </li>
+                    <li>Есть план, но вы всё время откладываете шаги (провал в Действии)?</li>
+                </ul>
+
+                <p><strong>Давайте выясним это прямо сейчас.</strong> Я подготовила короткий диагностический бот.
+                    Ответьте на 5 простых вопросов, и система покажет, где находится ваше «узкое горлышко» в цикле
+                    Я.С.Д., и какой инструмент поможет вам сдвинуться с мертвой точки прямо сегодня.</p>
+
+                <blockquote>Вы не обязаны тащить всё на себе и бесконечно себя переделывать. Разрешите себе остановиться
+                    и посмотреть на систему со стороны. До встречи.</blockquote>
+            </article>
+
+            <!-- CTA -->
+            <div class="mt-20 p-8 md:p-12 bg-navy rounded-[2.5rem] text-white overflow-hidden relative group">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-orange/10 rounded-full -mr-32 -mt-32 blur-3xl transition-transform duration-1000 group-hover:scale-150">
+                </div>
+                <div class="relative z-10 text-center">
+                    <h3 class="font-serif text-2xl md:text-3xl mb-4 italic">Пройти аудит смыслов</h3>
+                    <div class="text-powder/80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+                        Я подготовила короткий диагностический бот, который поможет вам увидеть реальное состояние вашей
+                        системы.
+                    </div>
+                    <a href="https://t.me/nv_star" target="_blank"
+                        class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max">
+                        Пройти диагностику в Telegram ➔
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 flex justify-center">
+                <a href="../knowledge.html"
+                    class="flex items-center gap-3 text-navy/40 hover:text-orange transition-colors group">
+                    <i class="ph ph-arrow-left text-lg transition-transform group-hover:-translate-x-2"></i>
+                    <span class="text-[10px] uppercase tracking-widest font-bold">Вернуться в базу знаний</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+        class="bg-navy text-cream pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-8 relative overflow-hidden w-full max-w-full">
+        <svg class="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none" viewBox="0 0 100 100"
+            preserveAspectRatio="none">
+            <path d="M 0 100 C 50 0, 100 100, 150 0" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <div
+            class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 border-b border-white/10 pb-12 md:pb-16 mb-8">
+            <div class="w-full lg:w-1/2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cream text-navy flex items-center justify-center font-serif italic text-xl">
+                        Н</div>
+                    <span class="font-serif font-bold text-lg tracking-wide uppercase text-cream">Старостина</span>
+                </div>
+                <p class="font-sans text-powder text-base md:text-lg max-w-md leading-relaxed mb-6 md:mb-8">
+                    Если у вас есть вопросы по услугам или продуктам, вы всегда можете связаться со мной по удобному для
+                    вас каналу и мы все обсудим, я с большой радостью буду для вас помощью!</p>
+                <a href="https://t.me/nv_star" target="_blank"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max mb-12 lg:mb-0">Написать
+                    лично</a>
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 font-sans uppercase tracking-widest text-[12px] md:text-xs w-full lg:w-auto">
+                <a href="https://www.instagram.com/nataliastarostina.coach/" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-instagram-logo text-xl md:text-lg"></i> Instagram</a>
+                <a href="https://t.me/nataliastarostina_coach" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-telegram-logo text-xl md:text-lg"></i> Telegram-канал</a>
+                <a href="https://www.tiktok.com/@nataliastarostina.coach" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-tiktok-logo text-xl md:text-lg"></i> TikTok</a>
+                <a href="https://www.youtube.com/@nataliastarostina_coach" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-youtube-logo text-xl md:text-lg"></i> Youtube</a>
+                <a href="https://dzen.ru/nataliastarostina_coach" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-article text-xl md:text-lg"></i> Дзен</a>
+                <a href="https://vk.com/nv.star" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><span
+                        class="font-bold text-[12px] md:text-sm leading-none tracking-normal">VK</span> Вконтакте</a>
+                <a href="https://www.threads.net/@nataliastarostina.coach" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-threads-logo text-xl md:text-lg"></i> Threads</a>
+                <a href="https://max.ru/join/7i6v-Jd3FPg3BtQcBQq7FIraNLOUa2Fxjh_VKv5i8PU" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-3"><i
+                        class="ph ph-star text-xl md:text-lg"></i> Max</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto relative z-10 text-[10px] md:text-xs text-powder/40 font-sans tracking-wide flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div
+                class="flex flex-col sm:flex-row gap-3 md:gap-8 items-center text-center lg:text-left order-2 lg:order-1">
+                <span class="leading-relaxed"><strong class="text-white font-bold">ИП Старостина Наталья Валерьевна
+                        <br>ИНН 212912145136</strong><br>ОГРН 321213000007900</span>
+                <a href="https://docs.google.com/document/d/1onBrld8e_qzfbzRxjcFxgIeBT9fVhyI27lZ8iHjABR0/edit?tab=t.0"
+                    target="_blank"
+                    class="hover:text-cream transition-colors underline decoration-powder/30 underline-offset-4">Договор
+                    оферты</a>
+            </div>
+            <div class="order-1 lg:order-2 mb-4 lg:mb-0 flex flex-col gap-2 items-center lg:items-end">
+                <a href="mailto:nataliastarostina@internet.ru"
+                    class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"><i
+                        class="ph ph-envelope-simple text-sm md:text-base"></i> nataliastarostina@internet.ru</a>
+                <a href="https://t.me/nv_star" target="_blank"
+                    class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"><i
+                        class="ph ph-bug text-sm md:text-base"></i> написать сообщение об ошибке на сайте</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // === Логика мобильного меню и аккордеона ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const productsToggle = document.getElementById('mobile-products-toggle');
+            const productsContent = document.getElementById('mobile-products-content');
+            const productsIcon = document.getElementById('mobile-products-icon');
+
+            function toggleMobileMenu() {
+                if (!mobileNav) return;
+                if (mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.remove('hidden');
+                    requestAnimationFrame(() => mobileNav.classList.remove('opacity-0'));
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileNav.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileNav.classList.add('hidden');
+                        if (productsContent && productsContent.style.maxHeight) {
+                            productsContent.style.maxHeight = null;
+                            if (productsIcon) productsIcon.classList.remove('rotate-180');
+                            if (productsToggle) productsToggle.classList.remove('text-orange');
+                        }
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            if (productsToggle && productsContent) {
+                productsToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (productsIcon) productsIcon.classList.toggle('rotate-180');
+                    productsToggle.classList.toggle('text-orange');
+                    if (productsContent.style.maxHeight) {
+                        productsContent.style.maxHeight = null;
+                    } else {
+                        productsContent.style.maxHeight = productsContent.scrollHeight + "px";
+                    }
+                });
+            }
+            // Закрытие по клику на ссылку в меню
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu());
+            });
+
+            // Тень для шапки при скролле
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (header) {
+                    if (window.scrollY > 20) header.classList.add('shadow-sm', 'border-navy/5');
+                    else header.classList.remove('shadow-sm', 'border-navy/5');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

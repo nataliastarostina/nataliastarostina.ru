@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Executive &amp; Business-коучинг по стандартам ICF для собственников и топ-менеджеров. Выход из операционки, рост и масштаб бизнеса, баланс жизни. Наталья Старостина.">
+    <title>Executive &amp; Business-коучинг | Наталья Старостина</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Pinyon+Script&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            lighter: '#233554'
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F0EBE1'
+                        },
+                        powder: '#AECBEB',
+                        orange: {
+                            DEFAULT: '#FF8C00',
+                            hover: '#E67E00'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 15s linear infinite',
+                        'spin-very-slow': 'spin 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 32s linear infinite',
+                        'gradient-flow': 'gradient-flow 4s ease infinite',
+                        'bounce-slow': 'bounce-slow 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'gradient-flow': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        'bounce-slow': {
+                            '0%, 100%': { transform: 'translateY(-15%)', 'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)' },
+                            '50%': { transform: 'translateY(0)', 'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- CSS FIX -->
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 140, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 140, 0, 0.8);
+        }
+
+        /* ALL ANIMATION CLASSES */
+        .reveal-up,
+        .reveal-left,
+        .reveal-right,
+        .scroll-anim,
+        .fade-in-up,
+        .fade-in-left,
+        .fade-in-right,
+        .fade-in {
+            opacity: 0;
+            transition: all 1s ease-out;
+        }
+
+        .reveal-up,
+        .fade-in-up,
+        .scroll-anim {
+            transform: translateY(30px);
+        }
+
+        .reveal-left,
+        .fade-in-left {
+            transform: translateX(-30px);
+        }
+
+        .reveal-right,
+        .fade-in-right {
+            transform: translateX(30px);
+        }
+
+        .fade-in {
+            transform: none;
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease-out;
+        }
+
+        .reveal-scale.active,
+        .reveal-scale.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reveal-up.active,
+        .reveal-left.active,
+        .reveal-right.active,
+        .scroll-anim.is-visible,
+        .fade-in-up.active,
+        .fade-in-left.active,
+        .fade-in-right.active,
+        .scroll-anim.active,
+        .fade-in.active {
+            opacity: 1;
+            transform: translate(0, 0);
+
+            .about-photo-col {
+                order: 99 !important;
+            }
+        }
+    </style>
+    <style>
+        .photo-shadow {
+            box-shadow: 0 30px 60px -12px rgba(10, 25, 47, 0.3), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-alive-gradient {
+            background: linear-gradient(270deg, #FF8C00, #FDB931, #FFD700, #FF8C00);
+            background-size: 300% 300%;
+        }
+
+        .materials-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .materials-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+    <!-- ОПТИМИЗАЦИЯ ДЛЯ МОБИЛОК И ПРАВКИ ДИЗАЙНА -->
+    <style id="mobile-optimizations">
+        @media (max-width: 767px) {
+
+            p,
+            span,
+            div:not(.font-script):not(.font-serif):not(.text-center):not(.absolute):not(.relative) {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .hero-bg-text {
+                top: 50% !important;
+            }
+
+            .px-4 {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Заголовки */
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                position: relative;
+                z-index: 10;
+                line-height: 1.25 !important;
+            }
+
+            h1 {
+                font-size: 2.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.6rem !important;
+            }
+
+            /* == Анимированные круги — убрать == */
+            .animate-spin-slow,
+            .animate-spin-very-slow,
+            .animate-float,
+            circle {
+                display: none !important;
+            }
+
+            /* == Badge (белый круг с оранжевым) на главном экране — убрать == */
+            .hero-badge {
+                display: none !important;
+            }
+
+            /* == Hero фото: убрать синие полосы / обрезку == */
+            /* Контейнер с аркой */
+            .hero-photo-container {
+                border-radius: 200px 200px 0 0 !important;
+                aspect-ratio: 1 / 1 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-photo-container img,
+            .hero-photo-container video {
+                object-fit: cover !important;
+                object-position: center top !important;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none !important;
+                max-width: 100% !important;
+            }
+
+            /* Tailwind escaped: контейнер rounded-[200px_200px_0_0] → обрабатываем через hero-photo-container */
+
+            /* == "Обо мне" фото — скруглить == */
+            .about-photo-block,
+            .about-photo-block>div {
+                border-radius: 1.5rem !important;
+                overflow: hidden !important;
+            }
+
+            .about-photo-block img {
+                border-radius: 1.5rem !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-img,
+            [alt="Наталья Старостина"],
+            [alt="Наталья"],
+            .about-me-img {
+                max-width: 85% !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* == Hero: контейнер фото на полную ширину == */
+            .hero-photo-container {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .relative.w-full.max-w-\[400px\] {
+                max-width: 100% !important;
+            }
+
+            /* == Сертификаты — квадратные на мобиле == */
+            .doc-item-container {
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Уменьшить карточки на 30% — сертификаты, отзывы, кейсы, база знаний == */
+            .doc-item-container {
+                width: 59.5vw !important;
+                /* 85vw * 0.7 */
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .text-review-card {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .case-card-mobile-wrap,
+            .knowledge-card {
+                transform: scale(0.7) !important;
+                transform-origin: top center !important;
+            }
+
+            /* == Видео карточки: квадратные, размер как ситуации == */
+            .local-video-card:not(.video-large-horizontal) {
+                width: 60vw !important;
+                min-width: unset !important;
+                max-width: 260px !important;
+                aspect-ratio: 1 / 1 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .local-video-card iframe,
+            .local-video-card video {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+            }
+
+            /* == Видео модалка: квадратная, большая == */
+            #video-modal>div {
+                max-width: 90vw !important;
+                width: 90vw !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Hero hero-subtitle-tag: такой же размер как italic в h1 == */
+            .hero-subtitle-tag {
+                font-size: 1rem !important;
+                text-transform: uppercase !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+            }
+
+            /* == FAQ: системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif !important;
+            }
+
+            /* Единый стиль для подзаголовков пунктов (Standardized point titles on mobile) */
+            section.bg-cream h4.font-serif,
+            #cta-block h4,
+            .faq-btn span.font-serif {
+                font-size: 1.2rem !important;
+                font-style: normal !important;
+                font-family: 'Lora', serif !important;
+                font-weight: 700 !important;
+                margin-top: 0 !important;
+                margin-bottom: 0.5rem !important;
+                display: block;
+            }
+
+            /* == Меню Продукты: одинаковый размер с остальными == */
+            #mobile-products-toggle {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #mobile-products-toggle span {
+                font-size: inherit !important;
+            }
+
+            /* == Hero: Typography overrides for mobile to match PC == */
+            span.hero-title-swap {
+                font-size: 0.7rem !important;
+                letter-spacing: 0.15em !important;
+                line-height: 1.2 !important;
+            }
+
+            h1.hero-subtitle-swap {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            h1.hero-subtitle-swap span.italic {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            /* == FAQ: системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif !important;
+            }
+
+            /* Единый стиль для подзаголовков пунктов */
+            .step-title-shrink,
+            section.bg-cream h4.font-serif,
+            #cta-block h4,
+            .faq-btn span.font-serif {
+                font-size: 1.2rem !important;
+                font-style: normal !important;
+                font-family: 'Lora', serif !important;
+                font-weight: 700 !important;
+                margin-top: 0 !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            /* Fix for headers with spans to maintain size */
+            h2 span,
+            h3 span {
+                font-size: inherit !important;
+            }
+
+            /* == Ситуации, База знаний, Кейсы: Единые карточки на мобильном == */
+            #situations-carousel>div,
+            #materials-carousel>div,
+            #cases-carousel>div.case-card {
+                width: 70vw !important;
+                max-width: 280px !important;
+                aspect-ratio: auto !important;
+                height: auto !important;
+                flex-shrink: 0 !important;
+            }
+
+            #situations-carousel>div>.aspect-video,
+            #materials-carousel>div>.h-1\/2 {
+                height: auto !important;
+                aspect-ratio: 4 / 3 !important;
+            }
+
+            #situations-carousel .p-5,
+            #materials-carousel .p-6,
+            #cases-carousel .p-5 {
+                padding: 1.25rem !important;
+                gap: 0.5rem !important;
+            }
+
+            #situations-carousel h3,
+            #materials-carousel h4,
+            #cases-carousel h4 {
+                font-size: 1.1rem !important;
+                line-height: 1.3 !important;
+                margin-top: 1.25rem !important;
+                /* increased padding */
+                margin-bottom: 1.25rem !important;
+                /* increased padding */
+                font-weight: 400 !important;
+                text-transform: none !important;
+                font-style: normal !important;
+            }
+
+            /* Кейсы: имя (интервал -), профессия (размер+), аватар +20% */
+            #cases-carousel .font-bold.text-sm {
+                line-height: 1.1 !important;
+                margin-bottom: 2px !important;
+            }
+
+            #cases-carousel .text-\[9px\] {
+                font-size: 10px !important;
+                line-height: 1.1 !important;
+            }
+
+            #cases-carousel .w-10.h-10 {
+                width: 3rem !important;
+                /* w-12 equivalent */
+                height: 3rem !important;
+            }
+
+            #situations-carousel p,
+            #materials-carousel p,
+            #cases-carousel p.font-serif {
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #materials-carousel a,
+            #cases-carousel .case-action-hint {
+                font-size: 0.7rem !important;
+                margin-top: auto !important;
+                letter-spacing: 0.1em !important;
+                opacity: 0.6;
+            }
+
+            #cases-carousel .case-action-hint i {
+                font-size: 3px !important;
+            }
+
+            @media (min-width: 768px) {
+                #cases-carousel .case-action-hint {
+                    font-size: 13px !important;
+                }
+
+                #cases-carousel .case-action-hint i {
+                    font-size: 10px !important;
+                }
+            }
+
+            /* == Манифест: текст увеличить на 20% (скорр. на -10%) == */
+            #manifesto p,
+            #manifesto .font-serif,
+            #manifesto h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.5 !important;
+            }
+
+            /* == "Обо мне": фото без белых полос == */
+            #about .about-photo-block img,
+            #about [alt="Наталья Старостина"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                border-radius: 1rem !important;
+            }
+
+            /* == "Обо мне": выравнивание номеров и заголовков == */
+            #about .flex.gap-4.items-start {
+                align-items: baseline !important;
+            }
+
+            #about .font-serif.text-4xl {
+                font-size: 1.75rem !important;
+                line-height: 1 !important;
+            }
+
+            /* == "Обо мне": увеличение шрифта описаний на 20% == */
+            #about .font-sans.text-navy\/70.text-sm {
+                font-size: 1.14rem !important;
+                /* -5% from 1.2rem */
+                line-height: 1.6 !important;
+            }
+
+            /* == "Обо мне": уменьшение конкретного заголовка на 15% == */
+            .mobile-text-shrink-15 {
+                font-size: 0.85em !important;
+                /* ~15% reduction */
+            }
+
+            .subtitle-shrink-30 {
+                font-size: 0.7em !important;
+                /* ~30% reduction from default 10px/xs */
+            }
+
+            /* == Форматы работы: выравнивание номера и заголовка на мобиле == */
+            .flex.flex-col.md\:flex-row .font-serif.text-4xl.italic {
+                font-size: 2rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .flex.flex-col.md\:flex-row h3.font-serif {
+                font-size: 1.25rem !important;
+                margin-bottom: 2px !important;
+            }
+
+            .flex.flex-col.md\:flex-row .p-8 {
+                padding: 1.25rem !important;
+            }
+
+            /* == Форматы работы: уточнения подзаголовка и фото == */
+            #formats .w-full.md\:w-1\/3.aspect-square {
+                aspect-ratio: 16 / 9 !important;
+                height: auto !important;
+            }
+
+            #formats h3.font-serif {
+                margin-bottom: 0.75rem !important;
+                /* Spacing 1 */
+            }
+
+            #formats p.font-sans.text-orange\/80 {
+                font-size: 1.1rem !important;
+                /* tiny bit smaller and compact */
+                line-height: 1.1 !important;
+                margin-bottom: 0.75rem !important;
+                /* Spacing 2 (equal) */
+            }
+
+
+
+            /* == Футер: кнопка +10% == */
+            footer .btn-alive-gradient {
+                padding: 1.1rem 2.75rem !important;
+                /* +10% from py-4 px-10 */
+                font-size: 11px !important;
+                /* +10% from 10px */
+            }
+
+            #case-modal-content h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1.25rem !important;
+                line-height: 1.3 !important;
+            }
+
+            #case-modal-content h4 {
+                font-size: 1.2rem !important;
+                margin-top: 1.75rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            #case-modal-content p {
+                font-size: 0.95rem !important;
+                line-height: 1.7 !important;
+                margin-bottom: 1.25rem !important;
+            }
+
+            #case-modal-content .bg-powder\/20 {
+                padding: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            #case-modal-content img {
+                width: 5rem !important;
+                height: 5rem !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-cream text-navy antialiased selection:bg-orange selection:text-white overflow-x-hidden">
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-5 border-b border-transparent bg-cream/80 backdrop-blur-lg"
+        id="header">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a class="flex items-center gap-3 group" href="index.html">
+                <div
+                    class="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-serif italic text-xl group-hover:bg-orange transition-colors">
+                    Н</div>
+                <span class="font-serif font-bold text-lg tracking-wide uppercase text-navy">Старостина</span>
+            </a>
+            <nav
+                class="hidden lg:flex items-center gap-10 text-sm font-medium text-navy/80 uppercase tracking-widest relative">
+                <a class="hover:text-orange transition-colors" href="index.html">Главная</a>
+                <div class="relative group">
+                    <button
+                        class="hover:text-orange transition-colors uppercase tracking-widest flex items-center gap-1 font-medium font-sans">Продукты
+                        <i class="ph ph-caret-down text-xs"></i></button>
+                    <div class="absolute left-[-20px] top-[15px] pt-6 hidden group-hover:block w-72 z-[60]">
+                        <div
+                            class="bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-navy/5 py-3 flex flex-col gap-1 reveal-scale">
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="unpacking.html">Распаковка личности и проф пути</a>
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="strategy.html">Стратегическая сессия</a>
+
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="coaching.html">Коучинг (сессия и сопровождение)</a>
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="yasd.html">Ясность. Стратегия. Действие</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="hover:text-orange transition-colors" href="knowledge.html">База знаний</a>
+                <a class="hover:text-orange transition-colors" href="cases.html">Истории и кейсы</a>
+                <a class="hover:text-orange transition-colors" href="reviews.html">Отзывы (текст)</a>
+                <a class="hover:text-orange transition-colors" href="videoaudio.html">Отзывы (видео/аудио)</a>
+            </nav>
+            <button class="lg:hidden text-2xl text-navy p-2" id="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+    <div class="fixed inset-0 bg-cream z-[100] hidden flex-col w-full h-full opacity-0 transition-opacity duration-300 overflow-y-auto"
+        id="mobile-nav">
+        <div class="flex items-center justify-between px-6 py-6 border-b border-navy/10 relative z-20 bg-cream">
+            <span class="font-sans text-xs font-bold tracking-widest text-navy/50 uppercase">Меню</span>
+            <button class="text-3xl text-navy p-2 hover:text-orange transition-colors" id="close-menu-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col px-6 pt-6 pb-24 relative z-10 w-full min-h-max" style="pointer-events: auto;">
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="index.html">Главная</a>
+            <div class="border-b border-navy/10">
+                <button
+                    class="w-full flex items-center justify-between py-5 text-2xl sm:text-3xl font-serif font-bold text-navy hover:text-orange transition-colors text-left group"
+                    id="mobile-products-toggle">
+                    <span class="font-bold text-2xl sm:text-3xl">Продукты</span>
+                    <i class="ph ph-caret-down text-xl text-navy/50 group-hover:text-orange transition-transform duration-300"
+                        id="mobile-products-icon"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    id="mobile-products-content">
+                    <div class="flex flex-col gap-4 pb-6 pt-2 pl-4 border-l border-orange/30 ml-2">
+                        <a class="mobile-link text-wrap block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="unpacking.html">Распаковка личности и проф пути</a>
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="strategy.html">Стратегическая сессия</a>
+
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="coaching.html">Коучинг (сессия и сопровождение)</a>
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="yasd.html">Ясность. Стратегия. Действие</a>
+                    </div>
+                </div>
+            </div>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="knowledge.html">База знаний</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="cases.html">Истории и кейсы</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="reviews.html">Отзывы (текст)</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="videoaudio.html">Отзывы (видео/аудио)</a>
+        </nav>
+    </div>
+    <!-- BLOCK 1 - HEADER (НАВИГАЦИЯ) -->
+    <!-- Мобильное меню -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 md:px-8 overflow-hidden z-10 w-full max-w-full">
+        <div class="absolute top-20 right-0 w-full md:w-2/3 h-full bg-powder/20 rounded-l-[100%] blur-3xl -z-10"></div>
+        <div
+            class="absolute top-[10%] left-[5%] md:left-0 text-[20vw] md:text-[15vw] font-script text-navy/5 -rotate-6 whitespace-nowrap -z-10 select-none pointer-events-none hero-bg-text">
+            Mindset
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 md:gap-16 relative">
+            <div class="w-full lg:w-1/2 relative z-20">
+                <div class="flex items-center gap-4 mb-6 md:mb-8">
+                    <div class="h-px w-12 bg-orange"></div>
+                    <span
+                        class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-navy/60 hero-title-swap">Мышление
+                        лидера: ясность, масштаб и свобода действий</span>
+                </div>
+                <h1
+                    class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-navy mb-6 md:mb-8 hero-subtitle-swap">
+                    Executive & <br>
+                    <span class="italic text-navy/70">Business-коучинг</span>
+                </h1>
+                <p
+                    class="text-base md:text-xl text-navy/80 mb-8 md:mb-10 leading-relaxed font-light max-w-lg border-l-2 border-powder pl-4 md:pl-6">
+                    Вы можете многое уметь, многое знать — и всё равно чувствовать, что идёшь не туда. Или туда, но не
+                    понимать зачем. Я помогаю найти внутреннюю точку опоры и выстроить путь, который принадлежит именно
+                    вам.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+                    <a class="btn-alive-gradient animate-gradient-flow text-white py-4 px-8 rounded-none font-bold tracking-widest transition-all text-center flex items-center justify-center gap-3 group w-full sm:w-max uppercase text-xs md:text-sm hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)]"
+                        href="#formats">
+                        Выбрать формат работы
+                        <i class="ph ph-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 relative z-10">
+                <div
+                    class="absolute -top-5 -right-5 md:-top-10 md:-right-10 w-48 h-48 md:w-64 md:h-64 border border-powder rounded-full">
+                </div>
+                <div class="relative w-full max-w-[400px] md:max-w-[500px] mx-auto">
+                    <div
+                        class="hero-photo-container aspect-square md:aspect-[3/4] rounded-[200px_200px_0_0] overflow-hidden relative photo-shadow reveal-scale">
+                        <img alt="Наталья Старостина" class="w-full h-full object-cover"
+                            src="external_assets/me/photo_2026-02-28_21-33-17.jpg" />
+                        <div class="absolute inset-0 bg-navy/10 mix-blend-overlay"></div>
+                    </div>
+                    <!-- Бадж поверх фото -->
+                    <div
+                        class="hero-badge absolute -bottom-6 -left-4 md:-bottom-8 md:-left-16 bg-cream p-7 md:p-6 rounded-full shadow-2xl flex items-center justify-center border border-powder/30 z-30 scale-90 md:scale-100 transform origin-bottom-left">
+                        <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none"
+                            viewbox="0 0 100 100">
+                            <path d="M 50, 50 m -38.5, 0 a 38.5,38.5 0 1,1 77,0 a 38.5,38.5 0 1,1 -77,0"
+                                fill="transparent" id="badge-text-path-hero"></path>
+                            <text class="font-sans uppercase tracking-[0.15em]" fill="#0A192F" font-size="8"
+                                font-weight="bold">
+                                <textpath href="#badge-text-path-hero" startoffset="0%" textlength="241">РОСТ • МАСШТАБ
+                                    • БАЛАНС • </textpath>
+                            </text>
+                        </svg>
+                        <div
+                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-orange text-cream flex flex-col items-center justify-center relative z-10 shadow-inner">
+                            <span class="font-serif text-2xl md:text-3xl font-bold leading-none italic">03</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK 3 - WHAT IS COACHING (СУТЬ МЕТОДА) -->
+    <section class="relative bg-navy text-cream mt-0 w-full max-w-full overflow-hidden py-24 md:py-32">
+        <div
+            class="absolute top-[-5%] left-[-5%] text-[150px] md:text-[250px] font-serif text-white/5 leading-none z-0 select-none pointer-events-none">
+            “</div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24">
+            <!-- Левая колонка -->
+            <div class="w-full lg:w-5/12 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div class="flex items-center gap-4 mb-6 justify-center lg:justify-start w-full">
+                    <div class="h-px w-8 bg-orange"></div>
+                    <span
+                        class="hero-subtitle-tag text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-powder whitespace-nowrap">Суть
+                        метода</span>
+                    <div class="h-px w-8 bg-orange"></div>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight reveal-up mb-8">
+                    Как работает
+                    <br /><span class="italic text-orange">коучинг</span>
+                </h2>
+                <div class="border-none lg:border-l-2 border-orange/50 pl-0 lg:pl-6 py-2">
+                    <p class="font-serif italic text-lg md:text-xl text-powder/90 leading-relaxed mb-6 reveal-up">
+                        «Коучинг — это раскрытие потенциала человека с целью максимального повышения его эффективности.
+                        Коучинг не учит, а помогает учиться».
+                    </p>
+                    <p class="font-sans uppercase tracking-widest text-powder/40 font-bold reveal-up"
+                        style="font-size: 11px !important;">
+                        — Тимоти Голви, основоположник коучинга</p>
+                </div>
+            </div>
+            <!-- Правая колонка (Буллиты) -->
+            <div class="w-full lg:w-7/12 flex flex-col justify-center gap-8 md:gap-10">
+                <div class="flex items-start gap-4 group">
+                    <i class="ph ph-check-circle text-3xl md:text-4xl text-orange shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="block text-white mb-1">Вы — главный эксперт по себе</strong>
+                        <p class="font-sans text-powder/80 text-sm md:text-base leading-relaxed reveal-up">
+                            Я не приду с готовым ответом. Потому что его нет ни у кого, кроме вас.
+                            Моя роль — задать правильные вопросы и удержать пространство, в котором вы сами находите
+                            своё.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 group">
+                    <i class="ph ph-check-circle text-3xl md:text-4xl text-orange shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="block text-white mb-1">Видеть то, что изнутри невидно</strong>
+                        <p class="font-sans text-powder/80 text-sm md:text-base leading-relaxed reveal-up">
+                            Когда мы внутри своей жизни — слепые зоны неизбежны. Я помогаю увидеть
+                            паттерны, убеждения и страхи, которые незаметно управляют вашими решениями.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 group">
+                    <i class="ph ph-check-circle text-3xl md:text-4xl text-orange shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="block text-white mb-1">Не прошлое — а движение вперёд</strong>
+                        <p class="font-sans text-powder/80 text-sm md:text-base leading-relaxed reveal-up">
+                            Мы не копаемся в том, что было. Мы берём то, кто вы есть сейчас, и
+                            выстраиваем из этого твёрдую дорогу к тому, куда вы хотите прийти.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK 4 - FORMATS (ФОРМАТЫ И ТРЕКИ) -->
+    <section class="bg-cream text-navy relative overflow-hidden w-full max-w-full py-24 md:py-32" id="formats">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="mb-16 md:mb-20 text-center">
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="h-px w-8 bg-orange"></div>
+                    <span
+                        class="hero-subtitle-tag text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-navy/60">Архитектура
+                        работы</span>
+                    <div class="h-px w-8 bg-orange"></div>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl reveal-up mb-4 md:mb-6">
+                    Индивидуальный трек <br /><span class="italic text-orange">под ваш запрос</span></h2>
+                <p class="font-sans text-navy/70 text-base md:text-lg max-w-3xl mx-auto reveal-up">
+                    Нет двух одинаковых людей — нет двух одинаковых маршрутов. Под каждую ситуацию мы выстраиваем свой
+                    формат работы.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                <!-- Карточка 1: Разовая -->
+                <div
+                    class="bg-white border border-powder/30 rounded-3xl p-8 md:p-12 flex flex-col h-full shadow-lg transition-transform hover:-translate-y-2 duration-500 reveal-scale">
+                    <div class="w-16 h-16 rounded-full bg-powder/20 flex items-center justify-center mb-8">
+                        <i class="ph ph-target text-3xl text-navy"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold mb-3 reveal-up">Разовая сессия</h3>
+                    <p
+                        class="font-sans text-orange/80 text-xs md:text-sm font-bold uppercase tracking-widest mb-6 reveal-up">
+                        Точечная работа</p>
+                    <p class="font-sans text-navy/80 text-base leading-relaxed flex-grow reveal-up">
+                        Глубокая работа (1.5–2 часа) с конкретным запросом. Подходит, когда
+                        нужно принять сложное решение, выйти из ступора, разобраться в себе здесь и сейчас.
+                    </p>
+                </div>
+                <!-- Карточка 2: Сопровождение (Акцентная) -->
+                <div
+                    class="bg-navy text-cream rounded-3xl p-8 md:p-12 flex flex-col h-full shadow-2xl relative lg:scale-[1.03] transition-transform hover:scale-[1.05] duration-500">
+                    <div
+                        class="absolute top-0 right-8 transform -translate-y-1/2 bg-orange text-white text-[10px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-lg">
+                        Рекомендую
+                    </div>
+                    <div class="w-16 h-16 rounded-full bg-orange/20 flex items-center justify-center mb-8">
+                        <i class="ph ph-infinity text-3xl text-orange"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold mb-3 text-white reveal-up">Долгосрочное
+                        сопровождение
+                    </h3>
+                    <p
+                        class="font-sans text-orange/80 text-xs md:text-sm font-bold uppercase tracking-widest mb-6 reveal-up">
+                        Трансформация</p>
+                    <p class="font-sans text-powder/90 text-base leading-relaxed mb-8 reveal-up">
+                        Работа «рука в руке» от 3 месяцев. Это безопасное пространство, где
+                        происходят настоящие внутренние перемены — не за один раз, а слой за слоем.
+                    </p>
+                    <!-- Таймлайн -->
+                    <div class="mt-auto">
+                        <p
+                            class="font-sans text-sm font-bold uppercase tracking-widest mb-6 text-white/50 border-b border-white/10 pb-4 reveal-up">
+                            Что входит в трек:</p>
+                        <ul class="space-y-6 border-l border-orange/50 ml-2 pl-6 relative">
+                            <li class="relative reveal-left">
+                                <span
+                                    class="absolute -left-[29px] top-1 w-3 h-3 bg-navy bborder-orange rounded-full"></span>
+                                <strong class="block text-white mb-1">Установочная встреча</strong>
+                                <span class="text-sm text-powder/70">Разбираем, где вы сейчас и куда хотите
+                                    прийти.</span>
+                            </li>
+                            <li class="relative reveal-left">
+                                <span
+                                    class="absolute -left-[29px] top-1 w-3 h-3 bg-orange rounded-full shadow-[0_0_10px_rgba(255,140,0,0.8)]"></span>
+                                <strong class="block text-white mb-1">Основные сессии</strong>
+                                <span class="text-sm text-powder/70">Регулярная еженедельная работа по движению к
+                                    цели.</span>
+                            </li>
+                            <li class="relative reveal-left">
+                                <span
+                                    class="absolute -left-[29px] top-1 w-3 h-3 bg-navy bborder-orange rounded-full"></span>
+                                <strong class="block text-white mb-1">Промежуточная встреча <span
+                                        class="text-orange text-xs uppercase tracking-wider ml-2">(В
+                                        подарок)</span></strong>
+                                <span class="text-sm text-powder/70">Сверка маршрута на экваторе работы, корректировка
+                                    трека.</span>
+                            </li>
+                            <li class="relative reveal-left">
+                                <span
+                                    class="absolute -left-[29px] top-1 w-3 h-3 bg-navy bborder-orange rounded-full"></span>
+                                <strong class="block text-white mb-1">Завершающая встреча</strong>
+                                <span class="text-sm text-powder/70">Подведение итогов, оцифровка результатов и
+                                    присвоение нового опыта.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 md:mt-24 text-center">
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-5 px-10 md:py-6 md:px-16 rounded-none uppercase tracking-[0.1em] md:tracking-[0.2em] text-[10px] md:text-xs shadow-2xl hover:shadow-[0_20px_50px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 inline-block reveal-up"
+                    href="https://t.me/nv_star" rel="noopener noreferrer" target="_blank">
+                    Записаться на установочную встречу
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK 6 - TRANSFORMATION (РАЗДЕЛЕННЫЕ РЕЗУЛЬТАТЫ) -->
+    <section class="bg-cream text-navy relative overflow-hidden w-full max-w-full py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 md:mb-20">
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="h-px w-8 bg-orange"></div>
+                    <span
+                        class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-navy/70">Результаты</span>
+                    <div class="h-px w-8 bg-orange"></div>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl reveal-up mb-4 md:mb-6">Что меняется
+                    <br /><span class="italic text-orange">на разных дистанциях</span>
+                </h2>
+                <p class="font-sans text-navy/70 text-base md:text-lg max-w-3xl mx-auto reveal-up">
+                    Коучинг даёт и быстрые сдвиги, и глубокие изменения — в зависимости от того, насколько далеко вы
+                    готовы зайти.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Колонка 1: После разовой -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl flex flex-col h-full border border-powder/20 reveal-scale">
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold mb-2 text-navy reveal-up">После разовой сессии
+                    </h3>
+                    <p
+                        class="font-sans text-orange uppercase tracking-widest text-[10px] md:text-xs font-bold mb-8 md:mb-10 reveal-up">
+                        Тактика</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Ясность в моменте:</strong>
+                                <span class="text-navy/60 text-sm md:text-base leading-relaxed">Вы принимаете решение,
+                                    которое откладывали неделями — и чувствуете, что оно реально ваше и 100%
+                                    истинное.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Снятие внутреннего блока:</strong>
+                                <span class="text-navy/60 text-sm md:text-base leading-relaxed">Уходит тревога, ступор,
+                                    ощущение «я не знаю как».</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Конкретные следующие шаги:</strong>
+                                <span class="text-navy/60 text-sm md:text-base leading-relaxed">Хаос в голове
+                                    превращается в понятное «что делать сегодня».</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Колонка 2: По итогу сопровождения -->
+                <div
+                    class="bg-gradient-to-br from-white to-orange/5 p-8 md:p-12 rounded-2xl flex flex-col h-full border border-orange/20 shadow-[0_0_40px_rgba(255,140,0,0.05)]">
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold mb-2 text-navy reveal-up">По итогу
+                        сопровождения</h3>
+                    <p
+                        class="font-sans text-orange uppercase tracking-widest text-[10px] md:text-xs font-bold mb-8 md:mb-10 reveal-up">
+                        Стратегия</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Новое понимание себя:</strong>
+                                <span class="text-navy/70 text-sm md:text-base leading-relaxed">Вы знаете, кто вы, чего
+                                    хотите и почему именно это — важно.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Архитектор своей жизни:</strong>
+                                <span class="text-navy/70 text-sm md:text-base leading-relaxed">Вы выходите из режима
+                                    «не знаю куда и зачем» и начинаете управлять собой и своим путём.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Внутренняя опора:</strong>
+                                <span class="text-navy/70 text-sm md:text-base leading-relaxed">Уверенность, которая не
+                                    зависит от внешних обстоятельств.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 reveal-left">
+                            <i class="ph ph-check text-2xl text-orange shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-navy mb-1">Ясная стратегия:</strong>
+                                <span class="text-navy/70 text-sm md:text-base leading-relaxed">Понимаете не только что
+                                    делать, но и находите свои собственные смыслы — и это даёт силу действовать на пути
+                                    к цели.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK 5 - AUTHORITY (ОБО МНЕ) -->
+    <section id="about" class="px-6 md:px-8 bg-cream relative overflow-hidden w-full max-w-full py-24 md:py-32">
+        <div
+            class="absolute top-[0%] md:top-[0%] left-[-2%] md:left-[-5%] text-[25vw] md:text-[14vw] font-script text-navy/5 -rotate-[10deg] origin-left whitespace-nowrap z-0 select-none pointer-events-none">
+            About me</div>
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative">
+            <!-- Left: Photo -->
+            <div class="about-photo-col w-full lg:w-5/12 relative z-20 fade-in-up scroll-anim">
+                <div
+                    class="about-photo-block aspect-[4/5] rounded-sm overflow-hidden relative photo-shadow w-full max-w-[550px] mx-auto lg:mx-0">
+                    <!-- Professional portrait photo -->
+                    <img alt="Наталья Старостина"
+                        class="w-full h-full object-cover object-top scale-[1.15] origin-[50%_20%]"
+                        src="external_assets/me/photo_2026-01-11_10-53-08.jpg" />
+                </div>
+                <!-- Floating Badge -->
+                <div
+                    class="absolute bottom-6 -right-2 md:bottom-10 md:-right-8 bg-white/90 backdrop-blur-md text-navy p-4 md:p-6 rounded-xl shadow-2xl border border-powder/20 w-auto min-w-[160px] md:max-w-[200px]">
+                    <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                        <i class="ph-fill ph-check-circle text-orange text-xl md:text-2xl"></i>
+                        <span class="font-bold text-3xl md:text-2xl font-serif">1200+</span>
+                    </div>
+                    <p
+                        class="text-[9px] md:text-sm font-sans uppercase tracking-wider text-navy/70 font-bold whitespace-nowrap">
+                        Часов
+                        практики</p>
+                </div>
+            </div>
+            <!-- Right: Content -->
+            <div class="w-full lg:w-7/12 relative z-30 fade-in-up scroll-anim" style="transition-delay: 150ms;">
+                <div class="flex items-center gap-4 mb-4 md:mb-6">
+                    <div class="h-px w-8 bg-orange"></div>
+                    <span
+                        class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-orange subtitle-shrink-30">Кто
+                        я и как мы будем работать</span>
+                </div>
+                <h2
+                    class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-navy leading-tight mb-4 md:mb-6">
+                    Глубина опыта и бережная работа с вашей внутренней навигацией
+                </h2>
+                <p class="font-sans text-base md:text-lg text-navy/70 mb-10 md:mb-12 leading-relaxed">
+                    Я понимаю, каково это — строить, управлять, достигать и при этом чувствовать себя потерянной.
+                    Поэтому в работе я соединяю два мира: жёсткую аналитику стратега и тонкость коуча, который умеет
+                    слышать то, что не сказано вслух.
+                </p>
+                <div class="space-y-8 md:space-y-10">
+                    <!-- Point 1 -->
+                    <div>
+                        <h4
+                            class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-orange mb-3 flex items-center gap-3 mobile-text-shrink-15">
+                            <i class="ph ph-briefcase text-lg"></i> Управленческий опыт, который понимает тебя
+                        </h4>
+                        <p class="font-sans text-navy/80 text-sm md:text-base leading-relaxed pl-7">
+                            <strong class="text-navy">9+ лет в реальном бизнесе на топ-позициях:</strong> продюсер,
+                            руководитель проектов, директор учебных подразделений. Запускала проекты с оборотом до 500
+                            млн руб., управляла командами до 350 человек. Я знаю изнутри, каково это — нести
+                            ответственность за всё и всех, и при этом оставаться собой.
+                        </p>
+                    </div>
+                    <!-- Point 2 -->
+                    <div>
+                        <h4
+                            class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-orange mb-3 flex items-center gap-3 mobile-text-shrink-15">
+                            <i class="ph ph-chart-line-up text-lg"></i> 5+ лет в сопровождении людей к целям
+                        </h4>
+                        <p class="font-sans text-navy/80 text-sm md:text-base leading-relaxed pl-7">
+                            Я работала с командами и людьми задолго до того, как стала коучем. Сопровождение студентов,
+                            менторинг, кризисные ситуации в командах — всё это живой опыт работы с человеком в моменте
+                            изменений. <strong class="text-navy">1200+ часов</strong> индивидуальных и групповых сессий
+                            — это не цифра для резюме. Это сотни историй, в каждой из которых я была рядом.
+                        </p>
+                    </div>
+                    <!-- Point 3 -->
+                    <div>
+                        <h4
+                            class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-orange mb-3 flex items-center gap-3 mobile-text-shrink-15">
+                            <i class="ph ph-brain text-lg"></i> Филолог по первому образованию — слышу то, что за
+                            словами
+                        </h4>
+                        <p class="font-sans text-navy/80 text-sm md:text-base leading-relaxed pl-7">
+                            Я не просто слушаю — я слышу. Филологическое образование научило меня чувствовать язык: как
+                            человек строит фразы, что он избегает говорить, какие слова повторяет снова и снова. В
+                            коучинговой работе это редкий и мощный инструмент: <strong class="text-navy">иногда одна
+                                точно замеченная фраза меняет всё.</strong>
+                        </p>
+                    </div>
+                    <!-- Point 4 -->
+                    <div>
+                        <h4
+                            class="font-sans uppercase tracking-widest text-xs md:text-sm font-bold text-orange mb-3 flex items-center gap-3 mobile-text-shrink-15">
+                            <i class="ph ph-users-three text-lg"></i> Дипломированный коуч по стандартам ICF
+                        </h4>
+                        <p class="font-sans text-navy/80 text-sm md:text-base leading-relaxed pl-7">
+                            <strong class="text-navy">Коуч PCC ICF</strong> — бизнес и executive-коучинг.
+                            Профессиональная переподготовка на бизнес-психолога в организациях. Я не просто «прошла
+                            курсы» — я строю профессию по самым высоким стандартам, которые существуют в этой сфере.
+                            Член Федерации Профессиональных Коучей и Наставников. Член оргкомитета международного Форума
+                            Executive &amp; Business-коучинга 2025.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK: EDUCATION (СЕРТИФИКАТЫ И ДИПЛОМЫ) -->
+    <section
+        class="pt-12 pb-24 md:pt-16 md:pb-32 bg-cream text-navy relative overflow-hidden w-full max-w-full border-t border-navy/5"
+        id="education-block">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 text-center mb-12">
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
+                Сертификаты и дипломы</h2>
+            <div class="w-24 md:w-32 h-px bg-orange mx-auto mb-4 md:mb-6 reveal-up"></div>
+            <p
+                class="font-sans text-navy/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-medium px-4 mb-8 reveal-up">
+                Моя работа опирается на фундаментальные академические знания и стандарты</p>
+        </div>
+        <div class="relative w-full max-w-[100vw] overflow-hidden mt-6 mb-8 reveal-up">
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div id="edu-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch relative z-0">
+
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.45.50.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.03.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.45.57.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/photo_2025-06-12_00-06-34.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Natalia Starostina_6.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Наталье Старостиной.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Сертификат.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.36.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.09.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Снимок экрана 2025-10-25 в 09.46.20.png" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/Диплом_ПП_директор по стратразвитию.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+                <div
+                    class="shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group doc-item-container">
+                    <img src="education/0.jpg" alt="Сертификат"
+                        class="max-h-full max-w-full object-cover rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img doc-img">
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 relative z-10">
+                <button id="edu-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="edu-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- BLOCK: HOW WE WORK (VIDEO) -->
+    <section class="bg-navy text-cream py-24 md:py-32 relative overflow-hidden" id="how-we-work">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-orange/5 blur-3xl rounded-l-full -z-0"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Text Content -->
+                <div
+                    class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left reveal-left">
+                    <div class="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                        <div class="h-px w-8 bg-orange"></div>
+                        <span
+                            class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-powder">Взаимодействие</span>
+                        <div class="h-px w-8 bg-orange"></div>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 md:mb-8">
+                        Как мы будем работать <br>
+                        <span class="italic text-orange/80 font-normal">над вашим результатом</span>
+                    </h2>
+                    <p class="font-sans text-powder/80 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
+                        Посмотрите это короткое видео, чтобы понять, как устроено наше взаимодействие. От первого
+                        контрактинга до глубинных изменений в бизнесе и жизни.
+                    </p>
+                    <ul class="space-y-4 mb-10 text-left">
+                        <li class="flex items-start gap-4 group">
+                            <div
+                                class="w-6 h-6 rounded-full bg-orange/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange transition-colors">
+                                <i class="ph ph-check text-orange group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-powder/90">Индивидуальный трек под ваши
+                                задачи: идем всегда от вашего запроса и желаемых целей</span>
+                        </li>
+                        <li class="flex items-start gap-4 group">
+                            <div
+                                class="w-6 h-6 rounded-full bg-orange/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange transition-colors">
+                                <i class="ph ph-check text-orange group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-powder/90">Фокус на оцифрованных результатах и
+                                критериях достижения результата для четкости и ясности пути</span>
+                        </li>
+                        <li class="flex items-start gap-4 group">
+                            <div
+                                class="w-6 h-6 rounded-full bg-orange/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange transition-colors">
+                                <i class="ph ph-check text-orange group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-powder/90">Бережная работа с мышлением
+                                человека, который осознанно строит свой подход к жизни в роли Архиктетора</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Video Window -->
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <div class="relative w-full max-w-4xl mx-auto aspect-video bg-navy-light rounded-3xl overflow-hidden photo-shadow group cursor-pointer border border-white/10 local-video-card video-large-horizontal"
+                        data-video-src="../assets/coaching_video.mp4">
+                        <!-- Placeholder Background -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-navy via-navy/60 to-orange/30 z-0"></div>
+                        <!-- Decorative mesh or pattern -->
+                        <div class="absolute inset-0 opacity-10 pointer-events-none"
+                            style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;">
+                        </div>
+
+                        <!-- Play Button UI -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-orange flex items-center justify-center shadow-2xl relative">
+                                <i class="ph-fill ph-play text-white text-3xl md:text-4xl ml-2"></i>
+                                <!-- Pulse waves -->
+                                <div class="absolute inset-0 rounded-full bg-orange animate-ping opacity-25"></div>
+                            </div>
+                        </div>
+
+                        <!-- Video Label/Overlay -->
+                        <div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 text-left">
+                            <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-white/50 mb-2">
+                                Intro Video</p>
+                            <p class="text-base md:text-xl font-serif italic text-white/95">Посмотрите о процессе работы
+                            </p>
+                        </div>
+
+                        <!-- Video duration or badge -->
+                        <div
+                            class="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-white/80">~ 2 мин</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCK: CTA & PRICING -->
+    <section class="bg-cream-dark text-navy relative overflow-hidden border-y border-navy/5 py-24 md:py-32"
+        id="cta-block">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 md:mb-20 reveal-up">
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-navy mb-4 md:mb-6">Условия
+                    работы и стоимость</h2>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mb-4 md:mb-6"></div>
+                <p class="font-sans text-navy/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-medium px-4">
+                    Понятный и прозрачный путь работы для достижения результата</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+                <!-- Левая часть: Что входит (CJM) -->
+                <div class="lg:col-span-8 flex flex-col gap-4 md:gap-4 lg:pr-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full">
+                        <div class="bg-white p-5 md:p-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-navy/5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 reveal-scale"
+                            style="transition-delay: 0ms;">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div
+                                    class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-orange/10 flex items-center justify-center text-orange transition-colors group-hover:bg-orange group-hover:text-white">
+                                    <i class="ph-target text-xl md:text-2xl"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-navy text-base md:text-lg tracking-wide">1.
+                                    Контрактинг</h4>
+                            </div>
+                            <p class="text-xs md:text-sm text-navy/70 leading-relaxed font-sans">Формируем
+                                рабочий контракт: какую реальную, измеримую цель мы решаем сейчас.</p>
+                        </div>
+                        <div class="bg-white p-5 md:p-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-navy/5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 reveal-scale"
+                            style="transition-delay: 100ms;">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div
+                                    class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-orange/10 flex items-center justify-center text-orange transition-colors group-hover:bg-orange group-hover:text-white">
+                                    <i class="ph-brain text-xl md:text-2xl"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-navy text-base md:text-lg tracking-wide">2. Сессия
+                                </h4>
+                            </div>
+                            <p class="text-xs md:text-sm text-navy/70 leading-relaxed font-sans">Разовый аудит или
+                                планомерная работа с глубинными интервенциями по перестройке ограничивающих паттернов.
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 md:p-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-navy/5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 reveal-scale"
+                            style="transition-delay: 200ms;">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div
+                                    class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-orange/10 flex items-center justify-center text-orange transition-colors group-hover:bg-orange group-hover:text-white">
+                                    <i class="ph-check-square text-xl md:text-2xl"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-navy text-base md:text-lg tracking-wide">3. Трекинг
+                                </h4>
+                            </div>
+                            <p class="text-xs md:text-sm text-navy/70 leading-relaxed font-sans">Постановка обязательств
+                                между встречами, чтобы осознанное на сессии проросло в реальных действиях.</p>
+                        </div>
+                        <div class="bg-white p-5 md:p-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-navy/5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 reveal-scale"
+                            style="transition-delay: 300ms;">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div
+                                    class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-orange/10 flex items-center justify-center text-orange transition-colors group-hover:bg-orange group-hover:text-white">
+                                    <i class="ph-trend-up text-xl md:text-2xl"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-navy text-base md:text-lg tracking-wide">4. Итоги и
+                                    корректировка</h4>
+                            </div>
+                            <p class="text-xs md:text-sm text-navy/70 leading-relaxed font-sans">Измерение прогресса
+                                «до/после» и поддержание фокуса на масштабировании без эмоционального выгорания.</p>
+                        </div>
+                    </div>
+                    <div class="bg-navy p-6 md:p-8 rounded-3xl shadow-xl mt-4 md:mt-2 border border-white/5 reveal-up">
+                        <h4 class="font-sans font-bold text-xs uppercase tracking-widest text-orange mb-3">Результат на
+                            руках:</h4>
+                        <p class="text-cream/90 text-sm md:text-base leading-relaxed font-medium">Аудио/видео записи
+                            сессий, обновляемые майнд-карты, сопровождение. Существенный прогресс за счет регулярного
+                            удержания Взрослой позиции.</p>
+                    </div>
+                </div>
+                <!-- Правая часть: Тариф и кнопка -->
+                <div class="lg:col-span-4 lg:sticky lg:top-32 relative z-20 w-full mt-4 lg:mt-0">
+                    <div
+                        class="bg-white p-8 md:p-10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-navy/5 text-center reveal-scale">
+                        <div
+                            class="w-16 h-16 rounded-full bg-cream-dark flex items-center justify-center mx-auto mb-6 text-orange border border-navy/5 shadow-inner">
+                            <i class="ph ph-currency-ruble text-3xl"></i>
+                        </div>
+                        <h3 class="text-[10px] md:text-xs uppercase tracking-widest text-navy/40 font-bold mb-3">
+                            Инвестиции в себя</h3>
+                        <div
+                            class="text-[1.625rem] md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-4 inline-block">
+                            От 6 000 рублей</div>
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-navy/10 to-transparent my-4">
+                        </div>
+                        <p class="text-navy/60 text-xs md:text-sm mb-10 leading-relaxed font-medium">
+                            Разовая сессия (до 1.5ч) - 6 000 руб<br />Трекинг (3 мес, от 12 сессий) - от 50 000 руб
+                        </p>
+                        <a class="w-full btn-alive-gradient animate-gradient-flow text-white font-bold rounded-none uppercase tracking-widest py-4 px-8 text-xs md:text-sm shadow-xl hover:shadow-[0_20px_50px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 block leading-snug"
+                            href="https://t.me/nv_star" target="_blank">
+                            связаться со мной / оставить заявку
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCK FAQ -->
+    <section class="bg-cream text-navy border-t border-navy/5 relative overflow-hidden py-24 md:py-32" id="faq">
+        <div class="max-w-3xl mx-auto px-6 md:px-8 reveal-up">
+            <div class="text-center mb-16">
+                <div class="font-sans text-orange text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">Осталось
+                    что-то неясным?</div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6">Частые вопросы</h2>
+                <p class="font-sans text-navy/70 text-base md:text-lg">Отвечаю на самые популярные и важные вопросы о
+                    коучинге.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="faq-item bg-white border border-navy/10 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-btn w-full text-left px-6 py-5 md:px-8 md:py-6 flex justify-between items-center hover:bg-powder/5 transition-colors">
+                        <span class="font-bold text-base md:text-lg pr-8">С какими запросами вы работаете?</span>
+                        <i
+                            class="ph ph-plus text-xl text-orange transition-transform duration-300 faq-icon shrink-0"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-navy/70 text-sm md:text-base leading-relaxed">
+                            Я работаю с любым человеком, который создаёт свой путь. Это может быть карьерный переход,
+                            ощущение «застрял», поиск смысла, выгорание, желание понять себя глубже или выстроить
+                            стратегию жизни, которая откликается изнутри. Не обязательно иметь бизнес — достаточно иметь
+                            запрос.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div
+                    class="faq-item bg-white border border-navy/10 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-btn w-full text-left px-6 py-5 md:px-8 md:py-6 flex justify-between items-center hover:bg-powder/5 transition-colors">
+                        <span class="font-bold text-base md:text-lg pr-8">Сколько длится сессия и как часто нужно
+                            встречаться?</span>
+                        <i
+                            class="ph ph-plus text-xl text-orange transition-transform duration-300 faq-icon shrink-0"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-navy/70 text-sm md:text-base leading-relaxed">
+                            Одна сессия длится от 60 до 90 минут. Рекомендуемый ритм встреч для поддержания динамики и
+                            фокуса — один раз в неделю или один раз в две недели. Это позволяет внедрить изменения и при
+                            этом не терять темп.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div
+                    class="faq-item bg-white border border-navy/10 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-btn w-full text-left px-6 py-5 md:px-8 md:py-6 flex justify-between items-center hover:bg-powder/5 transition-colors">
+                        <span class="font-bold text-base md:text-lg pr-8">Чем коучинг отличается от консалтинга или
+                            психотерапии?</span>
+                        <i
+                            class="ph ph-plus text-xl text-orange transition-transform duration-300 faq-icon shrink-0"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-navy/70 text-sm md:text-base leading-relaxed">
+                            В коучинге я не даю готовых советов и директив (как в консалтинге) и не лечу травмы прошлого
+                            (как в психотерапии). Мы работаем с вашим настоящим и проектируем будущее: опираясь на
+                            сильные стороны, вы находите наилучшие решения именно для вашего контекста.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item bg-white border border-navy/10 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-btn w-full text-left px-6 py-5 md:px-8 md:py-6 flex justify-between items-center hover:bg-powder/5 transition-colors">
+                        <span class="font-bold text-base md:text-lg pr-8">Когда я увижу первые результаты?</span>
+                        <i
+                            class="ph ph-plus text-xl text-orange transition-transform duration-300 faq-icon shrink-0"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-navy/70 text-sm md:text-base leading-relaxed">
+                            Первые инсайты и внутренние сдвиги происходят уже на первой встрече. Это не магия — это то,
+                            что случается, когда на твои вопросы наконец находится пространство. Глубокие изменения
+                            занимают от 1 до 3 месяцев регулярной работы.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CASES -->
+    <section
+        class="relative bg-navy text-cream mt-0 border-b border-white/5 w-full max-w-full overflow-hidden py-24 md:py-32"
+        id="reviews">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-8">
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center mb-4 md:mb-6">Истории и кейсы
+            </h2>
+            <p class="font-sans text-powder/80 text-sm md:text-lg max-w-3xl mx-auto text-center mb-8 md:mb-12">Здесь
+                собрана информация моих сессий с клиентами, как мы работали в рамках встреч. Каждый упакован
+                последовательно, чтобы проявить стратегию формирования результатов.</p>
+            <div class="h-px w-24 md:w-32 bg-orange mx-auto opacity-50 mb-10 md:mb-16"></div>
+            <div class="flex flex-col items-center justify-center mb-12 md:mb-24 relative z-10 px-4">
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 w-max max-w-[90vw] text-center mx-auto inline-block"
+                    href="cases.html">
+                    Посмотреть еще больше кейсов
+                </a>
+            </div>
+        </div>
+        <!-- БЛОК 1: КЕЙСЫ (ИСТОРИИ КЛИЕНТОВ) -->
+        <div class="relative w-full max-w-full overflow-hidden group mb-8 md:mb-12">
+            <script src="casesData.js"></script>
+            <div id="cases-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                <!-- Кейсы загружаются автоматически из casesData.js -->
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 relative z-10 px-4">
+                <button id="cases-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="cases-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- NEW SECTION: MEDIA TESTIMONIALS -->
+    <section class="bg-cream text-navy relative overflow-hidden w-full max-w-full py-24 md:py-32" id="testimonials">
+        <div
+            class="absolute top-[5%] left-[-2%] md:left-[-5%] text-[15vw] md:text-[14vw] font-script text-navy/5 -rotate-[10deg] origin-left whitespace-nowrap z-0 select-none pointer-events-none">
+            Reviews</div>
+        <div
+            class="absolute top-[25%] left-[-20%] w-[400px] h-[400px] md:w-[800px] md:h-[800px] border-[4px] border-powder/40 rounded-full animate-spin-very-slow z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute top-[5%] right-[-10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] border-[3px] border-dashed border-orange/30 rounded-full z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[5%] left-[5%] w-[500px] h-[500px] md:w-[1000px] md:h-[1000px] bg-orange/5 rounded-full blur-[100px] z-0 pointer-events-none">
+        </div>
+        <div class="max-w-[1400px] mx-auto relative z-10 w-full mb-12 md:mb-16">
+            <div class="text-center px-6 md:px-8">
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl reveal-up mb-4 md:mb-6">Отзывы
+                    клиентов</h2>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto"></div>
+            </div>
+        </div>
+        <!-- БЛОК: ТЕКСТОВЫЕ ОТЗЫВЫ -->
+        <div class="mb-20 md:mb-32">
+            <h3
+                class="font-serif text-2xl md:text-4xl text-center mb-8 md:mb-12 italic text-navy/70 px-6 md:px-8 reveal-up">
+                Текстовые отзывы</h3>
+            <div class="relative w-full overflow-hidden group">
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+                </div>
+                <div class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-6 md:px-8 pb-10 pt-4 cursor-grab items-stretch"
+                    id="text-reviews-carousel">
+                    <!-- Текстовые отзывы загружаются автоматически из images/reviews/ -->
+                </div>
+                <div class="flex justify-center gap-4 md:gap-6 mt-4">
+                    <button
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"
+                        id="text-prev"><i class="ph ph-arrow-left"></i></button>
+                    <button
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"
+                        id="text-next"><i class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="mt-8 md:mt-12 text-center">
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-12 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-block reveal-up"
+                    href="https://t.me/nataliastarostina" rel="noopener noreferrer" target="_blank">
+                    Посмотреть еще больше отзывов
+                </a>
+            </div>
+        </div>
+        <!-- БЛОК 2: ВИДЕО И АУДИО ОТЗЫВЫ -->
+        <div class="mb-12">
+            <h3 class="font-serif text-2xl md:text-4xl text-center mb-8 md:mb-12 italic text-navy/70 px-4 md:px-8">Видео
+                и аудио отзывы</h3>
+            <div class="relative w-full overflow-hidden group">
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+                </div>
+
+                <div id="media-reviews-carousel"
+                    class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                    <!-- Видео/аудио отзывы загружаются автоматически из videoaudio/ -->
+                </div>
+
+                <div class="flex justify-center gap-4 md:gap-6 mt-4">
+                    <button id="media-prev"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-left"></i></button>
+                    <button id="media-next"
+                        class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-navy/20 flex items-center justify-center text-navy hover:bg-orange hover:text-white transition-all"><i
+                            class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-12 text-center">
+                <a href="videoaudio.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 inline-block">
+                    Посмотреть еще больше отзывов
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ЧТЕНИЯ КЕЙСА (МОДАЛКА) -->
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ЧТЕНИЯ КЕЙСА (МОДАЛКА) -->
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ЧТЕНИЯ КЕЙСА (МОДАЛКА) -->
+    <div class="fixed inset-0 z-[100] bg-navy/90 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6 md:p-12"
+        id="case-modal">
+        <div class="bg-cream w-full max-w-4xl max-h-full rounded-2xl md:rounded-3xl shadow-2xl overflow-y-auto custom-scrollbar relative transform scale-95 transition-transform duration-300 modal-leave"
+            id="case-modal-content">
+            <button
+                class="sticky top-4 right-4 md:top-6 md:right-6 float-right w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy/10 hover:bg-orange hover:text-white text-navy flex items-center justify-center transition-colors z-10"
+                id="close-modal-btn">
+                <i class="ph ph-x text-xl md:text-2xl"></i>
+            </button>
+            <div class="p-6 md:p-10 lg:p-14 pt-12 md:pt-14 clear-both" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ИЗОБРАЖЕНИЙ (ТЕКСТОВЫЕ ОТЗЫВЫ) -->
+    <div class="fixed inset-0 z-[110] bg-navy/95 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4"
+        id="image-modal">
+        <button
+            class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-orange text-white flex items-center justify-center transition-colors z-10"
+            id="close-image-btn">
+            <i class="ph ph-x text-xl md:text-2xl"></i>
+        </button>
+        <img alt="Отзыв"
+            class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 cursor-zoom-out"
+            id="image-modal-target" src="" onclick="document.getElementById('close-image-btn').click()" />
+    </div>
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ВИДЕО ОТЗЫВОВ -->
+    <div class="fixed inset-0 z-[110] bg-navy/95 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4"
+        id="video-modal">
+        <button
+            class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-orange text-white flex items-center justify-center transition-colors z-10"
+            id="close-video-btn">
+            <i class="ph ph-x text-xl md:text-2xl"></i>
+        </button>
+        <div
+            class="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative">
+            <iframe allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" allowfullscreen=""
+                class="absolute inset-0 w-full h-full" frameborder="0" id="video-modal-iframe" src=""></iframe>
+        </div>
+    </div>
+    <!-- SECTION: MATERIALS -->
+    <section id="materials"
+        class="pt-0 pb-24 md:pt-0 md:pb-32 bg-cream text-navy relative overflow-hidden w-full max-w-full">
+        <div
+            class="absolute top-[0%] right-[-2%] text-[20vw] md:text-[15vw] font-script text-navy/5 -rotate-3 whitespace-nowrap z-0 select-none pointer-events-none">
+            Knowledge
+        </div>
+        <div
+            class="absolute top-0 left-[10%] w-24 h-24 md:w-32 md:h-32 border border-orange/10 rounded-full animate-spin-very-slow z-0">
+        </div>
+        <div
+            class="absolute top-20 right-[5%] md:right-[15%] w-48 h-48 md:w-64 md:h-64 border border-powder rounded-full opacity-10 animate-pulse z-0">
+        </div>
+        <div
+            class="absolute bottom-10 left-[-10%] md:left-[5%] w-72 h-72 md:w-96 md:h-96 border border-navy/5 rounded-full animate-spin-slow z-0">
+        </div>
+        <div
+            class="absolute top-1/2 left-[30%] md:left-[40%] w-8 h-8 md:w-12 md:h-12 bg-orange/10 rounded-full animate-float z-0">
+        </div>
+        <div
+            class="absolute bottom-[20%] right-[-5%] md:right-[10%] w-40 h-40 md:w-48 md:h-48 border-2 border-dashed border-orange/5 rounded-full animate-spin-very-slow z-0">
+        </div>
+        <svg class="absolute top-[30%] left-[-10%] md:left-[-2%] w-40 h-40 md:w-56 md:h-56 text-powder/10 animate-float z-0"
+            viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.3"
+                stroke-dasharray="4 2" />
+        </svg>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="text-center mb-12 md:mb-16 relative">
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mb-4 md:mb-6"></div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight">
+                    База знаний
+                </h2>
+                <p class="font-sans text-navy/60 text-sm sm:text-lg md:text-xl max-w-2xl mx-auto font-medium px-4">Здесь
+                    собраны бесплатные материалы: статьи и практики для вас, чтобы вы могли уже сегодня начать свой путь
+                    к самому себе</p>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mt-4 md:mt-6"></div>
+            </div>
+        </div>
+        <div class="relative w-full max-w-full overflow-hidden group">
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none">
+            </div>
+            <div id="materials-carousel"
+                class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
+                <!-- Cards loaded dynamically from articlesData.js -->
+            </div>
+            <div class="flex justify-center gap-4 md:gap-6 mt-4 mb-8 md:mb-12">
+                <button id="mat-prev"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-left"></i></button>
+                <button id="mat-next"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-powder/20 flex items-center justify-center text-powder hover:bg-orange hover:text-white transition-all"><i
+                        class="ph ph-arrow-right"></i></button>
+            </div>
+            <div class="flex flex-col items-center">
+
+                <a href="knowledge.html"
+                    class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 relative z-10 w-max max-w-[90vw] text-center mx-auto inline-block">
+                    Перейти в полную базу знаний
+                </a>
+            </div>
+        </div>
+        <script src="articlesData.js"></script>
+        <script>
+                (function () {
+                    function shuffle(arr) {
+                        for (let i = arr.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [arr[i], arr[j]] = [arr[j], arr[i]];
+                        }
+                        return arr;
+                    }
+                    const colors = ['border-orange', 'border-powder', 'border-navy'];
+                    const articles = shuffle([...(window.articlesData || [])]);
+                    const container = document.getElementById('materials-carousel');
+                    if (!container || !articles.length) return;
+                    articles.forEach((a, i) => {
+                        const color = colors[i % colors.length];
+                        const card = document.createElement('div');
+                        card.className = `shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border-b-4 ${color} materials-card aspect-square md:aspect-[3/4.5]`;
+                        card.innerHTML = `
+                        <div class="h-1/2 md:h-[40%] w-full overflow-hidden shrink-0">
+                            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col flex-grow">
+                            <h4 class="font-serif text-lg md:text-xl mb-3 md:mb-4 font-bold italic">${a.title}</h4>
+                            <p class="font-sans text-navy/70 text-xs md:text-sm leading-relaxed flex-grow">${a.summary}</p>
+                            <a href="${a.ctaLink}"
+                                class="mt-6 md:mt-8 text-orange font-bold uppercase tracking-widest text-xs md:text-sm border-b border-orange/20 w-max hover:border-orange transition-colors">Читать статью</a>
+                        </div>`;
+                        container.appendChild(card);
+                    });
+                })();
+        </script>
+    </section>
+    <!-- FOOTER -->
+    <footer
+        class="bg-navy text-cream pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-8 relative overflow-hidden w-full max-w-full mt-auto">
+        <svg class="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none"
+            preserveaspectratio="none" viewbox="0 0 100 100">
+            <path d="M 0 100 C 50 0, 100 100, 150 0" fill="none" stroke="currentColor" stroke-width="2"></path>
+        </svg>
+        <div
+            class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 border-b border-white/10 pb-12 md:pb-16 mb-8">
+            <div class="w-full lg:w-1/2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cream text-navy flex items-center justify-center font-serif italic text-xl">
+                        Н</div>
+                    <span class="font-serif font-bold text-lg tracking-wide uppercase text-cream">Старостина</span>
+                </div>
+                <p class="font-sans text-powder text-base md:text-lg max-w-md leading-relaxed mb-6 md:mb-8">
+                    Если у вас есть вопросы по услугам или продуктам, вы всегда можете связаться со мной по удобному для
+                    вас каналу и мы все обсудим, я с большой радостью буду для вас помощью!</p>
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max mb-12 lg:mb-0"
+                    href="https://t.me/nv_star" target="_blank">Написать
+                    лично</a>
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 font-sans uppercase tracking-widest text-[12px] md:text-xs w-full lg:w-auto">
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.instagram.com/nataliastarostina.coach/" target="_blank"><i
+                        class="ph ph-instagram-logo text-xl md:text-lg"></i> Instagram</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://t.me/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-telegram-logo text-xl md:text-lg"></i> Telegram-канал</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.tiktok.com/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-tiktok-logo text-xl md:text-lg"></i> TikTok</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.youtube.com/@nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-youtube-logo text-xl md:text-lg"></i> Youtube</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://dzen.ru/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-article text-xl md:text-lg"></i> Дзен</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3" href="https://vk.com/nv.star"
+                    target="_blank"><span
+                        class="font-bold text-[12px] md:text-sm leading-none tracking-normal">VK</span> Вконтакте</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.threads.net/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-threads-logo text-xl md:text-lg"></i> Threads</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://max.ru/join/7i6v-Jd3FPg3BtQcBQq7FIraNLOUa2Fxjh_VKv5i8PU" target="_blank"><i
+                        class="ph ph-star text-xl md:text-lg"></i> Max</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto relative z-10 text-[10px] md:text-xs text-powder/40 font-sans tracking-wide flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div
+                class="flex flex-col sm:flex-row gap-3 md:gap-8 items-center text-center lg:text-left order-2 lg:order-1">
+                <span class="leading-relaxed"><strong class="text-white font-bold">ИП Старостина Наталья Валерьевна
+                        <br />ИНН 212912145136</strong><br />ОГРН 321213000007900</span>
+                <a class="hover:text-cream transition-colors underline decoration-powder/30 underline-offset-4"
+                    href="https://docs.google.com/document/d/1onBrld8e_qzfbzRxjcFxgIeBT9fVhyI27lZ8iHjABR0/edit?tab=t.0"
+                    target="_blank">Договор
+                    оферты</a>
+            </div>
+            <div class="order-1 lg:order-2 mb-4 lg:mb-0 flex flex-col gap-2 items-center lg:items-end">
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="mailto:nataliastarostina@internet.ru"><i
+                        class="ph ph-envelope-simple text-sm md:text-base"></i> nataliastarostina@internet.ru</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="https://t.me/nv_star" target="_blank"><i class="ph ph-bug text-sm md:text-base"></i> написать
+                    сообщение об ошибке на сайте</a>
+            </div>
+        </div>
+    </footer>
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function setupCarousel(id, prevBtnId, nextBtnId, autoScroll = false) {
+                const carousel = document.getElementById(id);
+                if (!carousel) return;
+                const btnPrev = document.getElementById(prevBtnId);
+                const btnNext = document.getElementById(nextBtnId);
+
+                if (autoScroll) {
+                    const cards = [...carousel.children];
+                    cards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        carousel.appendChild(clone);
+                    });
+                }
+
+                let isDown = false, isHovered = false, startX, scrollLeft;
+                let scrollSpeed = 0.5;
+                if (autoScroll) {
+                    const fluidScroll = () => {
+                        if (!isDown && !isHovered) {
+                            carousel.scrollLeft += scrollSpeed;
+                            if (carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2)) {
+                                carousel.scrollLeft = 0;
+                            }
+                        }
+                        requestAnimationFrame(fluidScroll);
+                    };
+                    requestAnimationFrame(fluidScroll);
+                }
+                if (btnPrev && btnNext) {
+                    btnPrev.addEventListener('click', () => {
+                        if (carousel.scrollLeft <= 0 && autoScroll) carousel.scrollLeft = Math.ceil(carousel.scrollWidth / 2);
+                        carousel.scrollBy({ left: -300, behavior: 'smooth' });
+                    });
+                    btnNext.addEventListener('click', () => {
+                        if (autoScroll && carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2) - 10) carousel.scrollLeft = 0;
+                        carousel.scrollBy({ left: 300, behavior: 'smooth' });
+                    });
+                }
+                carousel.addEventListener('scroll', () => {
+                    if (isDown && autoScroll) {
+                        if (carousel.scrollLeft <= 0) carousel.scrollLeft = Math.ceil(carousel.scrollWidth / 2);
+                        if (carousel.scrollLeft >= Math.ceil(carousel.scrollWidth / 2)) carousel.scrollLeft = 0;
+                    }
+                }, { passive: true });
+                carousel.addEventListener('mouseenter', () => isHovered = true);
+                carousel.addEventListener('mouseleave', () => { isDown = false; isHovered = false; });
+                carousel.addEventListener('touchstart', () => isHovered = true, { passive: true });
+                carousel.addEventListener('touchend', () => isHovered = false, { passive: true });
+                carousel.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    carousel.classList.add('cursor-grabbing');
+                    startX = e.pageX - carousel.offsetLeft;
+                    scrollLeft = carousel.scrollLeft;
+                });
+                carousel.addEventListener('mouseup', () => { isDown = false; carousel.classList.remove('cursor-grabbing'); });
+                carousel.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - carousel.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    carousel.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ТЕКСТОВЫХ ОТЗЫВОВ =====
+            (function renderTextReviews() {
+                const container = document.getElementById('text-reviews-carousel');
+                if (!container) return;
+                const reviewImages = [
+                    "https://i.postimg.cc/dQXxWf0s/Снимок_экрана_2024_07_17_в_21_07_03.png",
+                    "https://i.postimg.cc/8k30yYCD/Снимок_экрана_2024_07_17_в_21_07_17.png",
+                    "https://i.postimg.cc/MZ4FsLGS/Снимок_экрана_2024_07_17_в_21_07_24.png",
+                    "https://i.postimg.cc/2jJKHt5N/Снимок_экрана_2024_07_17_в_21_10_22.png",
+                    "https://i.postimg.cc/66SmHPQN/Снимок_экрана_2024_07_17_в_21_12_35.png"
+                ];
+                for (let i = 1; i <= 250; i++) {
+                    reviewImages.push(`images/reviews/${i}.jpg`);
+                }
+                function shuffle(arr) {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                }
+                shuffle(reviewImages);
+                // Show all reviews in the carousel
+                const selection = reviewImages;
+                selection.forEach((src, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group';
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Отзыв';
+                    img.loading = 'lazy';
+                    img.className = 'max-h-full max-w-full object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img';
+                    if (!src.startsWith('http')) {
+                        img.onerror = function () {
+                            if (this.src.includes('.jpg')) this.src = this.src.replace('.jpg', '.png');
+                            else if (this.src.includes('.png')) this.src = this.src.replace('.png', '.jpeg');
+                            else if (this.src.includes('.jpeg')) this.src = this.src.replace('.jpeg', '.JPG');
+                            else if (this.src.includes('.JPG')) this.src = this.src.replace('.JPG', '.PNG');
+                            else card.style.display = 'none';
+                        };
+                    }
+                    card.appendChild(img);
+                    container.appendChild(card);
+                });
+            })();
+
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ВИДЕО/АУДИО ОТЗЫВОВ (VK) =====
+            (function renderMediaReviews() {
+                const container = document.getElementById('media-reviews-carousel');
+                if (!container) return;
+                const vkVideos = [
+                    '-211035790_456239115', '-211035790_456239113', '-211035790_456239112',
+                    '-211035790_456239111', '-211035790_456239107', '-211035790_456239106',
+                    '-211035790_456239105', '-211035790_456239104', '-211035790_456239103',
+                    '-211035790_456239102', '-211035790_456239100', '-211035790_456239099',
+                    '-211035790_456239098', '-211035790_456239097', '-211035790_456239096',
+                    '-211035790_456239095', '-211035790_456239094', '-211035790_456239093',
+                    '-211035790_456239092', '-211035790_456239091', '-211035790_456239090',
+                    '-211035790_456239089', '-211035790_456239088', '-211035790_456239087',
+                    '-211035790_456239086', '-211035790_456239085', '-211035790_456239084',
+                    '-211035790_456239083', '-211035790_456239082', '-211035790_456239081',
+                    '-211035790_456239080', '-211035790_456239079', '-211035790_456239078',
+                    '-211035790_456239077', '-211035790_456239076', '-211035790_456239075',
+                    '-211035790_456239074', '-211035790_456239073', '-211035790_456239072',
+                    '-211035790_456239071', '-211035790_456239069', '-211035790_456239068',
+                    '-211035790_456239067', '-211035790_456239066', '-211035790_456239065',
+                    '-211035790_456239064', '-211035790_456239063', '-211035790_456239061',
+                    '-211035790_456239060', '-211035790_456239059', '-211035790_456239058'
+                ];
+                function getVkEmbed(vkId, autoplay) {
+                    const p = vkId.split('_');
+                    return `https://vkvideo.ru/video_ext.php?oid=${p[0]}&id=${p[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
+                }
+                function shuffle(arr) {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                }
+                shuffle(vkVideos);
+                vkVideos.forEach(vkId => {
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-video bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
+                    card.dataset.videoSrc = getVkEmbed(vkId, true);
+                    card.innerHTML = `
+                        <iframe src="${getVkEmbed(vkId)}" class="w-full h-full pointer-events-none"
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+                            frameborder="0" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 bg-transparent flex items-center justify-center pointer-events-none">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-orange/90 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
+                            </div>
+                        </div>`;
+                    container.appendChild(card);
+                });
+            })();
+
+            setupCarousel('situations-carousel', 'btn-prev', 'btn-next', true);
+            setupCarousel('materials-carousel', 'mat-prev', 'mat-next', true);
+            setupCarousel('cases-carousel', 'cases-prev', 'cases-next', true);
+            setupCarousel('text-reviews-carousel', 'text-prev', 'text-next', true);
+            setupCarousel('media-reviews-carousel', 'media-prev', 'media-next', true);
+            setupCarousel('edu-carousel', 'edu-prev', 'edu-next', true);
+
+            // Анимации при скролле
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active", "is-visible");
+                    }
+                });
+            }, observerOptions);
+            const revealElements = document.querySelectorAll(".reveal-up, .reveal-left, .reveal-right, .scroll-anim, .fade-in-up, .fade-in-left, .fade-in-right, .fade-in, .reveal-scale");
+            revealElements.forEach(el => observer.observe(el));
+
+            // ВСПЛЫВАЮЩИЕ ИЗОБРАЖЕНИЯ (Модалки)
+            const caseModal = document.getElementById('case-modal');
+            const caseModalContent = document.getElementById('case-modal-content');
+            const imageModal = document.getElementById('image-modal');
+            const imageModalTarget = document.getElementById('image-modal-target');
+            const videoModal = document.getElementById('video-modal');
+            const videoModalPlayer = document.getElementById('video-modal-player');
+
+            document.addEventListener('click', (e) => {
+                // Open case modal (cases.html style)
+                const caseCard = e.target.closest('.case-card');
+                if (caseCard) {
+                    const caseId = parseInt(caseCard.dataset.caseId);
+                    const c = casesData.find(x => x.id === caseId);
+                    const caseModal = document.getElementById('case-modal');
+                    const caseModalContent = document.getElementById('case-modal-content');
+                    const modalBody = document.getElementById('modal-body');
+                    if (caseModal && caseModalContent && modalBody) {
+                        if (c) {
+                            const initial = (c.name || 'К')[0].toUpperCase();
+                            modalBody.innerHTML = `
+                                <div class="flex flex-col md:flex-row gap-5 md:gap-10 mb-8 md:mb-10 items-start">
+                                    <div class="w-16 h-16 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-[#FF8C00] to-[#FFD700] text-white flex items-center justify-center font-serif text-2xl md:text-6xl font-bold shadow-xl shrink-0 border-2 border-white/20">${initial}</div>
+                                    <div class="flex-1">
+                                        <h2 class="font-serif text-xl sm:text-2xl md:text-5xl lg:text-6xl mb-3 md:mb-6 leading-tight text-navy font-normal md:font-normal">${c.title}</h2>
+                                        <div class="flex flex-wrap items-center gap-3 md:gap-6 text-[9px] md:text-xs font-medium tracking-widest uppercase">
+                                            <span class="text-orange font-bold font-sans">${c.name.toUpperCase()}</span>
+                                            <span class="text-navy/20 hidden md:block">|</span>
+                                            <span class="text-navy/60 font-normal italic normal-case tracking-normal">${c.profession}</span>
+                                        </div>
+                                        ${c.insta ? `<div class="mt-3 md:mt-4 text-orange/80 hover:text-orange transition-colors"><i class="ph ph-instagram-logo align-middle text-lg"></i> <span class="text-[10px] md:text-xs uppercase tracking-wider">${c.insta}</span></div>` : ''}
+                                    </div>
+                                </div>
+
+                                <div class="space-y-8 md:space-y-10 text-navy font-serif">
+                                    ${c.about ? `
+                                    <div class="bg-powder/20 p-6 md:p-8 rounded-2xl mb-8 border-l-4 border-orange">
+                                        <h4 class="font-bold mb-2 flex items-center gap-2 text-navy font-sans text-sm md:text-base"><i class="ph ph-user text-orange"></i> О клиенте</h4>
+                                        <p class="text-navy/80 leading-relaxed text-sm md:text-base font-sans">${c.about}</p>
+                                    </div>` : ''}
+
+                                    ${c.request ? `
+                                    <div class="mb-10">
+                                        <h4 class="font-serif text-xl md:text-2xl mb-4 text-orange">Запрос клиента</h4>
+                                        <p class="text-navy/90 p-5 md:p-6 bg-white rounded-xl shadow-sm border border-navy/5 leading-relaxed text-sm md:text-lg italic font-serif">«${c.request}»</p>
+                                    </div>` : ''}
+
+                                    ${c.session ? `
+                                    <div class="mb-10">
+                                        <h4 class="font-serif text-xl md:text-2xl mb-6 text-orange flex items-center gap-3"><i class="ph ph-path"></i> Ход сессии и стратегия</h4>
+                                        <div class="space-y-6 md:space-y-8 border-l-2 border-powder/40 pl-6 ml-3">
+                                            ${c.session.map((step, idx) => `
+                                                <div class="relative">
+                                                    <span class="font-bold text-xs md:text-sm bg-powder/30 px-2 py-1 rounded inline-block mb-2 text-navy font-sans tracking-wide">Этап ${idx + 1}: ${step.title}</span>
+                                                    <p class="text-navy/80 text-sm md:text-base leading-relaxed font-sans">${step.text}</p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>` : ''}
+
+                                    ${c.result ? `
+                                    <div class="bg-navy text-cream p-6 md:p-10 rounded-3xl mb-10 relative overflow-hidden shadow-2xl">
+                                        <h4 class="font-serif text-xl md:text-3xl mb-4 text-orange">Итог и Результат</h4>
+                                        <div class="text-powder/90 text-sm md:text-lg font-light leading-relaxed font-serif">${c.result}</div>
+                                    </div>` : ''}
+
+                                    ${c.longReview ? `
+                                    <div class="border-2 border-orange/20 bg-orange/5 p-6 md:p-10 rounded-3xl relative mt-12 mb-6">
+                                        <div class="absolute -top-6 left-6 bg-cream w-12 h-12 flex items-center justify-center rounded-full text-orange text-3xl font-serif shadow-md border border-orange/20">❝</div>
+                                        <p class="text-navy/90 font-serif text-base md:text-xl leading-relaxed italic">«${c.longReview}»</p>
+                                    </div>` : ''}
+                                </div>
+                            `;
+                        } else {
+                            // Fallback: use old .case-full-data if casesData not available
+                            const fullData = caseCard.querySelector('.case-full-data');
+                            modalBody.innerHTML = fullData ? fullData.innerHTML : '<p class="text-navy">Нет данных.</p>';
+                        }
+                        caseModal.classList.remove('hidden');
+                        caseModalContent.scrollTop = 0;
+                        document.body.style.overflow = 'hidden';
+                        setTimeout(() => {
+                            caseModal.classList.remove('opacity-0');
+                            caseModalContent.classList.replace('modal-leave', 'modal-enter');
+                        }, 10);
+                    }
+                    return;
+                }
+
+                // 2. Открытие Картинки (Текстовый отзыв или Образование)
+                const reviewCard = e.target.closest('.text-review-card');
+                if (reviewCard) {
+                    const img = reviewCard.querySelector('img.doc-img') || reviewCard.querySelector('.text-review-img') || reviewCard.querySelector('img');
+                    if (img && imageModalTarget && imageModal) {
+                        imageModalTarget.src = img.src;
+                        imageModal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                        setTimeout(() => {
+                            imageModal.classList.remove('opacity-0');
+                            imageModalTarget.classList.remove('scale-95');
+                        }, 10);
+                    }
+                    return;
+                }
+
+                // 3. Открытие Видео (VK)
+                const localVideoCard = e.target.closest('.local-video-card');
+                if (localVideoCard && typeof videoModalPlayer !== 'undefined' && videoModalPlayer && videoModal) {
+                    const videoSrc = localVideoCard.getAttribute('data-video-src');
+                    // Открываем video player для локальных mp4
+                    const vPlayer = document.getElementById('video-modal-player');
+                    const vIframe = document.getElementById('video-modal-iframe');
+                    if (vPlayer) {
+                        vPlayer.src = videoSrc;
+                        vPlayer.classList.remove('hidden');
+                        if (vIframe) vIframe.classList.add('hidden');
+                    } else if (vIframe) {
+                        vIframe.src = videoSrc;
+                    }
+                    videoModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        videoModal.classList.remove('opacity-0');
+                        videoModal.children[1].classList.remove('scale-95');
+                    }, 10);
+                    if (vPlayer) vPlayer.play().catch(e => console.log('Autoplay prevented', e));
+                    return;
+                }
+            });
+
+            function closeCaseModal() {
+                if (caseModal && !caseModal.classList.contains('hidden')) {
+                    caseModal.classList.add('opacity-0');
+                    if (caseModalContent) caseModalContent.classList.replace('modal-enter', 'modal-leave');
+                    setTimeout(() => {
+                        caseModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        const mb = document.getElementById('modal-body');
+                        if (mb) mb.innerHTML = '';
+                    }, 300);
+                }
+            }
+
+            function closeImageModal() {
+                if (imageModal && !imageModal.classList.contains('hidden')) {
+                    imageModal.classList.add('opacity-0');
+                    if (imageModalTarget) imageModalTarget.classList.add('scale-95');
+                    setTimeout(() => {
+                        imageModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        if (imageModalTarget) imageModalTarget.src = '';
+                    }, 300);
+                }
+            }
+
+            function closeVideoModal() {
+                if (videoModal && !videoModal.classList.contains('hidden')) {
+                    videoModal.classList.add('opacity-0');
+                    videoModal.children[1].classList.add('scale-95');
+                    const _vp = document.getElementById('video-modal-player'); if (_vp) { _vp.pause(); _vp.src = ''; _vp.classList.add('hidden'); }
+
+                    setTimeout(() => {
+                        videoModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        // src сброшен выше
+                    }, 300);
+                }
+            }
+
+            document.getElementById('close-modal-btn')?.addEventListener('click', closeCaseModal);
+            // === Закрытие попапа по Escape или клику вне контента ===
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (typeof closeCaseModal === 'function') closeCaseModal();
+                    if (typeof closeImageModal === 'function') closeImageModal();
+                    if (typeof closeVideoModal === 'function') closeVideoModal();
+                }
+            });
+
+            document.getElementById('close-image-btn')?.addEventListener('click', closeImageModal);
+            document.getElementById('close-video-btn')?.addEventListener('click', closeVideoModal);
+
+            caseModal?.addEventListener('click', (e) => { if (!e.target.closest('#case-modal > div, #case-modal > .modal-inner')) closeCaseModal(); });
+            imageModal?.addEventListener('click', (e) => { if (!e.target.closest('#image-modal > div, #image-modal > img')) closeImageModal(); });
+            videoModal?.addEventListener('click', (e) => { if (!e.target.closest('#video-modal > div')) closeVideoModal(); });
+
+            // === Логика FAQ ===
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    if (!content) return;
+
+                    const icon = btn.querySelector('.faq-icon');
+                    // Check if currently open by checking rotation on icon
+                    const isOpen = icon ? icon.classList.contains('rotate-45') : (!content.classList.contains('hidden') && !content.classList.contains('max-h-0'));
+
+                    // Close all
+                    faqBtns.forEach(otherBtn => {
+                        const otherContent = otherBtn.nextElementSibling;
+                        const otherIcon = otherBtn.querySelector('.faq-icon');
+                        if (otherContent) {
+                            if (otherContent.classList.contains('transition-all')) {
+                                otherContent.style.maxHeight = null;
+                                otherContent.classList.add('max-h-0');
+                            } else {
+                                otherContent.classList.add('hidden');
+                            }
+                        }
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate-45');
+                        }
+                    });
+
+                    // Open current if it was closed
+                    if (!isOpen) {
+                        content.classList.remove('hidden', 'max-h-0');
+                        if (content.classList.contains('transition-all')) {
+                            // Give it a height so it transitions cleanly
+                            content.style.maxHeight = content.scrollHeight + 50 + "px";
+                        }
+                        if (icon) {
+                            icon.classList.add('rotate-45');
+                        }
+                    }
+                });
+            });
+
+            // === Логика мобильного меню и аккордеона ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const productsToggle = document.getElementById('mobile-products-toggle');
+            const productsContent = document.getElementById('mobile-products-content');
+            const productsIcon = document.getElementById('mobile-products-icon');
+
+            function toggleMobileMenu() {
+                if (!mobileNav) return;
+                if (mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.remove('hidden');
+                    requestAnimationFrame(() => mobileNav.classList.remove('opacity-0'));
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileNav.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileNav.classList.add('hidden');
+                        if (productsContent && productsContent.style.maxHeight) {
+                            productsContent.style.maxHeight = null;
+                            if (productsIcon) productsIcon.classList.remove('rotate-180');
+                            if (productsToggle) productsToggle.classList.remove('text-orange');
+                        }
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            if (productsToggle && productsContent) {
+                productsToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (productsIcon) productsIcon.classList.toggle('rotate-180');
+                    productsToggle.classList.toggle('text-orange');
+                    if (productsContent.style.maxHeight) {
+                        productsContent.style.maxHeight = null;
+                    } else {
+                        productsContent.style.maxHeight = productsContent.scrollHeight + "px";
+                    }
+                });
+            }
+            // Закрытие по клику на ссылку в меню
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu());
+            });
+        });
+    </script>
+
+    <!-- Внедренный скрипт для динамических кейсов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА КЕЙСОВ =====
+            const casesContainer = document.getElementById('cases-carousel');
+            if (casesContainer && typeof casesData !== 'undefined') {
+                const shuffledCases = [...casesData].sort(() => 0.5 - Math.random());
+                shuffledCases.forEach(c => {
+                    const initial = (c.name || 'К')[0].toUpperCase();
+                    const card = document.createElement('div');
+                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex flex-col shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 hover:border-white/30 cursor-pointer case-card h-auto md:min-h-[450px]';
+                    card.dataset.caseId = c.id;
+                    card.innerHTML = `
+                        <div class="p-6 md:p-8 flex flex-col h-full relative">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-[#FF8C00] to-[#FFD700] text-white flex items-center justify-center font-serif text-xl font-bold shadow-md shrink-0 border-2 border-white/20">${initial}</div>
+                                <div>
+                                    <div class="font-bold text-sm md:text-base uppercase tracking-wider text-white font-sans">${c.name.toUpperCase()}</div>
+                                    <div class="text-[9px] md:text-xs text-powder/60 italic">${c.profession}</div>
+                                </div>
+                            </div>
+                            <h4 class="font-serif text-base md:text-lg text-orange mb-3 md:mb-4 leading-snug md:uppercase md:font-normal font-normal tracking-tight md:tracking-normal">${c.title}</h4>
+                            <p class="font-serif italic text-powder/80 leading-relaxed text-[12px] md:text-sm flex-grow mb-6 md:mb-8 line-clamp-4">«${c.shortReview}»</p>
+                            
+                            <div class="inline-flex items-center gap-1.5 py-1 md:py-2 text-[6px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-white/50 border-b border-white/10 transition-all duration-300 hover:text-orange hover:border-orange group w-max mt-auto case-action-hint">
+                                <span class="md:hidden text-[4.8px]">прочитать кейс</span>
+                                <span class="hidden md:inline text-[14px]">Прочитать историю</span>
+                                <i class="ph ph-arrow-up-right text-[8px] md:text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                            </div>
+                        </div>`;
+                    casesContainer.appendChild(card);
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Наталья Старостина | База знаний</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Pinyon+Script&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            lighter: '#233554'
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F0EBE1'
+                        },
+                        powder: '#AECBEB',
+                        orange: {
+                            DEFAULT: '#FF8C00',
+                            hover: '#E67E00'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --color-navy: #0A192F;
+            --color-cream: #FDFBF7;
+            --color-powder: #AECBEB;
+            --color-orange: #FF8C00;
+        }
+
+        body {
+            background-color: var(--color-cream);
+            color: var(--color-navy);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .btn-alive-gradient {
+            background: linear-gradient(270deg, #FF8C00, #FDB931, #FFD700, #FF8C00);
+            background-size: 300% 300%;
+            animation: gradient-flow 4s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .card-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 140, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 140, 0, 0.8);
+        }
+
+        .card-image-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <!-- Очищенный от багов мобильный CSS -->
+    <style id="mobile-optimizations">
+        @media (max-width: 767px) {
+
+            p,
+            span,
+            div:not(.font-script):not(.font-serif):not(.text-center):not(.absolute):not(.relative) {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            #featured-article {
+                display: none !important;
+            }
+
+            #articles-grid {
+                gap: 1.5rem !important;
+                padding: 0 1rem !important;
+            }
+
+            .px-4 {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Заголовки */
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                position: relative;
+                z-index: 10;
+                line-height: 1.25 !important;
+            }
+
+            h1 {
+                font-size: 2.8rem !important;
+            }
+
+            h2 {
+                font-size: 1.7rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.6rem !important;
+            }
+
+            /* == Анимированные круги — убрать == */
+            .animate-spin-slow,
+            .animate-spin-very-slow,
+            .animate-float,
+            circle {
+                display: none !important;
+            }
+
+            /* == Badge (белый круг с оранжевым) на главном экране — убрать == */
+            .hero-badge {
+                display: none !important;
+            }
+
+            /* == Hero фото: убрать синие полосы / обрезку == */
+            .hero-photo-container {
+                border-radius: 1.5rem !important;
+                aspect-ratio: 3 / 4 !important;
+                overflow: hidden !important;
+            }
+
+            .hero-photo-container img,
+            .hero-photo-container video {
+                object-fit: cover !important;
+                object-position: center top !important;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none !important;
+            }
+
+            /* == "Обо мне" фото — скруглить == */
+            .about-photo-block,
+            .about-photo-block>div {
+                border-radius: 1.5rem !important;
+                overflow: hidden !important;
+            }
+
+            .about-photo-block img {
+                border-radius: 1.5rem !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-img,
+            [alt="Наталья Старостина"],
+            [alt="Наталья"],
+            .about-me-img {
+                max-width: 85% !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* == Сертификаты — квадратные на мобиле == */
+            .doc-item-container {
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Уменьшить карточки на 30% — сертификаты, отзывы, кейсы == */
+            .doc-item-container {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .text-review-card {
+                width: 59.5vw !important;
+                max-width: 238px !important;
+                min-width: unset !important;
+                flex-shrink: 0 !important;
+            }
+
+            .case-card-mobile-wrap {
+                width: 85vw !important;
+                max-width: 350px !important;
+                transform-origin: top center !important;
+            }
+
+            /* == Видео карточки: квадратные, без боковых отступов == */
+            .local-video-card {
+                width: 85vw !important;
+                min-width: unset !important;
+                max-width: 85vw !important;
+                aspect-ratio: 1 / 1 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .local-video-card iframe,
+            .local-video-card video {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+            }
+
+            /* == Видео модалка: квадратная, большая == */
+            #video-modal>div {
+                max-width: 90vw !important;
+                width: 90vw !important;
+                aspect-ratio: 1 / 1 !important;
+            }
+
+            /* == Hero hero-subtitle-tag: такой же размер как italic в h1 == */
+            .hero-subtitle-tag {
+                font-size: 1rem !important;
+                text-transform: uppercase !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+            }
+
+            /* == FAQ: системный шрифт для вопросов == */
+            .faq-btn .font-serif,
+            .faq-question {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif !important;
+            }
+
+            /* == Меню Продукты: одинаковый размер с остальными == */
+            #mobile-products-toggle {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #mobile-products-toggle span {
+                font-size: inherit !important;
+            }
+        }
+    </style>
+
+<body class="font-sans">
+    <!-- HEADER / НАВИГАЦИЯ -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-5 border-b border-transparent bg-cream/80 backdrop-blur-lg"
+        id="header">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a class="flex items-center gap-3 group" href="index.html">
+                <div
+                    class="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-serif italic text-xl group-hover:bg-orange transition-colors">
+                    Н</div>
+                <span class="font-serif font-bold text-lg tracking-wide uppercase text-navy">Старостина</span>
+            </a>
+            <nav
+                class="hidden lg:flex items-center gap-10 text-sm font-medium text-navy/80 uppercase tracking-widest relative">
+                <a class="hover:text-orange transition-colors" href="index.html">Главная</a>
+                <div class="relative group">
+                    <button
+                        class="hover:text-orange transition-colors uppercase tracking-widest flex items-center gap-1 font-medium font-sans">Продукты
+                        <i class="ph ph-caret-down text-xs"></i></button>
+                    <div class="absolute left-[-20px] top-[15px] pt-6 hidden group-hover:block w-72 z-[60]">
+                        <div
+                            class="bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-navy/5 py-3 flex flex-col gap-1">
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="unpacking.html">Распаковка
+                                личности и проф пути</a>
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="strategy.html">Стратегическая
+                                сессия</a>
+
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="coaching.html">Коучинг
+                                (сессия и сопровождение)</a>
+                            <a class="px-5 py-3 text-xs md:text-xs text-navy/80 hover:text-orange hover:bg-orange/5 transition-colors uppercase font-bold"
+                                href="yasd.html">Ясность.
+                                Стратегия. Действие</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="hover:text-orange transition-colors" href="knowledge.html">База знаний</a>
+                <a class="hover:text-orange transition-colors" href="cases.html">Истории и кейсы</a>
+                <a class="hover:text-orange transition-colors" href="reviews.html">Отзывы (текст)</a>
+                <a class="hover:text-orange transition-colors" href="videoaudio.html">Отзывы (видео/аудио)</a>
+            </nav>
+            <button class="lg:hidden text-2xl text-navy p-2" id="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+    </header>
+    <!-- Мобильное меню (Обновленное) -->
+    <div class="fixed inset-0 bg-cream z-[100] hidden flex-col w-full h-full opacity-0 transition-opacity duration-300 overflow-y-auto"
+        id="mobile-nav">
+        <div class="flex items-center justify-between px-6 py-6 border-b border-navy/10 relative z-20 bg-cream">
+            <span class="font-sans text-xs font-bold tracking-widest text-navy/50 uppercase">Меню</span>
+            <button class="text-3xl text-navy p-2 hover:text-orange transition-colors" id="close-menu-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col px-6 pt-6 pb-24 relative z-10 w-full min-h-max" style="pointer-events: auto;">
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="index.html">Главная</a>
+            <div class="border-b border-navy/10">
+                <button
+                    class="w-full flex items-center justify-between py-5 text-2xl sm:text-3xl font-serif font-bold text-navy hover:text-orange transition-colors text-left group"
+                    id="mobile-products-toggle">
+                    <span class="font-bold text-2xl sm:text-3xl">Продукты</span>
+                    <i class="ph ph-caret-down text-xl text-navy/50 group-hover:text-orange transition-transform duration-300"
+                        id="mobile-products-icon"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    id="mobile-products-content">
+                    <div class="flex flex-col gap-4 pb-6 pt-2 pl-4 border-l border-orange/30 ml-2">
+                        <a class="mobile-link text-wrap block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="unpacking.html">Распаковка
+                            личности и проф пути</a>
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="strategy.html">Стратегическая
+                            сессия</a>
+
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="coaching.html">Коучинг
+                            (сессия и сопровождение)</a>
+                        <a class="mobile-link block font-sans font-bold text-base text-navy/70 hover:text-orange transition-colors font-bold"
+                            href="yasd.html">Ясность.
+                            Стратегия. Действие</a>
+                    </div>
+                </div>
+            </div>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="knowledge.html">База
+                знаний</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="cases.html">Истории
+                и кейсы</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="reviews.html">Отзывы
+                (текст)</a>
+            <a class="mobile-link block py-5 text-2xl sm:text-3xl font-serif text-navy border-b border-navy/10 hover:text-orange transition-colors font-bold"
+                href="videoaudio.html">Отзывы
+                (видео/аудио)</a>
+        </nav>
+    </div>
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-32 pb-20 md:pt-48 px-6 md:px-8 relative">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 md:mb-24 relative">
+                <!-- ОБНОВЛЕННЫЙ ДЕКОРАТИВНЫЙ ТЕКСТ: Deep Knowledge -->
+                <div
+                    class="absolute -top-12 md:-top-24 right-0 md:-right-32 text-[18vw] md:text-[13vw] font-script text-navy/[0.04] -rotate-[8deg] whitespace-nowrap z-[-1] select-none pointer-events-none origin-right tracking-tighter">
+                    Deep Knowledge
+                </div>
+                <h1
+                    class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-navy leading-tight relative z-10 uppercase tracking-tight">
+                    База знаний</h1>
+                <p
+                    class="font-sans text-navy/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto relative z-10 leading-relaxed font-medium">
+                    Практические материалы, методология и системные инструменты для тех, кто готов к глубокой
+                    трансформации и поиску своих истинных целей.</p>
+                <div class="w-24 md:w-32 h-px bg-orange mx-auto mt-8 md:mt-10 mb-8 md:mb-10 relative z-10"></div>
+            </div>
+            <!-- FEATURED ARTICLE SECTION -->
+            <div class="mb-20 card-enter relative h-auto lg:h-[600px] overflow-hidden" id="featured-article">
+                <!-- Featured article content will be injected here -->
+            </div>
+            <!-- FILTERS -->
+            <div class="mb-12 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+                <button
+                    class="filter-btn active px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-all duration-300"
+                    data-filter="all">Все</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-navy/10 text-navy/50 hover:text-navy hover:border-navy/30 transition-all duration-300"
+                    data-filter="Распаковка">Распаковка</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-navy/10 text-navy/50 hover:text-navy hover:border-navy/30 transition-all duration-300"
+                    data-filter="Коучинг">Коучинг</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-navy/10 text-navy/50 hover:text-navy hover:border-navy/30 transition-all duration-300"
+                    data-filter="Ясность">Ясность</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-navy/10 text-navy/50 hover:text-navy hover:border-navy/30 transition-all duration-300"
+                    data-filter="Стратегия">Стратегия</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-navy/10 text-navy/50 hover:text-navy hover:border-navy/30 transition-all duration-300"
+                    data-filter="Действие">Действие</button>
+            </div>
+            <!-- ARTICLE GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="articles-grid">
+                <!-- Articles injected via JS -->
+            </div>
+            <script src="articlesData.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const grid = document.getElementById('articles-grid');
+                    const featuredContainer = document.getElementById('featured-article');
+                    const filterBtns = document.querySelectorAll('.filter-btn');
+
+                    if (!grid || !window.articlesData) return;
+
+                    // Функция перемешивания массива (Fisher-Yates shuffle)
+                    const shuffleArray = (array) => {
+                        for (let i = array.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [array[i], array[j]] = [array[j], array[i]];
+                        }
+                        return array;
+                    };
+
+                    // Перемешиваем данные при каждой загрузке страницы
+                    window.articlesData = shuffleArray([...window.articlesData]);
+
+                    let currentFilter = 'all';
+                    let featuredIndex = 0;
+                    let rotateInterval;
+
+                    const renderFeatured = (article) => {
+                        const content = `
+                            <a href="${article.ctaLink}" class="group block relative overflow-hidden rounded-[2rem] md:rounded-[3rem] bg-navy/5 border border-navy/5 hover:border-orange/20 transition-all duration-[600ms]">
+                                <div class="flex flex-col lg:flex-row h-auto lg:h-[600px]">
+                                    <div class="lg:w-3/5 relative overflow-hidden order-1 lg:order-2">
+                                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition-transform duration-[4000ms] group-hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-navy/30 via-transparent to-transparent"></div>
+                                        <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors duration-[600ms]"></div>
+                                    </div>
+                                    <div class="lg:w-2/5 p-8 md:p-16 flex flex-col justify-between bg-white/60 backdrop-blur-3xl order-2 lg:order-1 relative h-auto lg:h-[600px]">
+                                        <div class="flex flex-col flex-grow">
+                                            <!-- Top Info: Fixed position -->
+                                            <div class="mb-4 md:mb-8 flex items-center gap-4 relative z-10 h-8">
+                                                <span class="px-4 py-1.5 rounded-full bg-orange text-white text-[9px] font-bold uppercase tracking-widest shadow-lg shadow-orange/20">Featured</span>
+                                                <span class="text-navy/40 text-[9px] font-bold uppercase tracking-widest flex items-center gap-2">
+                                                    <i class="ph ph-clock"></i> ${article.readTime}
+                                                </span>
+                                            </div>
+
+                                            <!-- Title: Fixed space container -->
+                                            <div class="min-h-[70px] md:min-h-[100px] mb-4 md:mb-6 overflow-hidden">
+                                                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] mb-4 md:mb-6 leading-tight reveal-up">
+                                                    ${article.title}
+                                                </h2>
+                                            </div>
+
+                                            <!-- Summary: Fixed space container -->
+                                            <div class="min-h-[60px] md:min-h-[80px] mb-8 overflow-hidden">
+                                                <p class="text-navy/60 text-sm lg:text-base leading-relaxed font-medium line-clamp-4 relative z-10">
+                                                    ${article.summary}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Footer Action: Pushed to bottom -->
+                                        <div class="flex items-center justify-between mt-auto pt-8 border-t border-navy/5 relative z-10">
+                                            <div class="flex items-center gap-4 text-orange font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] group/btn whitespace-nowrap">
+                                                Читать статью <i class="ph ph-arrow-right transition-transform group-hover/btn:translate-x-3 duration-500"></i>
+                                            </div>
+                                            <div class="flex gap-2">
+                                                ${window.articlesData.filter(a => currentFilter === 'all' || a.category === currentFilter).map((_, i) => `
+                                                    <div class="w-1.5 h-1.5 rounded-full transition-all duration-[600ms] ${i === featuredIndex ? 'bg-orange w-6' : 'bg-navy/10'}"></div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+
+                        // Плавный переход через прозрачность (Cross-fade effect)
+                        featuredContainer.style.transition = 'opacity 1000ms ease-in-out';
+                        featuredContainer.style.opacity = '0';
+
+                        // Ждем полного исчезновения перед сменой контента
+                        setTimeout(() => {
+                            featuredContainer.innerHTML = content;
+                            // Принудительно заставляем браузер применить opacity 0 перед тем как начать появление
+                            requestAnimationFrame(() => {
+                                featuredContainer.style.opacity = '1';
+                            });
+                        }, 1000);
+                    };
+
+                    const startAutoRotation = () => {
+                        if (rotateInterval) clearInterval(rotateInterval);
+                        rotateInterval = setInterval(() => {
+                            const filtered = currentFilter === 'all'
+                                ? window.articlesData
+                                : window.articlesData.filter(a => a.category === currentFilter);
+
+                            if (filtered.length <= 1) return;
+
+                            featuredIndex = (featuredIndex + 1) % filtered.length;
+                            renderFeatured(filtered[featuredIndex]);
+                        }, 3500); // 3.5 seconds per rotation
+                    };
+
+                    const renderArticles = (filter = 'all') => {
+                        currentFilter = filter;
+                        featuredIndex = 0;
+                        grid.innerHTML = '';
+
+                        const filteredData = filter === 'all'
+                            ? window.articlesData
+                            : window.articlesData.filter(a => a.category === filter);
+
+                        if (filteredData.length === 0) {
+                            featuredContainer.innerHTML = '';
+                            grid.innerHTML = '<div class="col-span-full py-20 text-center text-navy/30 font-serif italic text-2xl">Материалов в этой категории пока нет...</div>';
+                            return;
+                        }
+
+                        renderFeatured(filteredData[0]);
+                        startAutoRotation();
+
+                        // Render Other Articles in Grid
+                        filteredData.forEach((article, index) => {
+                            const card = document.createElement('a');
+                            card.href = article.ctaLink;
+                            // Jony Ive Style: Clean, content-driven, no forced 1:1 aspect ratios, better spacing
+                            card.className = "card-enter group bg-white/70 backdrop-blur-md rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden border border-white/40 shadow-[0_8px_32px_rgba(10,25,47,0.03)] hover:shadow-[0_20px_50px_rgba(255,140,0,0.1)] transition-all duration-500 flex flex-col hover:-translate-y-2 h-full";
+                            card.style.animationDelay = `${index * 0.1}s`;
+
+                            card.innerHTML = `
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] md:aspect-[3/2] overflow-hidden bg-navy/5 shrink-0">
+                                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition-transform duration-1000 opacity-90 group-hover:opacity-100 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute top-4 left-4 z-10">
+                                        <span class="px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/20 backdrop-blur-md bg-black/30 shadow-sm">${article.category}</span>
+                                    </div>
+                                </div>
+                                <div class="p-6 md:p-8 flex flex-col flex-grow relative bg-white/40">
+                                    <div class="flex items-center mb-4 text-navy/40 text-[10px] md:text-xs font-bold uppercase tracking-widest justify-end">
+                                        <i class="ph ph-clock text-sm md:text-base mr-1.5"></i> ${article.readTime}
+                                    </div>
+                                    
+                                    <h3 class="font-serif text-base md:text-lg lg:text-xl text-navy mb-3 group-hover:text-orange transition-colors duration-300 font-bold leading-tight tracking-tight">
+                                        ${article.title}
+                                    </h3>
+                                    
+                                    <p class="text-navy/60 text-[0.95rem] md:text-sm mb-6 leading-relaxed line-clamp-3 md:line-clamp-4 font-medium">
+                                        ${article.summary}
+                                    </p>
+                                    
+                                    <div class="mt-auto flex items-center justify-between pt-5 border-t border-navy/10 group/btn">
+                                        <span class="text-xs font-bold uppercase tracking-widest text-orange transition-colors">Читать статью</span>
+                                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange/30 flex items-center justify-center text-orange group-hover:bg-orange group-hover:text-white transition-all duration-500 shadow-sm">
+                                            <i class="ph ph-arrow-right text-lg md:text-xl group-hover:translate-x-1 transition-transform"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            grid.appendChild(card);
+                        });
+                    };
+
+                    renderArticles();
+
+                    filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            filterBtns.forEach(b => {
+                                b.classList.remove('active', 'bg-navy', 'text-white', 'border-navy');
+                                b.classList.add('border-navy/10', 'text-navy/50');
+                            });
+                            btn.classList.add('active', 'bg-navy', 'text-white', 'border-navy');
+                            btn.classList.remove('border-navy/10', 'text-navy/50');
+                            renderArticles(btn.dataset.filter);
+                        });
+                    });
+                });
+            </script>
+        </div>
+
+    </main>
+    <!-- FOOTER -->
+    <footer
+        class="bg-navy text-cream pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-8 relative overflow-hidden w-full max-w-full mt-auto">
+        <svg class="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none"
+            preserveaspectratio="none" viewbox="0 0 100 100">
+            <path d="M 0 100 C 50 0, 100 100, 150 0" fill="none" stroke="currentColor" stroke-width="2"></path>
+        </svg>
+        <div
+            class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 border-b border-white/10 pb-12 md:pb-16 mb-8">
+            <div class="w-full lg:w-1/2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cream text-navy flex items-center justify-center font-serif italic text-xl">
+                        Н</div>
+                    <span class="font-serif font-bold text-lg tracking-wide uppercase text-cream">Старостина</span>
+                </div>
+                <p class="font-sans text-powder text-base md:text-lg max-w-md leading-relaxed mb-6 md:mb-8">
+                    Если у вас есть вопросы по услугам или продуктам, вы всегда можете связаться со мной по удобному для
+                    вас каналу и мы все обсудим, я с большой радостью буду для вас помощью!</p>
+                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-none uppercase tracking-widest text-[10px] md:text-xs shadow-2xl hover:shadow-[0_15px_40px_rgba(255,140,0,0.4)] transition-all transform hover:-translate-y-1 inline-flex justify-center items-center w-max mb-12 lg:mb-0"
+                    href="https://t.me/nv_star" target="_blank">Написать
+                    лично</a>
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 font-sans uppercase tracking-widest text-[12px] md:text-xs w-full lg:w-auto">
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.instagram.com/nataliastarostina.coach/" target="_blank"><i
+                        class="ph ph-instagram-logo text-xl md:text-lg"></i> Instagram</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://t.me/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-telegram-logo text-xl md:text-lg"></i> Telegram-канал</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.tiktok.com/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-tiktok-logo text-xl md:text-lg"></i> TikTok</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.youtube.com/@nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-youtube-logo text-xl md:text-lg"></i> Youtube</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://dzen.ru/nataliastarostina_coach" target="_blank"><i
+                        class="ph ph-article text-xl md:text-lg"></i> Дзен</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3" href="https://vk.com/nv.star"
+                    target="_blank"><span
+                        class="font-bold text-[12px] md:text-sm leading-none tracking-normal">VK</span> Вконтакте</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://www.threads.net/@nataliastarostina.coach" target="_blank"><i
+                        class="ph ph-threads-logo text-xl md:text-lg"></i> Threads</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-3"
+                    href="https://max.ru/join/7i6v-Jd3FPg3BtQcBQq7FIraNLOUa2Fxjh_VKv5i8PU" target="_blank"><i
+                        class="ph ph-star text-xl md:text-lg"></i> Max</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto relative z-10 text-[10px] md:text-xs text-powder/40 font-sans tracking-wide flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div
+                class="flex flex-col sm:flex-row gap-3 md:gap-8 items-center text-center lg:text-left order-2 lg:order-1">
+                <span class="leading-relaxed"><strong class="text-white font-bold">ИП Старостина Наталья Валерьевна
+                        <br />ИНН 212912145136</strong><br />ОГРН 321213000007900</span>
+                <a class="hover:text-cream transition-colors underline decoration-powder/30 underline-offset-4"
+                    href="https://docs.google.com/document/d/1onBrld8e_qzfbzRxjcFxgIeBT9fVhyI27lZ8iHjABR0/edit?tab=t.0"
+                    target="_blank">Договор
+                    оферты</a>
+            </div>
+            <div class="order-1 lg:order-2 mb-4 lg:mb-0 flex flex-col gap-2 items-center lg:items-end">
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="mailto:nataliastarostina@internet.ru"><i
+                        class="ph ph-envelope-simple text-sm md:text-base"></i> nataliastarostina@internet.ru</a>
+                <a class="hover:text-orange transition-colors flex items-center gap-2 text-powder/80"
+                    href="https://t.me/nv_star" target="_blank"><i class="ph ph-bug text-sm md:text-base"></i> написать
+                    сообщение об ошибке на сайте</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // === Логика FAQ ===
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    if (!content) return;
+
+                    const icon = btn.querySelector('.faq-icon');
+                    // Check if currently open by checking rotation on icon
+                    const isOpen = icon ? icon.classList.contains('rotate-45') : (!content.classList.contains('hidden') && !content.classList.contains('max-h-0'));
+
+                    // Close all
+                    faqBtns.forEach(otherBtn => {
+                        const otherContent = otherBtn.nextElementSibling;
+                        const otherIcon = otherBtn.querySelector('.faq-icon');
+                        if (otherContent) {
+                            if (otherContent.classList.contains('transition-all')) {
+                                otherContent.style.maxHeight = null;
+                                otherContent.classList.add('max-h-0');
+                            } else {
+                                otherContent.classList.add('hidden');
+                            }
+                        }
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate-45');
+                        }
+                    });
+
+                    // Open current if it was closed
+                    if (!isOpen) {
+                        content.classList.remove('hidden', 'max-h-0');
+                        if (content.classList.contains('transition-all')) {
+                            // Give it a height so it transitions cleanly
+                            content.style.maxHeight = content.scrollHeight + 50 + "px";
+                        }
+                        if (icon) {
+                            icon.classList.add('rotate-45');
+                        }
+                    }
+                });
+            });
+
+            // === Логика мобильного меню и аккордеона ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const productsToggle = document.getElementById('mobile-products-toggle');
+            const productsContent = document.getElementById('mobile-products-content');
+            const productsIcon = document.getElementById('mobile-products-icon');
+
+            function toggleMobileMenu() {
+                if (!mobileNav) return;
+                if (mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.remove('hidden');
+                    requestAnimationFrame(() => mobileNav.classList.remove('opacity-0'));
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileNav.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileNav.classList.add('hidden');
+                        if (productsContent && productsContent.style.maxHeight) {
+                            productsContent.style.maxHeight = null;
+                            if (productsIcon) productsIcon.classList.remove('rotate-180');
+                            if (productsToggle) productsToggle.classList.remove('text-orange');
+                        }
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            if (productsToggle && productsContent) {
+                productsToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (productsIcon) productsIcon.classList.toggle('rotate-180');
+                    productsToggle.classList.toggle('text-orange');
+                    if (productsContent.style.maxHeight) {
+                        productsContent.style.maxHeight = null;
+                    } else {
+                        productsContent.style.maxHeight = productsContent.scrollHeight + "px";
+                    }
+                });
+            }
+            // Закрытие по клику на ссылку в меню
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu());
+            });
+        });
+    </script>
+</body>
+
+</html>
