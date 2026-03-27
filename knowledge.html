@@ -139,9 +139,11 @@
             z-index: 1;
             min-width: 0;
             padding: 3.5rem 3.25rem 2.75rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            height: 100%;
+            min-height: 0;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            align-items: start;
         }
 
         .featured-topline {
@@ -162,6 +164,20 @@
             letter-spacing: 0.28em;
             text-transform: uppercase;
             white-space: nowrap;
+        }
+
+        .featured-body {
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .featured-content {
+            max-width: 38rem;
+            min-height: 0;
+            overflow: hidden;
         }
 
         .featured-kicker::before {
@@ -212,6 +228,10 @@
             margin: 0 0 1rem;
             font-weight: 500;
             text-wrap: balance;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
         }
 
         .featured-summary {
@@ -221,6 +241,10 @@
             line-height: var(--featured-summary-line-height);
             font-weight: 500;
             margin: 0;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
         }
 
         .featured-footer {
@@ -231,6 +255,14 @@
             padding-top: 1.5rem;
             margin-top: 1.75rem;
             border-top: 1px solid rgba(10, 25, 47, 0.08);
+        }
+
+        .featured-footer-inner {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1.25rem;
         }
 
         .featured-cta {
@@ -305,6 +337,8 @@
         .featured-visual {
             position: relative;
             padding: 1.35rem;
+            height: 100%;
+            min-height: 0;
             display: flex;
             align-items: stretch;
         }
@@ -325,6 +359,7 @@
         .featured-image-frame {
             position: relative;
             width: 100%;
+            height: 100%;
             border-radius: 2.2rem;
             overflow: hidden;
             background: rgba(10, 25, 47, 0.08);
@@ -416,6 +451,20 @@
             .featured-summary {
                 --featured-summary-size: 0.92rem;
                 --featured-summary-line-height: 1.65;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #featured-article {
+                height: 560px !important;
+                min-height: 560px !important;
+                overflow: hidden !important;
+            }
+
+            #featured-article>.featured-shell,
+            #featured-article .featured-shell,
+            #featured-article .featured-grid {
+                height: 100% !important;
             }
         }
     </style>
@@ -778,6 +827,22 @@
                     let currentFilter = 'all';
                     let featuredIndex = 0;
                     let rotateInterval;
+                    const desktopFeaturedHeight = 560;
+
+                    const syncFeaturedContainerHeight = () => {
+                        if (!featuredContainer) return;
+                        if (window.innerWidth >= 1024) {
+                            featuredContainer.style.height = `${desktopFeaturedHeight}px`;
+                            featuredContainer.style.minHeight = `${desktopFeaturedHeight}px`;
+                            featuredContainer.style.maxHeight = `${desktopFeaturedHeight}px`;
+                            featuredContainer.style.overflow = 'hidden';
+                        } else {
+                            featuredContainer.style.height = '';
+                            featuredContainer.style.minHeight = '';
+                            featuredContainer.style.maxHeight = '';
+                            featuredContainer.style.overflow = '';
+                        }
+                    };
 
                     const renderFeatured = (article) => {
                         const filteredItems = currentFilter === 'all'
@@ -790,20 +855,20 @@
                         let summaryLineHeight = '1.72';
 
                         if (titleLength >= 95) {
-                            titleWidth = '17ch';
-                            titleSize = 'clamp(1.7rem, 1.95vw, 2.55rem)';
-                            summarySize = '0.9rem';
-                            summaryLineHeight = '1.62';
+                            titleWidth = '21ch';
+                            titleSize = 'clamp(1.55rem, 1.72vw, 2.2rem)';
+                            summarySize = '0.88rem';
+                            summaryLineHeight = '1.55';
                         } else if (titleLength >= 78) {
-                            titleWidth = '15.5ch';
-                            titleSize = 'clamp(1.9rem, 2.1vw, 2.9rem)';
-                            summarySize = '0.92rem';
-                            summaryLineHeight = '1.66';
+                            titleWidth = '18.5ch';
+                            titleSize = 'clamp(1.72rem, 1.92vw, 2.5rem)';
+                            summarySize = '0.9rem';
+                            summaryLineHeight = '1.6';
                         } else if (titleLength >= 62) {
-                            titleWidth = '14ch';
-                            titleSize = 'clamp(2.02rem, 2.2vw, 3.15rem)';
-                            summarySize = '0.94rem';
-                            summaryLineHeight = '1.68';
+                            titleWidth = '16.5ch';
+                            titleSize = 'clamp(1.92rem, 2.08vw, 2.85rem)';
+                            summarySize = '0.92rem';
+                            summaryLineHeight = '1.64';
                         } else if (titleLength <= 38) {
                             titleWidth = '10.5ch';
                             titleSize = 'clamp(2.45rem, 2.7vw, 3.85rem)';
@@ -813,34 +878,36 @@
                             <a href="${article.ctaLink}" class="featured-shell group" style="--featured-title-width:${titleWidth}; --featured-title-size:${titleSize}; --featured-summary-size:${summarySize}; --featured-summary-line-height:${summaryLineHeight};">
                                 <div class="featured-grid">
                                     <div class="featured-copy">
-                                        <div>
-                                            <div class="featured-topline">
-                                                <div class="featured-kicker">Избранный материал</div>
-                                                <div class="featured-readtime">
-                                                    <i class="ph ph-clock"></i>
-                                                    <span>${article.readTime}</span>
-                                                </div>
+                                        <div class="featured-topline">
+                                            <div class="featured-kicker">Избранный материал</div>
+                                            <div class="featured-readtime">
+                                                <i class="ph ph-clock"></i>
+                                                <span>${article.readTime}</span>
                                             </div>
-                                            <div class="max-w-[38rem]">
+                                        </div>
+                                        <div class="featured-body">
+                                            <div class="featured-content">
                                                 <div class="featured-category-chip">${article.category}</div>
                                                 <h2 class="featured-title">${article.title}</h2>
                                                 <p class="featured-summary">${article.summary}</p>
                                             </div>
                                         </div>
                                         <div class="featured-footer">
-                                            <div class="featured-cta">
-                                                <span>Открыть материал</span>
-                                                <span class="featured-cta-icon">
-                                                    <i class="ph ph-arrow-right text-xl"></i>
-                                                </span>
-                                            </div>
-                                            <div class="featured-pagination">
-                                                <div class="featured-dots">
-                                                    ${filteredItems.map((_, i) => `
-                                                        <span class="featured-dot ${i === featuredIndex ? 'is-active' : ''}"></span>
-                                                    `).join('')}
+                                            <div class="featured-footer-inner">
+                                                <div class="featured-cta">
+                                                    <span>Открыть материал</span>
+                                                    <span class="featured-cta-icon">
+                                                        <i class="ph ph-arrow-right text-xl"></i>
+                                                    </span>
                                                 </div>
-                                                <div class="featured-index"><strong>${featuredIndex + 1}</strong> / ${filteredItems.length}</div>
+                                                <div class="featured-pagination">
+                                                    <div class="featured-dots">
+                                                        ${filteredItems.map((_, i) => `
+                                                            <span class="featured-dot ${i === featuredIndex ? 'is-active' : ''}"></span>
+                                                        `).join('')}
+                                                    </div>
+                                                    <div class="featured-index"><strong>${featuredIndex + 1}</strong> / ${filteredItems.length}</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -949,6 +1016,8 @@
                         });
                     };
 
+                    syncFeaturedContainerHeight();
+                    window.addEventListener('resize', syncFeaturedContainerHeight);
                     renderArticles();
 
                     filterBtns.forEach(btn => {
