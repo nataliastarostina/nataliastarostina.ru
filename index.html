@@ -561,6 +561,7 @@
                     aspect-ratio: 4 / 5.1;
                     transform: translateX(-50%);
                     border-radius: 1.5rem 0.8rem 1.5rem 0.8rem;
+                    box-shadow: none !important;
                 }
 
                 #about .font-sans.text-navy\/70.text-sm,
@@ -670,12 +671,13 @@
             #about .about-primary-photo {
                 left: 50%;
                 top: 0;
-                width: clamp(22rem, 31vw, 34rem) !important;
-                height: clamp(31rem, 45vw, 48rem) !important;
+                width: clamp(19rem, 25vw, 27rem) !important;
+                height: clamp(27rem, 36vw, 38rem) !important;
                 max-width: none !important;
                 transform: translateX(-50%);
-                border-radius: 0;
-                clip-path: polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 48px 100%, 0 calc(100% - 48px));
+                border-radius: 1.5rem 0.8rem 1.5rem 0.8rem;
+                clip-path: none;
+                box-shadow: 0 24px 48px -24px rgba(10, 25, 47, 0.18), 0 16px 28px -24px rgba(0, 0, 0, 0.14);
             }
 
             #about .about-primary-photo img {
@@ -686,12 +688,17 @@
                 object-fit: cover;
                 object-position: center 10%;
             }
+
+            #about .about-quote {
+                font-size: clamp(1.7rem, 1.25rem + 1vw, 2.35rem) !important;
+                line-height: 1.5 !important;
+            }
         }
 
         @media (min-width: 1280px) {
             #about .about-primary-photo {
-                width: clamp(25rem, 33vw, 38rem) !important;
-                height: clamp(36rem, 50vw, 54rem) !important;
+                width: clamp(21rem, 27vw, 29rem) !important;
+                height: clamp(30rem, 39vw, 41rem) !important;
             }
         }
     </style>
@@ -1182,7 +1189,7 @@
             <div
                 class="about-photo-stage about-photo-block w-full lg:w-5/12 relative flex items-center justify-center h-[450px] sm:h-[600px] lg:h-[800px] mt-10 lg:mt-0 lg:sticky lg:top-48 order-1 lg:order-2">
                 <div
-                    class="about-primary-photo absolute top-0 z-10 photo-shadow overflow-hidden bg-cream flex justify-center items-center">
+                    class="about-primary-photo absolute top-0 z-10 overflow-hidden bg-cream flex justify-center items-center">
                     <img src="images/optimized/main/about-collage.jpg" alt="Наталья"
                         class="transition-transform duration-700"
                         loading="lazy" decoding="async">
@@ -1194,7 +1201,7 @@
         </div>
         <div
             class="max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20 relative z-30 text-navy text-right border-r-2 border-orange pr-4 md:pr-8">
-            <p class="font-serif italic text-lg sm:text-xl md:text-2xl leading-relaxed">
+            <p class="about-quote font-serif italic text-lg sm:text-xl md:text-2xl leading-relaxed">
                 «Я не буду учить вас жить или давать пустые мотивационные советы.<br class="hidden sm:block">
                 Мы посмотрим на вашу ситуацию со стороны, найдем «слепые зоны» и выстроим понятный план действий.<br
                     class="hidden lg:block">
