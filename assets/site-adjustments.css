@@ -38,17 +38,22 @@
     }
 
     #media-reviews-carousel .local-video-card,
-    #video-grid .local-video-card,
     .local-video-card.video-large-horizontal,
     .local-video-card.video-yasd-how {
         aspect-ratio: 16 / 9 !important;
     }
 
-    #media-reviews-carousel .local-video-card,
-    #video-grid .local-video-card {
+    #media-reviews-carousel .local-video-card {
         width: min(82vw, 340px) !important;
         max-width: 340px !important;
         min-width: min(82vw, 340px) !important;
+    }
+
+    #video-grid .local-video-card {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        aspect-ratio: 1 / 1 !important;
     }
 
     .local-video-card.video-large-horizontal,
@@ -79,36 +84,44 @@
     }
 
     #yasd-old-formats {
-        padding-bottom: 3.5rem !important;
+        padding-bottom: 2rem !important;
     }
 
     #yasd-audience {
-        padding-top: 3.5rem !important;
+        padding-top: 2rem !important;
     }
 
     #hero-journey {
-        padding-bottom: 1.75rem !important;
+        padding-bottom: 1rem !important;
     }
 
     #hero-journey + section {
-        padding-top: 1.25rem !important;
+        padding-top: 0.75rem !important;
     }
 }
 
 #about {
-    padding-bottom: clamp(2.5rem, 5vw, 4.5rem) !important;
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
 }
 
 #about + #education-block {
-    padding-top: clamp(1rem, 3vw, 2.5rem) !important;
+    padding-top: clamp(0.75rem, 2vw, 1.5rem) !important;
+}
+
+#yasd-old-formats {
+    padding-bottom: clamp(2.5rem, 4vw, 3.5rem) !important;
+}
+
+#yasd-audience {
+    padding-top: clamp(2.5rem, 4vw, 3.5rem) !important;
 }
 
 #hero-journey {
-    padding-bottom: clamp(2.5rem, 5vw, 4rem) !important;
+    padding-bottom: clamp(1.25rem, 2vw, 2rem) !important;
 }
 
 #hero-journey + section {
-    padding-top: clamp(1.5rem, 4vw, 3rem) !important;
+    padding-top: clamp(0.75rem, 1.5vw, 1.25rem) !important;
 }
 
 .vk-review-card {
@@ -228,6 +241,19 @@
 .vk-review-card:hover .vk-preview-play,
 .vk-review-card:focus-visible .vk-preview-play {
     transform: scale(1.08);
+}
+
+#video-grid .local-video-card {
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 2rem 0.7rem 2rem 0.7rem !important;
+}
+
+#video-grid .vk-preview-frame,
+#video-grid .vk-preview-frame iframe,
+#video-grid .vk-preview-gradient,
+#video-grid .vk-preview-scrim,
+#video-grid .vk-preview-shine {
+    border-radius: inherit;
 }
 
 @media (min-width: 768px) {

@@ -100,6 +100,13 @@
     }
 
     function buildReviewCard(config) {
+        var showMeta = Boolean(config.showMeta);
+        var captionMarkup = showMeta
+            ? '<div class="vk-preview-caption" aria-hidden="true">' +
+                '<div class="vk-preview-eyebrow">VK видео</div>' +
+                '<div class="vk-preview-label">' + (config.label || '') + '</div>' +
+              '</div>'
+            : '';
         var card = document.createElement('div');
         card.className = config.className;
         card.dataset.vkId = config.vkId;
@@ -113,10 +120,7 @@
             '<div class="vk-preview-gradient" aria-hidden="true"></div>' +
             '<div class="vk-preview-scrim" aria-hidden="true"></div>' +
             '<div class="vk-preview-shine" aria-hidden="true"></div>' +
-            '<div class="vk-preview-caption" aria-hidden="true">' +
-            '<div class="vk-preview-eyebrow">VK видео</div>' +
-            '<div class="vk-preview-label">' + (config.label || '') + '</div>' +
-            '</div>' +
+            captionMarkup +
             '<div class="vk-preview-play-wrap" aria-hidden="true">' +
             '<div class="vk-preview-play"><i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i></div>' +
             '</div>';
