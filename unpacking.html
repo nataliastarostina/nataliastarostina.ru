@@ -330,23 +330,23 @@
 
             #materials-carousel a,
             #cases-carousel .case-action-hint {
-                font-size: 0.7rem !important;
+                font-size: 0.82rem !important;
                 margin-top: auto !important;
-                letter-spacing: 0.1em !important;
-                opacity: 0.6;
+                letter-spacing: 0.14em !important;
+                opacity: 0.72;
             }
 
             #cases-carousel .case-action-hint i {
-                font-size: 10px !important;
+                font-size: 11px !important;
             }
 
             @media (min-width: 768px) {
                 #cases-carousel .case-action-hint {
-                    font-size: 13px !important;
+                    font-size: 15px !important;
                 }
 
                 #cases-carousel .case-action-hint i {
-                    font-size: 10px !important;
+                    font-size: 13px !important;
                 }
             }
 
@@ -1793,6 +1793,48 @@
                     });
                 })();
 
+                function warmVkConnections() {
+                    if (document.documentElement.dataset.vkConnectionsWarmed === 'true') return;
+                    document.documentElement.dataset.vkConnectionsWarmed = 'true';
+
+                    [
+                        ['preconnect', 'https://vkvideo.ru'],
+                        ['preconnect', 'https://static.vkid.ru'],
+                        ['dns-prefetch', 'https://vkvideo.ru'],
+                        ['dns-prefetch', 'https://static.vkid.ru']
+                    ].forEach(([rel, href]) => {
+                        if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
+                        const link = document.createElement('link');
+                        link.rel = rel;
+                        link.href = href;
+                        if (rel === 'preconnect') link.crossOrigin = 'anonymous';
+                        document.head.appendChild(link);
+                    });
+                }
+
+                function buildVkReviewPlaceholder(label) {
+                    return `
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.32),_rgba(10,25,47,0.98)_68%)]"></div>
+                        <div class="absolute inset-0 opacity-70 bg-[linear-gradient(150deg,_rgba(255,255,255,0.14),_transparent_38%,_rgba(255,140,0,0.16)_100%)]"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 pointer-events-none">
+                            <div class="text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/45 font-bold">VK видео</div>
+                            <div class="mt-2 text-sm md:text-base text-white/78 font-medium">${label}</div>
+                        </div>
+                        <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
+                            </div>
+                        </div>`;
+                }
+
+                function attachVkWarmup(card) {
+                    if (!card) return;
+                    const warmup = () => warmVkConnections();
+                    card.addEventListener('pointerenter', warmup, { passive: true, once: true });
+                    card.addEventListener('focusin', warmup, { once: true });
+                    card.addEventListener('touchstart', warmup, { passive: true, once: true });
+                }
+
                 // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ВИДЕО/АУДИО ОТЗЫВОВ (VK) =====
                 (function renderMediaReviews() {
                     const container = document.getElementById('media-reviews-carousel');
@@ -1834,16 +1876,8 @@
                         card.dataset.videoSrc = getVkEmbed(vkId, true);
                         card.setAttribute('role', 'button');
                         card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
-                        card.innerHTML = `
-                        <iframe src="${getVkEmbed(vkId)}" class="w-full h-full pointer-events-none"
-                            title="Видеоотзыв ${index + 1}" loading="lazy"
-                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
-                            frameborder="0" allowfullscreen></iframe>
-                        <div class="absolute inset-0 z-10 bg-black/10 flex items-center justify-center pointer-events-none">
-                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-orange/90 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                                <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
-                            </div>
-                        </div>`;
+                        card.innerHTML = buildVkReviewPlaceholder(`Отзыв ${String(index + 1).padStart(2, '0')}`);
+                        attachVkWarmup(card);
                         container.appendChild(card);
                     });
                 })();
@@ -1874,6 +1908,7 @@
                 const imageModalTarget = document.getElementById('image-modal-target');
                 const videoModal = document.getElementById('video-modal');
                 const videoModalPlayer = document.getElementById('video-modal-player');
+                const videoModalIframe = document.getElementById('video-modal-iframe');
 
                 document.addEventListener('click', (e) => {
                     // Open case modal (cases.html style)
@@ -1960,17 +1995,20 @@
                     }
                     // 3. Открытие Видео (VK)
                     const localVideoCard = e.target.closest('.local-video-card');
-                    if (localVideoCard && typeof videoModalPlayer !== 'undefined' && videoModalPlayer && videoModal) {
+                    if (localVideoCard && videoModal) {
+                        warmVkConnections();
                         const videoSrc = localVideoCard.getAttribute('data-video-src');
                         // Открываем video player для локальных mp4
                         const vPlayer = document.getElementById('video-modal-player');
                         const vIframe = document.getElementById('video-modal-iframe');
-                        if (vPlayer) {
+                        if (vPlayer && videoSrc && videoSrc.endsWith('.mp4')) {
                             vPlayer.src = videoSrc;
                             vPlayer.classList.remove('hidden');
                             if (vIframe) vIframe.classList.add('hidden');
                         } else if (vIframe) {
                             vIframe.src = videoSrc;
+                            vIframe.classList.remove('hidden');
+                            if (vPlayer) vPlayer.classList.add('hidden');
                         }
                         videoModal.classList.remove('hidden');
                         document.body.style.overflow = 'hidden';
@@ -2012,6 +2050,7 @@
                         videoModal.classList.add('opacity-0');
                         videoModal.children[1].classList.add('scale-95');
                         const _vp = document.getElementById('video-modal-player'); if (_vp) { _vp.pause(); _vp.src = ''; _vp.classList.add('hidden'); }
+                        if (videoModalIframe) { videoModalIframe.src = ''; videoModalIframe.classList.remove('hidden'); }
                         setTimeout(() => {
                             videoModal.classList.add('hidden');
                             document.body.style.overflow = '';
@@ -2154,10 +2193,9 @@
                             <h4 class="font-serif text-base md:text-lg text-orange mb-3 md:mb-4 leading-snug md:uppercase md:font-normal font-normal tracking-tight md:tracking-normal">${c.title}</h4>
                             <p class="font-serif italic text-powder/80 leading-relaxed text-[12px] md:text-sm flex-grow mb-6 md:mb-8 line-clamp-4">«${c.shortReview}»</p>
                             
-                            <div class="inline-flex items-center gap-1.5 py-1 md:py-2 text-[6px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-white/50 border-b border-white/10 transition-all duration-300 hover:text-orange hover:border-orange group w-max mt-auto case-action-hint">
-                                <span class="md:hidden text-[4.8px]">прочитать кейс</span>
-                                <span class="hidden md:inline text-[14px]">Прочитать историю</span>
-                                <i class="ph ph-arrow-up-right text-[8px] md:text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                            <div class="inline-flex items-center gap-1.5 py-1 md:py-2 text-xs md:text-sm uppercase font-bold tracking-[0.2em] text-white/50 border-b border-white/10 transition-all duration-300 hover:text-orange hover:border-orange group w-max mt-auto case-action-hint">
+                                <span>прочитать кейс</span>
+                                <i class="ph ph-arrow-up-right text-sm md:text-base transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                             </div>
                         </div>`;
                     casesContainer.appendChild(card);

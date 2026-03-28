@@ -215,6 +215,11 @@
                 margin: 0 !important;
             }
 
+            .vk-review-card {
+                content-visibility: auto;
+                contain-intrinsic-size: 320px 320px;
+            }
+
             /* == Видео модалка: квадратная, большая == */
             #video-modal>div {
                 max-width: 90vw !important;
@@ -599,17 +604,47 @@
                 return `https://vkvideo.ru/video_ext.php?oid=${parts[0]}&id=${parts[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
             }
 
-            function mountPreviewIframe(card) {
-                if (!card || card.dataset.previewMounted === 'true') return;
-                const previewFrame = card.querySelector('[data-video-preview]');
-                if (!previewFrame) return;
-                previewFrame.innerHTML = `
-                    <iframe src="${card.dataset.previewSrc}" class="w-full h-full pointer-events-none"
-                        title="${card.getAttribute('aria-label')}" loading="lazy"
-                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
-                        frameborder="0" allowfullscreen></iframe>
+            function warmVkConnections() {
+                if (document.documentElement.dataset.vkConnectionsWarmed === 'true') return;
+                document.documentElement.dataset.vkConnectionsWarmed = 'true';
+
+                [
+                    ['preconnect', 'https://vkvideo.ru'],
+                    ['preconnect', 'https://static.vkid.ru'],
+                    ['dns-prefetch', 'https://vkvideo.ru'],
+                    ['dns-prefetch', 'https://static.vkid.ru']
+                ].forEach(([rel, href]) => {
+                    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
+                    const link = document.createElement('link');
+                    link.rel = rel;
+                    link.href = href;
+                    if (rel === 'preconnect') link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                });
+            }
+
+            function buildVkReviewPlaceholder(label) {
+                return `
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.32),_rgba(10,25,47,0.98)_68%)]"></div>
+                    <div class="absolute inset-0 opacity-70 bg-[linear-gradient(150deg,_rgba(255,255,255,0.14),_transparent_38%,_rgba(255,140,0,0.16)_100%)]"></div>
+                    <div class="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 pointer-events-none">
+                        <div class="text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/45 font-bold">VK видео</div>
+                        <div class="mt-2 text-sm md:text-base text-white/78 font-medium">${label}</div>
+                    </div>
+                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
+                        </div>
+                    </div>
                 `;
-                card.dataset.previewMounted = 'true';
+            }
+
+            function attachVkWarmup(card) {
+                if (!card) return;
+                const warmup = () => warmVkConnections();
+                card.addEventListener('pointerenter', warmup, { passive: true, once: true });
+                card.addEventListener('focusin', warmup, { once: true });
+                card.addEventListener('touchstart', warmup, { passive: true, once: true });
             }
 
             function shuffle(array) {
@@ -625,42 +660,38 @@
             const videoGrid = document.getElementById('video-grid');
 
             if (videoGrid) {
-                const previewObserver = 'IntersectionObserver' in window
-                    ? new IntersectionObserver((entries, observer) => {
-                        entries.forEach((entry) => {
-                            if (!entry.isIntersecting) return;
-                            mountPreviewIframe(entry.target);
-                            observer.unobserve(entry.target);
-                        });
-                    }, { rootMargin: '300px 0px' })
-                    : null;
+                const renderVideoBatch = (startIndex = 0, batchSize = 12) => {
+                    const fragment = document.createDocumentFragment();
+                    vkVideos.slice(startIndex, startIndex + batchSize).forEach((vkId, offset) => {
+                        const index = startIndex + offset;
+                        const card = document.createElement('div');
+                        card.className = "w-full group cursor-pointer relative aspect-square bg-navy-light rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card vk-review-card";
+                        card.setAttribute('role', 'button');
+                        card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
+                        card.innerHTML = buildVkReviewPlaceholder(`Отзыв ${String(index + 1).padStart(2, '0')}`);
+                        attachVkWarmup(card);
+                        card.addEventListener('click', () => openVideoModal(vkId));
+                        fragment.appendChild(card);
+                    });
+                    videoGrid.appendChild(fragment);
 
-                const fragment = document.createDocumentFragment();
-                vkVideos.forEach((vkId, index) => {
-                    const card = document.createElement('div');
-                    card.className = "w-full group cursor-pointer relative aspect-square bg-navy-light rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card";
-                    card.dataset.previewSrc = getEmbedUrl(vkId);
-                    card.setAttribute('role', 'button');
-                    card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
-                    card.innerHTML = `
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.28),_rgba(10,25,47,0.98)_70%)]"></div>
-                        <div class="absolute inset-0" data-video-preview></div>
-                        <div class="absolute inset-0 bg-black/10"></div>
-                        <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                                <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
-                            </div>
-                        </div>
-                    `;
-                    card.addEventListener('click', () => openVideoModal(vkId));
-                    fragment.appendChild(card);
-                    if (previewObserver) {
-                        previewObserver.observe(card);
+                    const nextIndex = startIndex + batchSize;
+                    if (nextIndex >= vkVideos.length) return;
+
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(() => renderVideoBatch(nextIndex, batchSize), { timeout: 250 });
                     } else {
-                        mountPreviewIframe(card);
+                        requestAnimationFrame(() => renderVideoBatch(nextIndex, batchSize));
                     }
-                });
-                videoGrid.appendChild(fragment);
+                };
+
+                renderVideoBatch();
+
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(() => warmVkConnections(), { timeout: 1800 });
+                } else {
+                    setTimeout(warmVkConnections, 1200);
+                }
             }
 
             const videoModal = document.getElementById('video-modal');
@@ -668,6 +699,7 @@
             const closeVideoBtn = document.getElementById('close-video-btn');
 
             function openVideoModal(vkId) {
+                warmVkConnections();
                 videoModalIframe.src = getEmbedUrl(vkId, true);
                 videoModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
