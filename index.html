@@ -7,13 +7,14 @@
     <meta name="description" content="Помогаю людям ясно увидеть себя, свой путь и уверенно идти по нему. Коуч, стратег, бизнес-психолог — работаю с теми, кто создаёт собственный трек: в профессии, проекте, жизни.">
     <title>Наталья Старостина | Коуч • Стратег • Бизнес-психолог</title>
     <link rel="stylesheet" href="assets/tailwind.css">
+    <link rel="preload" as="image" href="images/optimized/main/hero-main.jpg" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://vkvideo.ru" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <script src="assets/vk-video-preview.js" defer></script>
 
     <style>
         .hide-scrollbar::-webkit-scrollbar {
@@ -712,6 +713,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/site-adjustments.css">
 </head>
 
 <body class="font-sans bg-cream text-navy antialiased selection:bg-orange selection:text-white overflow-x-hidden">
@@ -1511,7 +1513,6 @@
                 </a>
             </div>
         </div>
-        <script src="articlesData.js"></script>
         <script>
                 (function () {
                     function shuffle(arr) {
@@ -1521,17 +1522,27 @@
                         }
                         return arr;
                     }
-                    const colors = ['border-orange', 'border-powder', 'border-navy'];
-                    const articles = shuffle([...(window.articlesData || [])]);
                     const container = document.getElementById('materials-carousel');
-                    if (!container || !articles.length) return;
-                    articles.forEach((a, i) => {
-                        const color = colors[i % colors.length];
-                        const card = document.createElement('div');
-                        card.className = `shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border-b-4 ${color} materials-card aspect-square md:aspect-[3/4.5]`;
-                        card.innerHTML = `
+                    const section = document.getElementById('knowledge');
+                    if (!container) return;
+
+                    let materialsRendered = false;
+
+                    function renderArticles() {
+                        if (materialsRendered) return;
+
+                        const colors = ['border-orange', 'border-powder', 'border-navy'];
+                        const articles = shuffle([...(window.articlesData || [])]);
+                        if (!articles.length) return;
+
+                        materialsRendered = true;
+                        articles.forEach((a, i) => {
+                            const color = colors[i % colors.length];
+                            const card = document.createElement('div');
+                            card.className = `shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border-b-4 ${color} materials-card aspect-square md:aspect-[3/4.5]`;
+                            card.innerHTML = `
                         <div class="h-1/2 md:h-[40%] w-full overflow-hidden shrink-0">
-                            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy">
+                            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h4 class="font-serif text-lg md:text-xl mb-3 md:mb-4 font-bold italic">${a.title}</h4>
@@ -1539,8 +1550,42 @@
                             <a href="${a.ctaLink}"
                                 class="mt-6 md:mt-8 text-orange font-bold uppercase tracking-widest text-[10px] md:text-xs border-b border-orange/20 w-max hover:border-orange transition-colors">Читать статью</a>
                         </div>`;
-                        container.appendChild(card);
-                    });
+                            container.appendChild(card);
+                        });
+                    }
+
+                    function loadAndRenderArticles() {
+                        if (window.articlesData) {
+                            renderArticles();
+                            return;
+                        }
+
+                        const existingScript = document.querySelector('script[data-dynamic-source="articlesData"]');
+                        if (existingScript) return;
+
+                        const script = document.createElement('script');
+                        script.src = 'articlesData.js';
+                        script.async = true;
+                        script.dataset.dynamicSource = 'articlesData';
+                        script.onload = renderArticles;
+                        document.body.appendChild(script);
+                    }
+
+                    if ('IntersectionObserver' in window && section) {
+                        const articlesObserver = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadAndRenderArticles();
+                                    observer.disconnect();
+                                }
+                            });
+                        }, { rootMargin: '280px 0px' });
+
+                        articlesObserver.observe(section);
+                        return;
+                    }
+
+                    loadAndRenderArticles();
                 })();
         </script>
     </section>
@@ -1584,7 +1629,6 @@
         </div>
         <!-- БЛОК 1: КЕЙСЫ (ИСТОРИИ КЛИЕНТОВ) -->
         <div class="relative w-full max-w-full overflow-hidden group mb-8 md:mb-12">
-            <script src="casesPreviewData.js"></script>
             <div id="cases-carousel"
                 class="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 px-4 md:px-8 pb-10 pt-4 cursor-grab items-stretch">
                 <!-- Кейсы загружаются автоматически из casesData.js -->
@@ -1879,6 +1923,7 @@
 
             // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА КЕЙСОВ =====
             let casesDataPromise;
+            let casesPreviewDataPromise;
 
             function ensureCasesDataLoaded() {
                 if (typeof casesData !== 'undefined') {
@@ -1903,6 +1948,29 @@
                 return casesDataPromise;
             }
 
+            function ensureCasesPreviewDataLoaded() {
+                if (typeof casesPreviewData !== 'undefined') {
+                    return Promise.resolve(casesPreviewData);
+                }
+                if (!casesPreviewDataPromise) {
+                    casesPreviewDataPromise = new Promise((resolve, reject) => {
+                        const script = document.createElement('script');
+                        script.src = 'casesPreviewData.js';
+                        script.async = true;
+                        script.onload = () => {
+                            if (typeof casesPreviewData !== 'undefined') {
+                                resolve(casesPreviewData);
+                            } else {
+                                reject(new Error('casesPreviewData is unavailable after load'));
+                            }
+                        };
+                        script.onerror = reject;
+                        document.body.appendChild(script);
+                    });
+                }
+                return casesPreviewDataPromise;
+            }
+
             function renderCaseAvatarMarkup(caseItem, sizeClasses, textClasses, extraClasses = '', eager = false) {
                 const initial = (caseItem.name || 'К')[0].toUpperCase();
                 const avatarSrc = caseItem.avatar || caseItem.avatarImage || '';
@@ -1923,57 +1991,16 @@
                     </div>`;
             }
 
-            function getVkEmbed(vkId, autoplay = false) {
-                const parts = vkId.split('_');
-                return `https://vkvideo.ru/video_ext.php?oid=${parts[0]}&id=${parts[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
-            }
-
-            function warmVkConnections() {
-                if (document.documentElement.dataset.vkConnectionsWarmed === 'true') return;
-                document.documentElement.dataset.vkConnectionsWarmed = 'true';
-
-                [
-                    ['preconnect', 'https://vkvideo.ru'],
-                    ['preconnect', 'https://static.vkid.ru'],
-                    ['dns-prefetch', 'https://vkvideo.ru'],
-                    ['dns-prefetch', 'https://static.vkid.ru']
-                ].forEach(([rel, href]) => {
-                    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
-                    const link = document.createElement('link');
-                    link.rel = rel;
-                    link.href = href;
-                    if (rel === 'preconnect') link.crossOrigin = 'anonymous';
-                    document.head.appendChild(link);
-                });
-            }
-
-            function buildVkReviewPlaceholder(label) {
-                return `
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.32),_rgba(10,25,47,0.98)_68%)]"></div>
-                    <div class="absolute inset-0 opacity-70 bg-[linear-gradient(150deg,_rgba(255,255,255,0.14),_transparent_38%,_rgba(255,140,0,0.16)_100%)]"></div>
-                    <div class="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 pointer-events-none">
-                        <div class="text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/45 font-bold">VK видео</div>
-                        <div class="mt-2 text-sm md:text-base text-white/78 font-medium">${label}</div>
-                    </div>
-                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
-                        </div>
-                    </div>`;
-            }
-
-            function attachVkWarmup(card) {
-                if (!card) return;
-                const warmup = () => warmVkConnections();
-                card.addEventListener('pointerenter', warmup, { passive: true, once: true });
-                card.addEventListener('focusin', warmup, { once: true });
-                card.addEventListener('touchstart', warmup, { passive: true, once: true });
-            }
+            const vkPreview = window.VKVideoPreview;
+            const getVkEmbed = (vkId, autoplay = false, loop = false) => vkPreview
+                ? vkPreview.getVkEmbed(vkId, { autoplay, loop })
+                : '';
+            const warmVkConnections = vkPreview ? vkPreview.warmVkConnections : () => {};
 
             (function renderIndexCases() {
                 const container = document.getElementById('cases-carousel');
-                const previewCases = [...(window.casesPreviewData || [])];
-                if (!container || !previewCases.length) return;
+                const section = document.getElementById('reviews');
+                if (!container) return;
                 function shuffle(arr) {
                     for (let i = arr.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -1981,13 +2008,24 @@
                     }
                     return arr;
                 }
-                shuffle(previewCases);
-                previewCases.forEach(c => {
-                    const avatarMarkup = renderCaseAvatarMarkup(c, 'w-12 h-12 md:w-16 md:h-16', 'text-xl md:text-2xl');
-                    const card = document.createElement('div');
-                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex flex-col shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 hover:border-white/30 cursor-pointer case-card h-auto md:min-h-[450px]';
-                    card.dataset.caseId = c.id;
-                    card.innerHTML = `
+
+                let hasRenderedPreviewCases = false;
+
+                async function renderPreviewCases() {
+                    if (hasRenderedPreviewCases) return;
+
+                    try {
+                        const previewCases = [...(await ensureCasesPreviewDataLoaded())];
+                        if (!previewCases.length) return;
+
+                        hasRenderedPreviewCases = true;
+                        shuffle(previewCases);
+                        previewCases.forEach(c => {
+                            const avatarMarkup = renderCaseAvatarMarkup(c, 'w-12 h-12 md:w-16 md:h-16', 'text-xl md:text-2xl');
+                            const card = document.createElement('div');
+                            card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex flex-col shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 hover:border-white/30 cursor-pointer case-card h-auto md:min-h-[450px]';
+                            card.dataset.caseId = c.id;
+                            card.innerHTML = `
                         <div class="p-6 md:p-8 flex flex-col h-full relative">
                             <div class="flex items-center gap-4 mb-6">
                                 ${avatarMarkup}
@@ -2004,13 +2042,34 @@
                                 <i class="ph ph-arrow-up-right text-sm md:text-base transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                             </div>
                         </div>`;
-                    container.appendChild(card);
-                });
+                            container.appendChild(card);
+                        });
+                    } catch (error) {
+                        console.error('Не удалось загрузить превью кейсов', error);
+                    }
+                }
+
+                if ('IntersectionObserver' in window && section) {
+                    const casesObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                renderPreviewCases();
+                                observer.disconnect();
+                            }
+                        });
+                    }, { rootMargin: '280px 0px' });
+
+                    casesObserver.observe(section);
+                    return;
+                }
+
+                renderPreviewCases();
             })();
 
             // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ТЕКСТОВЫХ ОТЗЫВОВ =====
             (function renderTextReviews() {
                 const container = document.getElementById('text-reviews-carousel');
+                const section = document.getElementById('testimonials');
                 if (!container) return;
                 const reviewImages = [
                     "images/reviews/1.png",
@@ -2033,26 +2092,51 @@
                     }
                     return arr;
                 }
-                shuffle(reviewImages);
-                const selection = reviewImages.slice(0, 10);
-                selection.forEach((src, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group';
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Отзыв';
-                    img.loading = 'lazy';
-                    img.decoding = 'async';
-                    img.className = 'max-h-full max-w-full object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img';
-                    card.appendChild(img);
-                    container.appendChild(card);
-                });
+
+                let hasRenderedTextReviews = false;
+
+                function renderReviews() {
+                    if (hasRenderedTextReviews) return;
+
+                    hasRenderedTextReviews = true;
+                    shuffle(reviewImages);
+                    const cardsLimit = window.matchMedia('(max-width: 767px)').matches ? 4 : 6;
+                    const selection = reviewImages.slice(0, cardsLimit);
+                    selection.forEach((src) => {
+                        const card = document.createElement('div');
+                        card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-white p-2 md:p-3 rounded-2xl shadow-xl border border-powder/20 transition-transform duration-500 hover:-translate-y-2 cursor-pointer flex items-center justify-center text-review-card group';
+                        const img = document.createElement('img');
+                        img.src = src;
+                        img.alt = 'Отзыв';
+                        img.loading = 'lazy';
+                        img.decoding = 'async';
+                        img.className = 'max-h-full max-w-full object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity text-review-img';
+                        card.appendChild(img);
+                        container.appendChild(card);
+                    });
+                }
+
+                if ('IntersectionObserver' in window && section) {
+                    const reviewsObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                renderReviews();
+                                observer.disconnect();
+                            }
+                        });
+                    }, { rootMargin: '220px 0px' });
+
+                    reviewsObserver.observe(section);
+                    return;
+                }
+
+                renderReviews();
             })();
 
             // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ВИДЕО/АУДИО ОТЗЫВОВ (VK) =====
             (function initMediaReviews() {
                 const container = document.getElementById('media-reviews-carousel');
-                if (!container) return;
+                if (!container || !vkPreview) return;
                 const testimonialsSection = document.getElementById('testimonials');
                 const mediaReviews = [
                     { vkId: '-211035790_456239115', label: 'Отзыв 01' },
@@ -2078,13 +2162,12 @@
                     hasRendered = true;
                     shuffle(mediaReviews);
                     mediaReviews.forEach((review, index) => {
-                        const card = document.createElement('div');
-                        card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
-                        card.dataset.videoSrc = getVkEmbed(review.vkId, true);
-                        card.setAttribute('role', 'button');
-                        card.setAttribute('aria-label', `Открыть отзыв клиента ${index + 1}`);
-                        card.innerHTML = buildVkReviewPlaceholder(review.label);
-                        attachVkWarmup(card);
+                        const card = vkPreview.buildReviewCard({
+                            vkId: review.vkId,
+                            label: review.label,
+                            ariaLabel: `Открыть отзыв клиента ${index + 1}`,
+                            className: 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card vk-review-card'
+                        });
                         container.appendChild(card);
                     });
                 }

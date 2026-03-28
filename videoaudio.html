@@ -16,6 +16,7 @@
         rel="stylesheet" />
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="assets/vk-video-preview.js" defer></script>
     <!-- Tailwind Configuration -->
 
     <!-- Базовые и кастомные CSS стили -->
@@ -254,6 +255,7 @@
 
         }
     </style>
+    <link rel="stylesheet" href="assets/site-adjustments.css">
 </head>
 
 <body class="font-sans">
@@ -599,53 +601,11 @@
                 '-211035790_456239060', '-211035790_456239059', '-211035790_456239058'
             ];
 
-            function getEmbedUrl(vkId, autoplay = false) {
-                const parts = vkId.split('_');
-                return `https://vkvideo.ru/video_ext.php?oid=${parts[0]}&id=${parts[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
-            }
-
-            function warmVkConnections() {
-                if (document.documentElement.dataset.vkConnectionsWarmed === 'true') return;
-                document.documentElement.dataset.vkConnectionsWarmed = 'true';
-
-                [
-                    ['preconnect', 'https://vkvideo.ru'],
-                    ['preconnect', 'https://static.vkid.ru'],
-                    ['dns-prefetch', 'https://vkvideo.ru'],
-                    ['dns-prefetch', 'https://static.vkid.ru']
-                ].forEach(([rel, href]) => {
-                    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
-                    const link = document.createElement('link');
-                    link.rel = rel;
-                    link.href = href;
-                    if (rel === 'preconnect') link.crossOrigin = 'anonymous';
-                    document.head.appendChild(link);
-                });
-            }
-
-            function buildVkReviewPlaceholder(label) {
-                return `
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.32),_rgba(10,25,47,0.98)_68%)]"></div>
-                    <div class="absolute inset-0 opacity-70 bg-[linear-gradient(150deg,_rgba(255,255,255,0.14),_transparent_38%,_rgba(255,140,0,0.16)_100%)]"></div>
-                    <div class="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 pointer-events-none">
-                        <div class="text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/45 font-bold">VK видео</div>
-                        <div class="mt-2 text-sm md:text-base text-white/78 font-medium">${label}</div>
-                    </div>
-                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
-                        </div>
-                    </div>
-                `;
-            }
-
-            function attachVkWarmup(card) {
-                if (!card) return;
-                const warmup = () => warmVkConnections();
-                card.addEventListener('pointerenter', warmup, { passive: true, once: true });
-                card.addEventListener('focusin', warmup, { once: true });
-                card.addEventListener('touchstart', warmup, { passive: true, once: true });
-            }
+            const vkPreview = window.VKVideoPreview;
+            const getEmbedUrl = (vkId, autoplay = false, loop = false) => vkPreview
+                ? vkPreview.getVkEmbed(vkId, { autoplay, loop })
+                : '';
+            const warmVkConnections = vkPreview ? vkPreview.warmVkConnections : () => {};
 
             function shuffle(array) {
                 for (let i = array.length - 1; i > 0; i--) {
@@ -664,12 +624,14 @@
                     const fragment = document.createDocumentFragment();
                     vkVideos.slice(startIndex, startIndex + batchSize).forEach((vkId, offset) => {
                         const index = startIndex + offset;
-                        const card = document.createElement('div');
-                        card.className = "w-full group cursor-pointer relative aspect-square bg-navy-light rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card vk-review-card";
-                        card.setAttribute('role', 'button');
-                        card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
-                        card.innerHTML = buildVkReviewPlaceholder(`Отзыв ${String(index + 1).padStart(2, '0')}`);
-                        attachVkWarmup(card);
+                        const card = vkPreview
+                            ? vkPreview.buildReviewCard({
+                                vkId,
+                                label: `Отзыв ${String(index + 1).padStart(2, '0')}`,
+                                ariaLabel: `Открыть видеоотзыв ${index + 1}`,
+                                className: "w-full group cursor-pointer relative aspect-square rounded-3xl overflow-hidden border border-powder/20 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl local-video-card vk-review-card"
+                            })
+                            : document.createElement('div');
                         card.addEventListener('click', () => openVideoModal(vkId));
                         fragment.appendChild(card);
                     });
@@ -687,9 +649,9 @@
 
                 renderVideoBatch();
 
-                if ('requestIdleCallback' in window) {
+                if ('requestIdleCallback' in window && vkPreview) {
                     requestIdleCallback(() => warmVkConnections(), { timeout: 1800 });
-                } else {
+                } else if (vkPreview) {
                     setTimeout(warmVkConnections, 1200);
                 }
             }

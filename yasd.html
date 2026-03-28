@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Pinyon+Script&amp;display=swap"
         rel="stylesheet" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="assets/vk-video-preview.js" defer></script>
 
     <!-- CSS FIX -->
     <style>
@@ -565,6 +566,7 @@
         }
     </style>
 
+    <link rel="stylesheet" href="assets/site-adjustments.css">
 </head>
 
 <body class="font-sans bg-cream text-navy antialiased selection:bg-orange selection:text-white overflow-x-hidden">
@@ -725,7 +727,7 @@
         </div>
     </section>
     <!-- BLOCK 3 - PROBLEMATIZATION -->
-    <section class="bg-navy text-cream relative w-full border-t border-white/5 overflow-hidden py-24 md:py-32">
+    <section id="yasd-old-formats" class="bg-navy text-cream relative w-full border-t border-white/5 overflow-hidden py-24 md:py-32">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="text-center mb-16 md:mb-20 reveal-up">
                 <div class="font-sans text-orange text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">Почему
@@ -816,7 +818,7 @@
         </div>
     </section>
     <!-- BLOCK 3.5 - TARGET AUDIENCE -->
-    <section class="bg-navy text-cream relative w-full overflow-hidden py-24 md:py-32">
+    <section id="yasd-audience" class="bg-navy text-cream relative w-full overflow-hidden py-24 md:py-32">
         <!-- Decor elements -->
         <div
             class="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-orange/5 rounded-full blur-[100px] pointer-events-none">
@@ -1042,18 +1044,6 @@
                     <img alt="Наталья Старостина"
                         class="w-full h-full object-cover object-top scale-[1.15] origin-[50%_20%]"
                         src="external_assets/me/photo_2026-01-11_21-38-50.jpg" />
-                </div>
-                <!-- Floating Badge -->
-                <div
-                    class="absolute bottom-6 -right-2 md:bottom-10 md:-right-8 bg-white/90 backdrop-blur-md text-navy p-4 md:p-6 rounded-xl shadow-2xl border border-powder/20 w-auto min-w-[160px] md:max-w-[200px]">
-                    <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
-                        <i class="ph-fill ph-check-circle text-orange text-xl md:text-2xl"></i>
-                        <span class="font-bold text-3xl md:text-2xl font-serif">1200+</span>
-                    </div>
-                    <p
-                        class="text-[9px] md:text-sm font-sans uppercase tracking-wider text-navy/70 font-bold whitespace-nowrap">
-                        Часов
-                        практики</p>
                 </div>
             </div>
             <!-- Right: Content -->
@@ -1464,7 +1454,7 @@
             </div>
             <div
                 class="relative w-full max-w-4xl mx-auto aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl reveal-up bg-black flex items-center justify-center border border-white/10 group photo-shadow">
-                <iframe src="https://vkvideo.ru/video_ext.php?oid=-211035790&id=456239132&hd=2"
+                <iframe src="https://vkvideo.ru/video_ext.php?oid=-211035790&id=456239132&hd=2&loop=1"
                     class="w-full h-full" frameborder="0"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
                     allowfullscreen></iframe>
@@ -1657,7 +1647,7 @@
             class="absolute bottom-[20%] right-[-10%] md:right-[5%] w-56 h-56 md:w-72 md:h-72 bg-orange/5 rounded-full blur-3xl animate-float z-0 pointer-events-none">
         </div>
         <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
-            <h2 <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center mb-4 md:mb-6">Истории и
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center mb-4 md:mb-6">Истории и
                 кейсы
             </h2>
             <p class="font-sans text-powder/80 text-sm md:text-lg max-w-3xl mx-auto text-center mb-8 md:mb-12">Здесь
@@ -1665,7 +1655,7 @@
                 последовательно, чтобы проявить стратегию формирования результатов.</p>
             <div class="h-px w-24 md:w-32 bg-orange mx-auto opacity-50 mb-10 md:mb-16"></div>
             <div class="flex flex-col items-center justify-center mb-12 md:mb-24 relative z-10 px-4">
-                <a class="btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 w-max max-w-[90vw] text-center mx-auto inline-block"
+                <a class="cases-archive-cta btn-alive-gradient animate-gradient-flow text-white font-bold py-4 px-8 md:py-4 md:px-10 rounded-none uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:shadow-[0_10px_30px_rgba(255,140,0,0.5)] transition-all transform hover:-translate-y-1 w-max max-w-[90vw] text-center mx-auto inline-block"
                     href="cases.html">
                     Посмотреть еще больше кейсов
                 </a>
@@ -2157,52 +2147,13 @@
                 });
             })();
 
-            function warmVkConnections() {
-                if (document.documentElement.dataset.vkConnectionsWarmed === 'true') return;
-                document.documentElement.dataset.vkConnectionsWarmed = 'true';
-
-                [
-                    ['preconnect', 'https://vkvideo.ru'],
-                    ['preconnect', 'https://static.vkid.ru'],
-                    ['dns-prefetch', 'https://vkvideo.ru'],
-                    ['dns-prefetch', 'https://static.vkid.ru']
-                ].forEach(([rel, href]) => {
-                    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
-                    const link = document.createElement('link');
-                    link.rel = rel;
-                    link.href = href;
-                    if (rel === 'preconnect') link.crossOrigin = 'anonymous';
-                    document.head.appendChild(link);
-                });
-            }
-
-            function buildVkReviewPlaceholder(label) {
-                return `
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,0,0.32),_rgba(10,25,47,0.98)_68%)]"></div>
-                    <div class="absolute inset-0 opacity-70 bg-[linear-gradient(150deg,_rgba(255,255,255,0.14),_transparent_38%,_rgba(255,140,0,0.16)_100%)]"></div>
-                    <div class="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 pointer-events-none">
-                        <div class="text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/45 font-bold">VK видео</div>
-                        <div class="mt-2 text-sm md:text-base text-white/78 font-medium">${label}</div>
-                    </div>
-                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="ph-fill ph-play text-xl md:text-2xl ml-1"></i>
-                        </div>
-                    </div>`;
-            }
-
-            function attachVkWarmup(card) {
-                if (!card) return;
-                const warmup = () => warmVkConnections();
-                card.addEventListener('pointerenter', warmup, { passive: true, once: true });
-                card.addEventListener('focusin', warmup, { once: true });
-                card.addEventListener('touchstart', warmup, { passive: true, once: true });
-            }
+            const vkPreview = window.VKVideoPreview;
+            const warmVkConnections = vkPreview ? vkPreview.warmVkConnections : () => {};
 
             // ===== ДИНАМИЧЕСКАЯ ЗАГРУЗКА ВИДЕО/АУДИО ОТЗЫВОВ (VK) =====
             (function renderMediaReviews() {
                 const container = document.getElementById('media-reviews-carousel');
-                if (!container) return;
+                if (!container || !vkPreview) return;
                 const vkVideos = [
                     '-211035790_456239115', '-211035790_456239113', '-211035790_456239112',
                     '-211035790_456239111', '-211035790_456239107', '-211035790_456239106',
@@ -2222,10 +2173,6 @@
                     '-211035790_456239064', '-211035790_456239063', '-211035790_456239061',
                     '-211035790_456239060', '-211035790_456239059', '-211035790_456239058'
                 ];
-                function getVkEmbed(vkId, autoplay) {
-                    const p = vkId.split('_');
-                    return `https://vkvideo.ru/video_ext.php?oid=${p[0]}&id=${p[1]}&hd=2${autoplay ? '&autoplay=1' : ''}`;
-                }
                 function shuffle(arr) {
                     for (let i = arr.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -2235,13 +2182,12 @@
                 }
                 shuffle(vkVideos);
                 vkVideos.slice(0, 6).forEach((vkId, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square bg-navy rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card';
-                    card.dataset.videoSrc = getVkEmbed(vkId, true);
-                    card.setAttribute('role', 'button');
-                    card.setAttribute('aria-label', `Открыть видеоотзыв ${index + 1}`);
-                    card.innerHTML = buildVkReviewPlaceholder(`Отзыв ${String(index + 1).padStart(2, '0')}`);
-                    attachVkWarmup(card);
+                    const card = vkPreview.buildReviewCard({
+                        vkId,
+                        label: `Отзыв ${String(index + 1).padStart(2, '0')}`,
+                        ariaLabel: `Открыть видеоотзыв ${index + 1}`,
+                        className: 'shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] aspect-square rounded-2xl md:rounded-3xl overflow-hidden border border-powder/30 shadow-2xl relative group cursor-pointer local-video-card vk-review-card'
+                    });
                     container.appendChild(card);
                 });
             })();
