@@ -41,6 +41,8 @@
         width: min(59.5vw, 238px) !important;
         max-width: 238px !important;
         min-width: min(59.5vw, 238px) !important;
+        height: min(59.5vw, 238px) !important;
+        flex-basis: min(59.5vw, 238px) !important;
         aspect-ratio: 1 / 1 !important;
     }
 
@@ -49,6 +51,16 @@
         max-width: none !important;
         min-width: 0 !important;
         aspect-ratio: 1 / 1 !important;
+    }
+
+    #media-reviews-carousel .vk-preview-frame iframe,
+    #video-grid .vk-preview-frame iframe {
+        position: absolute !important;
+        top: 0 !important;
+        left: -38.89% !important;
+        width: 177.78% !important;
+        height: 100% !important;
+        max-width: none !important;
     }
 
     .local-video-card.video-large-horizontal,
