@@ -489,6 +489,7 @@
 
             #manifesto .manifesto-line {
                 display: block;
+                margin: 0;
                 opacity: 0;
                 transform: translateY(14px);
                 filter: blur(4px);
@@ -654,8 +655,8 @@
             #manifesto .manifesto-text {
                 max-width: 58rem;
                 font-size: clamp(1.24rem, 1.01rem + 0.58vw, 1.78rem) !important;
-                line-height: 1.46 !important;
-                gap: 0.72rem;
+                line-height: 1.5 !important;
+                gap: 1rem;
             }
 
             #about .about-layout {
@@ -701,8 +702,8 @@
             #manifesto .manifesto-text {
                 max-width: 62rem;
                 font-size: clamp(1.38rem, 1.1rem + 0.74vw, 2rem) !important;
-                line-height: 1.48 !important;
-                gap: 0.8rem;
+                line-height: 1.52 !important;
+                gap: 1.1rem;
             }
 
             #about .about-primary-photo {
@@ -1054,10 +1055,10 @@
         <div class="max-w-5xl mx-auto px-4 md:px-6 flex flex-col items-center">
             <div class="h-10 md:h-12 w-px bg-orange/30 mb-8 md:mb-12 reveal-up"></div>
             <div class="manifesto-stage relative w-full flex items-center justify-center reveal-up">
-                <h2 id="typewriter-text"
+                <div id="typewriter-text"
                     class="manifesto-text font-serif italic text-navy text-center"
                     aria-live="polite">
-                </h2>
+                </div>
             </div>
         </div>
     </section>
@@ -2395,10 +2396,10 @@
                 textElement.replaceChildren();
 
                 manifestoLines.forEach((line, index) => {
-                    const span = document.createElement("span");
-                    span.className = `manifesto-line${index === 2 ? " manifesto-line--accent" : ""}`;
-                    span.textContent = line;
-                    textElement.appendChild(span);
+                    const paragraph = document.createElement("p");
+                    paragraph.className = `manifesto-line${index === 2 ? " manifesto-line--accent" : ""}`;
+                    paragraph.textContent = line;
+                    textElement.appendChild(paragraph);
                 });
 
                 const renderedLines = textElement.querySelectorAll(".manifesto-line");
