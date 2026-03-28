@@ -305,9 +305,9 @@
             }
 
             #cases-carousel .case-action-hint {
-                font-size: 0.54rem !important;
+                font-size: 0.7rem !important;
                 font-weight: 600 !important;
-                letter-spacing: 0.08em !important;
+                letter-spacing: 0.05em !important;
                 color: #FF8C00 !important;
                 margin-top: auto !important;
                 display: inline-flex !important;
@@ -506,12 +506,14 @@
             }
 
             #about .about-primary-photo {
-                left: 0;
-                right: 0;
-                width: 96%;
-                height: 82%;
-                margin: 0 auto;
-                border-radius: 1.5rem;
+                left: 50%;
+                top: 50%;
+                width: min(100%, 29rem);
+                aspect-ratio: 4 / 5.25;
+                height: auto;
+                margin: 0;
+                transform: translate(-50%, -50%);
+                border-radius: 2rem 0.9rem 2rem 0.9rem;
             }
 
             #about .about-primary-photo img {
@@ -553,9 +555,12 @@
                 }
 
                 #about .about-primary-photo {
-                    width: 92%;
-                    height: 88%;
-                    border-radius: 1.5rem;
+                    left: 50%;
+                    top: 0;
+                    width: min(82vw, 24rem);
+                    aspect-ratio: 4 / 5.1;
+                    transform: translateX(-50%);
+                    border-radius: 1.5rem 0.8rem 1.5rem 0.8rem;
                 }
 
                 #about .font-sans.text-navy\/70.text-sm,
@@ -575,8 +580,9 @@
 
             @media (min-width: 1024px) {
                 #about .about-primary-photo {
-                    width: 100%;
-                    height: 84%;
+                    width: min(100%, 30rem);
+                    aspect-ratio: 4 / 5.4;
+                    transform: translate(-48%, -50%);
                 }
             }
 
@@ -1003,7 +1009,7 @@
             <div class="w-full lg:w-7/12 relative z-30 pt-8 md:pt-16 text-navy order-2 lg:order-1">
                 <h2
                     class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight reveal-up">
-                    Кто я
+                    Кто я и как мы будем работать
                 </h2>
                 <div class="font-sans text-base md:text-lg text-navy/70 mb-10 md:mb-12 leading-relaxed space-y-4">
                     <p><strong class="text-navy font-bold">Меня зовут Наталья Старостина.</strong> Я дипломированный
@@ -1901,7 +1907,7 @@
                             <p class="font-serif italic text-powder/80 leading-relaxed text-[12px] md:text-sm flex-grow mb-6 md:mb-8 line-clamp-4">«${c.shortReview}»</p>
                             
                             <div class="inline-flex items-center gap-1.5 py-1 md:py-2 text-[6px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-white/50 border-b border-white/10 transition-all duration-300 hover:text-orange hover:border-orange group w-max mt-auto case-action-hint">
-                                <span class="text-[6px] md:text-[9px]">прочитать кейс</span>
+                                <span>прочитать кейс</span>
                                 <i class="ph ph-arrow-up-right text-[8px] md:text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                             </div>
                         </div>`;
