@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[20093,["33","static/chunks/2f0b94e8-e4847693c5008a5b.js","930","static/chunks/164f4fb6-f7e0f66a19cd2af6.js","862","static/chunks/1a258343-52d84215703384a3.js","544","static/chunks/544-f6ab90cfc6ee5f5f.js","716","static/chunks/716-f10fa11c27af4ebf.js","766","static/chunks/app/editor/page-dff0debfc745cd77.js"],"default"]
+4:I[90484,[],"OutletBoundary"]
+:HL["/mindflow/_next/static/css/599369d853c61df7.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":["$","div",null,{"style":{"width":"100vw","height":"100vh","display":"flex","alignItems":"center","justifyContent":"center","backgroundColor":"#FAFBFC","color":"#94A3B8","fontSize":"14px","fontFamily":"\"Segoe UI\", \"SF Pro Text\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif"},"children":"Loading..."}],"children":["$","$L3",null,{}]}],[["$","link","0",{"rel":"stylesheet","href":"/mindflow/_next/static/css/599369d853c61df7.css","precedence":"next"}]],["$","$L4",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"jLUR1dmuxGZ4hjpRgDA6n"}
+5:null
